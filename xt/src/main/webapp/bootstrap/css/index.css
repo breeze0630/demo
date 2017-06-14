@@ -1,0 +1,168 @@
+/*新品上市*/
+.select{
+    margin: 3px 0 68px;
+    overflow: hidden;
+}
+.select_left{
+    width: 830px;
+    height: 348px;
+    border: 1px solid #cecece;
+}
+.select_right{
+    width: 300px;
+    height: 348px;
+    border: 1px solid #cecece;
+}
+.select_left .l_top ul li{
+    width: 174px;
+    height: 40px;
+    border: 1px solid #cbcbcb;
+    border-left: none;
+    border-top: 2px solid #fff;
+    background-color: #e8e8e8;
+    font: 14px/40px "宋体";
+    text-align: center;
+    color: #413f3f;
+    cursor: pointer;
+}
+.select_left .l_top .l_top_current{
+    border-bottom: none;
+    height: 41px;
+    background-color: #fff;
+    border-top-color:#f47122;
+}
+.select_left .l_bottom ul li{
+    margin: 40px 0 0 15px;
+    font-size: 12px;
+    text-align: center;
+    color: #413f3f;
+}
+.select_left .l_bottom ul li a{
+    color: #413f3f;
+}
+.strike{
+    text-decoration:line-through;
+}
+.select_left .l_bottom div{
+    display: none;
+}
+.select_left .l_bottom .l_top_show{
+    display: block;
+}
+.select_right .r_top{
+    height: 40px;
+    background-color: #e6e4e4;
+    border:1px solid #cbcbcb;
+}
+.select_right .r_top h2{
+    font: 14px/40px "微软雅黑";
+    margin-left: 30px;
+}
+.select_right .r_top span{
+    font: 14px/40px "微软雅黑";
+    margin-right: 10px;
+}
+.r_bottom{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.r_bottom p{
+    font: 12px/28px "微软雅黑";
+}
+/*吃货点评*/
+.food,.brand{
+    height: 496px;
+    width: 1168px;
+    border: 1px solid #cecece;
+    margin-bottom: 30px;
+}
+.food_top{
+    height: 62px;
+    background-color: #e6e4e5;
+    border-bottom: 2px solid #f47122;
+    position: relative;
+}
+.food_top img{
+    margin-top: 11px;
+}
+.food_top span{
+    font: 18px/50px "微软雅黑";
+    color: #fff;
+    position: absolute;
+    top: 11px;
+    left: 25px;
+}
+.foot_boottom .snacks{
+    width: 361px;
+    height: 175px;
+    border: 1px solid #cecece;
+    margin: 29px 14px 0 12px;
+}
+.foot_boottom .snacks .djy{
+    width: 158px;
+    height: 158px;
+    border: 1px solid #cecece;
+    background: url("../image/xiaodiaosu.png");
+    background-repeat: no-repeat;
+    margin: 8px;
+}
+.evaluate{
+    width: 169px;
+    height:158px;
+    margin-top:20px;
+    font: 12px/24px "微软雅黑";
+    color: #413f3f;
+}
+.evaluate a{
+    color: #413f3f;
+}
+.star{
+    width: 169px;
+    height: 24px;
+}
+.evaluate ul{
+    top: 1px;
+    left: 5px;
+}
+.s_e{
+    height: 98px;
+    overflow: hidden;
+}
+.s_evaluate{
+    width: 60px;
+}
+.e_text{
+    width: 100px;
+
+}
+/*品牌推荐*/
+.brand{
+    margin-bottom: 3px;
+}
+.p_bottom{
+    height: 382px;
+    padding-top: 50px;
+    background-color: #f3f3f3;
+}
+.fruit{
+    width: 205px;
+    height: 295px;
+    background-color: #fff;
+    margin: 0 28px 0 56px;
+}
+.fruit p{
+    font: 14px/50px "微软雅黑";
+    text-align: center;
+}
+.fruit img{
+    margin-left: 78px;
+}
+.fruit .qiaqia{
+    margin-top: -10px;
+}
+.fruit .qiaqia img{
+    margin: 0 10px 0 12px;
+}
+.fruit .qiaqia ul li{
+    margin: 10px 0 6px 0;
+}

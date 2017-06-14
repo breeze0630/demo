@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="xt.lb.dao.ShopGoodsSellMapper">
+    
+    <resultMap id="BaseResultMap" type="xt.lb.entity.ShopGoodsSell">
+        
+        <result column="user_id" property="userId" jdbcType="VARCHAR" />
+        <result column="shop_id" property="shopId" jdbcType="VARCHAR" />
+		<result column="goods_id" property="goodsId" jdbcType="VARCHAR" />
+		<result column="amount" property="amount" jdbcType="INTEGER" />
+		<result column="price" property="price" jdbcType="DOUBLE" />
+		<result column="rental" property="rental" jdbcType="DOUBLE" />
+		<result column="time" property="time" jdbcType="TIME" />
+		<result column="is_dict" property="isDict" jdbcType="VARCHAR" />
+		<result column="dict" property="dict" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List">
+		user_id,shop_id, goods_id,amount,price,rental,time,is_dict,dict
+	</sql>
+	
+    <select id="selectByShopId" resultMap="BaseResultMap" parameterType="xt.lb.entity.ShopGoodsSell">
+        SELECT 
+			<include refid="Base_Column_List" />
+        FROM shop_goods
+        WHERE shop_id = #{shopId,jdbcType=VARCHAR};
+    </select>
+    
+    <select id="selectOrderByAmount" parameterType="xt.lb.entity.ShopGoodsSell" resultMap="BaseResultMap">
+      SELECT <include refid="Base_Column_List" />
+      FROM shop_goods  
+      WHERE amount = #{amount,jdbcType=INTEGER};
+    </select>
+    <select id="selectAmount" parameterType="xt.lb.entity.ShopGoodsSell" resultType="xt.lb.entity.ShopGoodsSell">
+        SELECT amount
+        FROM shop_goods
+        WHERE shop_id = #{shopId,jdbcType=VARCHAR}
+        	AND goods_id = #{goodsId,jdbcType=VARCHAR};
+    </select>
+    
+    <insert id="insert" parameterType="xt.lb.entity.ShopGoodsSell">
+        INSERT INTO shop_goods
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+      		<if test="shopId != null">
+				shop_id,
+			</if>
+			<if test="goodsId != null">
+				goods_Id,
+			</if>
+			<if test="amount != null">
+				amount,
+			</if>
+			<if test="name != null">
+				name,
+			</if>
+			<if test="isDict != null">
+				is_disc,
+			</if>
+			<if test="dict != null">
+				disc,
+			</if>
+			<if test="isSell != null">
+				is_sell,
+			</if>
+			<if test="onTime != null">
+				on_time,
+			</if>
+			<if test="goods_price != null">
+				goods_price,
+			</if>
+			
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="shopId != null">
+				#{shopId,jdbcType=VARCHAR},
+			</if>
+			<if test="goodsId != null">
+				#{goodsId,jdbcType=VARCHAR},
+			</if>
+			<if test="amount != null">
+				#{amount,jdbcType=INTEGER},
+			</if>
+			<if test="name != null">
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="isDict != null">
+				#{isDict,jdbcType=VARCHAR},
+			</if>
+			<if test="dict != null">
+				#{dict,jdbcType=VARCHAR},
+			</if>
+			<if test="isSell != null">
+				#{isSell,jdbcType=VARCHAR},
+			</if>
+			<if test="onTime != null">
+				#{onTime,jdbcType=DATE},
+			</if>
+			<if test="goods_price != null">
+				#{goodsId,jdbcType=DOUBLE},
+			</if>
+		</trim>
+    </insert>
+    <delete id="deleteByShopAndGoodsId" parameterType="xt.lb.entity.ShopGoodsSell">
+        DELETE
+        FROM shop_goods
+        WHERE shop_id = #{shopId,jdbcType=VARCHAR} 
+        	AND goods_id = #{goods_id,jdbcType=VARCHAR};
+    </delete>
+    <delete id="deleteByShopId" parameterType="xt.lb.entity.ShopGoodsSell">
+        DELETE
+        FROM shop_goods
+        WHERE shop_id = #{shopId,jdbcType=VARCHAR} 
+    </delete>
+    
+    <update id="update" parameterType="xt.lb.entity.ShopGoodsSell">
+        UPDATE shop_goods
+        <set>
+           <if test="amount != null">
+				amount = #{amount,jdbcType=INTEGER},
+			</if>
+			<if test="name != null">
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="isDict != null">
+				is_disc = #{isDict,jdbcType=VARCHAR},
+			</if>
+			<if test="dict != null">
+				disc = #{dict,jdbcType=VARCHAR},
+			</if>
+			<if test="isSell != null">
+				is_sell = #{isSell,jdbcType=VARCHAR},
+			</if>
+			<if test="onTime != null">
+				on_time = #{onTime,jdbcType=DATE},
+			</if>
+			<if test="goods_price != null">
+				goods_price = #{goodsId,jdbcType=DOUBLE},
+			</if>
+            
+        </set>
+        WHERE shop_id = #{shop_id,jdbcType=VARCHAR}
+        	AND goods_id = #{goodsid,jdbcType=VARCHAR};
+    </update>
+    
+</mapper>

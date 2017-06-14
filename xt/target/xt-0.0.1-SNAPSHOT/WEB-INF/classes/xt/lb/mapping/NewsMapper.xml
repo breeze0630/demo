@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="xt.lb.dao.NewsMapper">
+    
+    <resultMap id="BaseResultMap" type="xt.lb.entity.News">
+        <id column="message_id" property="messageId" jdbcType="VARCHAR" />
+		<result column="user_name" property="userName" jdbcType="VARCHAR" />
+		<result column="to_name" property="toName" jdbcType="VARCHAR" />
+		<result column="message_type" property="messageType" jdbcType="VARCHAR" />
+		<result column="message" property="message" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List">
+		message_id, user_name, to_name,message_type,message
+	</sql>
+	
+    <select id="selectByUserName" resultMap="BaseResultMap" parameterType="xt.lb.entity.News">
+        SELECT 
+			<include refid="Base_Column_List" />
+        FROM news
+        WHERE user_name = #{userName,jdbcType=VARCHAR};
+    </select>
+    
+    <select id="selectByMessageId" parameterType="xt.lb.entity.News" resultType="java.lang.Integer">
+      SELECT count(*)
+      FROM news  
+      WHERE message_id = #{messageId,jdbcType=VARCHAR};
+    </select>
+    
+    <insert id="insert" parameterType="xt.lb.entity.News">
+        INSERT INTO user_common_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+      		<if test="messageId != null">
+				message_id,
+			</if>
+			<if test="userName != null">
+				user_name,
+			</if>
+			<if test="toName != null">
+				to_name,
+			</if>
+			<if test="messageType != null">
+				message_type,
+			</if>
+			<if test="message != null">
+				message,
+			</if>
+			
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="messageId != null">
+				#{messageId,jdbcType=VARCHAR},
+			</if>
+			<if test="userName != null">
+				#{userName,jdbcType=VARCHAR},
+			</if>
+			<if test="messageType != null">
+				#{messageType,jdbcType=VARCHAR},
+			</if>
+			<if test="message != null">
+				#{message,jdbcType=VARCHAR},
+			</if>
+		</trim>
+    </insert>
+    <delete id="deleteByMesssageId" parameterType="xt.lb.entity.News">
+        DELETE
+        FROM news
+        WHERE message_id = #{message_id,jdbcType=VARCHAR};
+    </delete>
+    
+</mapper>
