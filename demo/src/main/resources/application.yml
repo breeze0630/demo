@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    url: jdbc:mysql://188.188.23.152:3306/test?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+    driverClassName: com.mysql.jdbc.Driver
+    username: root
+    password: mychebao
+    filters: stat,wall,log4j
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    connectionProperties: druid.stat.mergeSql=true;durid.stat.slowSqlMillis=5000
+    minldle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableldleTimeMillis: 300000
+    validationQuery: select 1 from dual
+    testWhileldle: true
+    testOnBorrow: false
+    testOnReturn: false
+  jpa:
+    database: MySQL
+    show-sql: true
+    hibernate:
+      naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  http:
+    multipart:
+      max-file-size: 2Mb
+      max-request-size: 4Mb
