@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * 配置开关
+ *
+ * @author liubiao
+ */
 @RestController
 @RequestMapping("userTest")
 @Slf4j
@@ -27,19 +32,19 @@ public class UserInfoApi {
 //    }
 
     @RequestMapping("getAllUser")
-    public Object getAllUser(){
-        List<UserInfo> list  = userService.getAllUser();
+    public Object getAllUser() {
+        List<UserInfo> list = userService.getAllUser();
         log.info("getAllUser list:{}", JSON.toJSONString(list));
         return list;
     }
 
     @RequestMapping("changeSqlSwitch")
-    public boolean changeSqlSwitch(Boolean sqlSwitch){
-        log.info("changeSqlSwitch sqlSwitch:{}",sqlSwitch);
-        if(sqlSwitch != null){
+    public boolean changeSqlSwitch(Boolean sqlSwitch) {
+        log.info("changeSqlSwitch sqlSwitch:{}", sqlSwitch);
+        if (sqlSwitch != null) {
             ConfigSwitch.sqlSwitch = sqlSwitch;
             return true;
-        }else {
+        } else {
             return false;
         }
     }

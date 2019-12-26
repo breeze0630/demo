@@ -21,9 +21,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserInfo> getAllUser() {
-        if(ConfigSwitch.sqlSwitch)
-             return userInfoNewMapper.selectAll();
-        else
+        if (ConfigSwitch.sqlSwitch) {
+            return userInfoNewMapper.selectAll();
+        } else {
             return userInfoNewMapper2.selectAll();
+        }
     }
 }

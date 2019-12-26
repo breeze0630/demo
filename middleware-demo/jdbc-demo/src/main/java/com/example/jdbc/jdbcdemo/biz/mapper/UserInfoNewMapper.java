@@ -5,9 +5,14 @@ import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
-
+/**
+ * 查询所有数据
+ */
 @Mapper
-public interface UserInfoNewMapper  {
+public interface UserInfoNewMapper {
 
+    /**
+     * 查询所有数据
+     */
     List<UserInfo> selectAll();
 }

@@ -9,11 +9,16 @@ import lombok.Data;
 
 import java.io.Serializable;
 
+/**
+ * 配置开关
+ *
+ * @author liubiao
+ */
 @Data
 @TableName("user_info_new")
 public class UserInfo extends Model<UserInfo> {
 
-    @TableId(value = "id",type = IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     private int id;
 
     @TableField("name_new")
