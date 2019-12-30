@@ -14,8 +14,14 @@
 	<name>middleware-demo</name>
 	<description>middleware demo</description>
 
+	<modules>
+		<module>es-demo</module>
+	</modules>
+
 	<properties>
 		<java.version>1.8</java.version>
+		<alibaba.fastjson.version>1.2.58</alibaba.fastjson.version>
+
 	</properties>
 
 	<dependencies>
@@ -46,7 +52,19 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+
+
 	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${alibaba.fastjson.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
 		<plugins>
