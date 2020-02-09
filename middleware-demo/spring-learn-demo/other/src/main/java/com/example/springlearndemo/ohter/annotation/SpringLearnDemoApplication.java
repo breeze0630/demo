@@ -1,13 +1,11 @@
-package com.example.springlearndemo;
+package com.example.springlearndemo.ohter.annotation;
 
 
-import com.example.springlearndemo.annotation.TransactionalService;
-import org.springframework.context.annotation.Configuration;
+import com.example.springlearndemo.ohter.annotation.anno.TransactionalService;
 import org.springframework.core.type.AnnotationMetadata;
 import org.springframework.core.type.classreading.CachingMetadataReaderFactory;
 import org.springframework.core.type.classreading.MetadataReader;
 import org.springframework.core.type.classreading.MetadataReaderFactory;
-import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.Set;

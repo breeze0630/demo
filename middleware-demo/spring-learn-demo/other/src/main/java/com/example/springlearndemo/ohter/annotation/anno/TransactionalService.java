@@ -1,4 +1,4 @@
-package com.example.springlearndemo.annotation;
+package com.example.springlearndemo.ohter.annotation.anno;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
