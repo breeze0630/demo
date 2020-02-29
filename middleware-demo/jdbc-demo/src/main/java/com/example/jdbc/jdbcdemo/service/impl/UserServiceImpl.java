@@ -27,4 +27,9 @@ public class UserServiceImpl implements UserService {
             return userInfoNewMapper2.selectAll();
         }
     }
+
+    @Override
+    public List<UserInfo> selectByName(String name) {
+        return userInfoNewMapper.selectByName("%"+name + "%",11);
+    }
 }

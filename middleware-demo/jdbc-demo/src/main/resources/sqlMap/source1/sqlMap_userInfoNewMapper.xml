@@ -15,4 +15,8 @@
     <select id="selectAll" resultMap="BaseResultMap">
         select * from user_info_new
     </select>
+
+    <select id="selectByName" resultMap="BaseResultMap">
+        select * from user_info_new where name_new like #{name} and age_new =  #{age}
+    </select>
 </mapper>

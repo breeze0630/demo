@@ -1,6 +1,5 @@
 package com.example.springlearndemo.beandemo.bean;
 
-import com.example.springlearndemo.iocdemo.container.bean.User;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.BeanDefinitionReaderUtils;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;

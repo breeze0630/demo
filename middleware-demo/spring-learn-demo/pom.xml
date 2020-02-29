@@ -7,6 +7,8 @@
         <module>ioc-demo</module>
         <module>bean-demo</module>
         <module>other</module>
+        <module>dependency-lookup-demo</module>
+        <module>dependency-injection</module>
     </modules>
     <!--    <parent>-->
 <!--        <groupId>org.springframework.boot</groupId>-->

@@ -12,6 +12,6 @@ public class ConfigSwitch {
      * true 走 dataSource1
      * false 走 dataSource2
      */
-    public static boolean sqlSwitch;
+    public static boolean sqlSwitch = true;
 
 }

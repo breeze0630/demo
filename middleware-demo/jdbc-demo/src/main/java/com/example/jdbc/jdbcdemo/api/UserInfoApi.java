@@ -38,6 +38,13 @@ public class UserInfoApi {
         return list;
     }
 
+    @RequestMapping("getUserByName")
+    public Object getUserByName(String name) {
+        List<UserInfo> list = userService.selectByName( name );
+        log.info("getUserByName list:{}", JSON.toJSONString(list));
+        return list;
+    }
+
     @RequestMapping("changeSqlSwitch")
     public boolean changeSqlSwitch(Boolean sqlSwitch) {
         log.info("changeSqlSwitch sqlSwitch:{}", sqlSwitch);
