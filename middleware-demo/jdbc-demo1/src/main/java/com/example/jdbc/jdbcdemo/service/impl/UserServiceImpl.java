@@ -45,14 +45,15 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void deleteUser(String name){
-        try {
-            Thread.currentThread().sleep(10000);
-
             userInfoNewMapper.deleteByName(name);
             log.info("aaaa");
-        }catch (InterruptedException e){
-            e.printStackTrace();
-        }
+
+    }
+
+    @Override
+    public void updateByName(String name, int age) {
+        userInfoNewMapper.updateByName(name,age);
+        log.info("bbb");
 
     }
 }

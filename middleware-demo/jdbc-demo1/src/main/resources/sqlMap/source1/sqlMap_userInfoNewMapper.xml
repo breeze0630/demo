@@ -23,4 +23,7 @@
     <delete id="deleteByName" parameterType="java.lang.String">
         delete from user_info_new where name_new = #{name}
     </delete>
+    <update id="updateByName" >
+        update   user_info_new set age_new = #{newAge} where name_new = #{name}
+    </update>
 </mapper>

@@ -39,9 +39,14 @@ public class UserInfoApi {
     }
 
 
-    @RequestMapping(path = {"deleteUser","getAllUser1"})
+    @RequestMapping(path = {"deleteUser"})
     public void deleteUser(String name) {
         userService.deleteUser(name);
+    }
+
+    @RequestMapping(path = {"updateUser"})
+    public void updateUser(String name,int age) {
+        userService.updateByName(name,age);
     }
     @RequestMapping("getUserByName")
     public Object getUserByName(String name) {

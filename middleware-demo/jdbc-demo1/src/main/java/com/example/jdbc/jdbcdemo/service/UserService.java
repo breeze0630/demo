@@ -15,4 +15,6 @@ public interface UserService {
 
     void deleteUser(String name);
 
+    void updateByName(String name,int age);
+
 }

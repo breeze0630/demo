@@ -19,6 +19,7 @@ public interface UserInfoNewMapper {
 
     int deleteByName(@Param("name")String name);
 
+    int updateByName(@Param("name") String name,@Param("newAge") int age);
 
     List<UserInfo> selectByName(
             @Param("name")

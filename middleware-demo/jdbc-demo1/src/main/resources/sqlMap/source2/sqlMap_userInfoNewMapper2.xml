@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.jdbc.jdbcdemo.biz.mapper.UserInfoNewMapper">
+<mapper namespace="com.example.jdbc.jdbcdemo.biz.mapper2.UserInfoNewMapper2">
     <resultMap id="BaseResultMap" type="com.example.jdbc.jdbcdemo.biz.bean.UserInfo">
         <id column="id" property="id"></id>
         <result column="name_new" property="name"/>
@@ -15,12 +15,4 @@
     <select id="selectAll" resultMap="BaseResultMap">
         select * from user_info_new
     </select>
-
-    <select id="selectByName" resultMap="BaseResultMap">
-        select * from user_info_new where name_new like #{name} and age_new =  #{age}
-    </select>
-
-    <delete id="deleteByName" parameterType="java.lang.String">
-        delete from user_info_new where name_new = #{name}
-    </delete>
 </mapper>
