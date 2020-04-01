@@ -1,6 +1,7 @@
 package com.example.jdbc.jdbcdemo.api;
 
 import com.alibaba.fastjson.JSON;
+import com.example.jdbc.jdbcdemo.anno.MyAutowired;
 import com.example.jdbc.jdbcdemo.biz.bean.UserInfo;
 import com.example.jdbc.jdbcdemo.configswtich.ConfigSwitch;
 import com.example.jdbc.jdbcdemo.service.UserService;
@@ -21,7 +22,7 @@ import java.util.List;
 @Slf4j
 public class UserInfoApi {
 
-    @Autowired
+    @MyAutowired
     private UserService userService;
 
 //    @RequestMapping("getUserInfoById")
