@@ -1,4 +1,4 @@
-package com.example.springlearndemo.ohter.annotation.anno;
+package com.example.springlearndemo.other.annotation.anno;
 
 import org.springframework.util.ReflectionUtils;
 

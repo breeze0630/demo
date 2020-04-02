@@ -1,7 +1,7 @@
-package com.example.springlearndemo.ohter.annotation;
+package com.example.springlearndemo.other.annotation;
 
 
-import com.example.springlearndemo.ohter.annotation.anno.TransactionalService;
+import com.example.springlearndemo.other.annotation.anno.TransactionalService;
 import org.springframework.core.type.AnnotationMetadata;
 import org.springframework.core.type.classreading.CachingMetadataReaderFactory;
 import org.springframework.core.type.classreading.MetadataReader;

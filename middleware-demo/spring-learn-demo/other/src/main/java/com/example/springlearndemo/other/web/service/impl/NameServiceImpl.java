@@ -1,6 +1,6 @@
-package com.example.springlearndemo.ohter.web.service.impl;
+package com.example.springlearndemo.other.web.service.impl;
 
-import com.example.springlearndemo.ohter.web.service.NameService;
+import com.example.springlearndemo.other.web.service.NameService;
 import lombok.extern.slf4j.Slf4j;
 
 /**

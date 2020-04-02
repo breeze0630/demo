@@ -1,4 +1,4 @@
-package com.example.springlearndemo.ohter.web.config;
+package com.example.springlearndemo.other.web.config;
 
 import org.springframework.beans.BeansException;
 

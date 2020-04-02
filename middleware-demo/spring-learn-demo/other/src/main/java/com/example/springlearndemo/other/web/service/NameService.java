@@ -1,4 +1,4 @@
-package com.example.springlearndemo.ohter.web.service;
+package com.example.springlearndemo.other.web.service;
 
 public interface NameService {
 

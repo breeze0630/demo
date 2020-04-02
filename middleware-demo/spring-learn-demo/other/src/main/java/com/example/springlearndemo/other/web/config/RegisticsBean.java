@@ -1,6 +1,6 @@
-package com.example.springlearndemo.ohter.web.config;
+package com.example.springlearndemo.other.web.config;
 
-import com.example.springlearndemo.ohter.web.service.impl.NameServiceImpl;
+import com.example.springlearndemo.other.web.service.impl.NameServiceImpl;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.BeanDefinitionReaderUtils;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;

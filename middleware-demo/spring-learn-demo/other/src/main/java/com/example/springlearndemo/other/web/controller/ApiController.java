@@ -1,7 +1,7 @@
-package com.example.springlearndemo.ohter.web.controller;
+package com.example.springlearndemo.other.web.controller;
 
 
-import com.example.springlearndemo.ohter.web.service.NameService;
+import com.example.springlearndemo.other.web.service.NameService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
