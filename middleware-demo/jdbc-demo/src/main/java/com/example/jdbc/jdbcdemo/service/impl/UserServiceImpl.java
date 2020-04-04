@@ -26,6 +26,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public List<UserInfo> getAllUser() {
+        log.info("getAllUser");
         if (ConfigSwitch.sqlSwitch) {
             return userInfoNewMapper.selectAll();
         } else {

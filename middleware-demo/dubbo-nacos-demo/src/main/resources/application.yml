@@ -1,0 +1,15 @@
+#server:
+#  port: 8021
+#spring:
+#  application:
+#    name: dubbo-auto-configuration-provider-demo
+#  main:
+#    allow-bean-definition-overriding: true
+#dubbo:
+#  application:
+#    name: dubbo-auto-configuration-provider-demo
+#  protocol:
+#    name: dubbo
+#    port: 8022
+#  registry:
+#    address: nacos://172.19.54.233:8848
