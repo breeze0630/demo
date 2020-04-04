@@ -1,10 +1,17 @@
 package com.example.springlearndemo.dependencylookup.domain;
 
-public class User {
+import org.springframework.beans.factory.BeanNameAware;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
+public class User implements BeanNameAware {
 
     private long id;
 
     private String name;
+
+    private transient String beanName;
 
     public long getId() {
         return id;
@@ -32,5 +39,21 @@ public class User {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    @PostConstruct
+    public void init(){
+        System.out.println("User Bean 对象初始化....");
+    }
+
+    @PreDestroy
+    public void destory(){
+        System.out.println("User Bean 对象销毁中....");
+    }
+
+
+    @Override
+    public void setBeanName(String name) {
+        this.beanName = beanName;
     }
 }
