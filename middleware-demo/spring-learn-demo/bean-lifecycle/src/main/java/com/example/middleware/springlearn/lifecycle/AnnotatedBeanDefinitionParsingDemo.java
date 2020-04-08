@@ -7,6 +7,8 @@ import org.springframework.context.annotation.AnnotatedBeanDefinitionReader;
 public class AnnotatedBeanDefinitionParsingDemo {
 
     public static void main(String[] args) {
+
+        System.out.println(Integer.valueOf("0000000000001011",2));
         DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
 
         AnnotatedBeanDefinitionReader beanDefinitionReader = new AnnotatedBeanDefinitionReader(beanFactory);
@@ -21,4 +23,6 @@ public class AnnotatedBeanDefinitionParsingDemo {
 
         System.out.println(demo);
     }
+
+
 }
