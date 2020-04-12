@@ -16,4 +16,8 @@
     <bean id="objectFactory" class="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean" >
         <property name="targetBeanName" value="user" />
     </bean>
+
+    <bean id="superUser" class="com.example.springlearndemo.dependencylookup.domain.SuperUser" parent="user">
+        <property name="address" value="NANJING"/>
+    </bean>
 </beans>
