@@ -6,8 +6,11 @@
     <!--       xmlns:util=http://www.springframework.org/schema/util-->
 
 
+    <bean class="com.example.middleware.springlearn.lifecycle.MyInstantiationAwareBeanPostProcessor" />
 
 
-    <bean id="userHolder" class="com.example.middleware.springlearn.lifecycle.domain.UserHolder" autowire="constructor"/>
+    <bean id="userHolder" class="com.example.middleware.springlearn.lifecycle.domain.UserHolder" autowire="constructor">
+        <property name="description" value="the user Holder"/>
+    </bean>
 
 </beans>
