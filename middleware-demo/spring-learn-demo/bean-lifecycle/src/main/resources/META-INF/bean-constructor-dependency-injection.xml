@@ -9,7 +9,8 @@
     <bean class="com.example.middleware.springlearn.lifecycle.MyInstantiationAwareBeanPostProcessor" />
 
 
-    <bean id="userHolder" class="com.example.middleware.springlearn.lifecycle.domain.UserHolder" autowire="constructor">
+    <bean id="userHolder" class="com.example.middleware.springlearn.lifecycle.domain.UserHolder" autowire="constructor"
+    init-method="init">
         <property name="description" value="the user Holder"/>
     </bean>
 

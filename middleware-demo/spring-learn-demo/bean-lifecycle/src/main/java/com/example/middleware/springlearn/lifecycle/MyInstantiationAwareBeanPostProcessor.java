@@ -1,10 +1,12 @@
 package com.example.middleware.springlearn.lifecycle;
 
+import com.example.middleware.springlearn.lifecycle.domain.UserHolder;
 import com.example.springlearndemo.dependencylookup.domain.SuperUser;
 import com.example.springlearndemo.dependencylookup.domain.User;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.PropertyValues;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
 import org.springframework.util.ObjectUtils;
 
@@ -15,7 +17,8 @@ class MyInstantiationAwareBeanPostProcessor implements InstantiationAwareBeanPos
        if(ObjectUtils.nullSafeEquals( "superUser",beanName) && SuperUser.class.equals(beanClass)){
            return  new SuperUser();
        }
-       return null; //如果返回Null，保持之前的处理过程不变,采用默认的实例化方式
+       //如果返回Null，保持之前的处理过程不变,采用默认的实例化方式
+       return null;
    }
 
 
@@ -55,4 +58,26 @@ class MyInstantiationAwareBeanPostProcessor implements InstantiationAwareBeanPos
        }
        return propertyValues;
    }
+
+
+
+    @Override
+    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+       if(ObjectUtils.nullSafeEquals("userHolder",beanName)){
+           UserHolder userHolder = (UserHolder) bean;
+           userHolder.setDescription("the user Holder V3");
+           System.out.println("postProcessBeforeInitialization() = the user Holder V3");
+       }
+        return bean;
+    }
+
+    @Override
+    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+        if(ObjectUtils.nullSafeEquals("userHolder",beanName)){
+            UserHolder userHolder = (UserHolder) bean;
+            userHolder.setDescription("the user Holder V7");
+            System.out.println("postProcessAfterInitialization() = the user Holder V7");
+        }
+        return bean;
+    }
 }

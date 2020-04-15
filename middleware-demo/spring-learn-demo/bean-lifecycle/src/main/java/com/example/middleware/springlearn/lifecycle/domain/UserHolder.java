@@ -3,14 +3,15 @@ package com.example.middleware.springlearn.lifecycle.domain;
 
 import com.example.springlearndemo.dependencylookup.domain.User;
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanClassLoaderAware;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.BeanFactoryAware;
-import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.*;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.core.env.Environment;
 
-public class UserHolder implements EnvironmentAware , BeanNameAware, BeanClassLoaderAware, BeanFactoryAware {
+import javax.annotation.PostConstruct;
+
+public class UserHolder implements
+        EnvironmentAware , BeanNameAware, BeanClassLoaderAware, BeanFactoryAware,
+        InitializingBean,SmartInitializingSingleton {
 
     private  User user ;
 
@@ -49,6 +50,30 @@ public class UserHolder implements EnvironmentAware , BeanNameAware, BeanClassLo
                 ", description='" + description + '\'' +
                 '}';
     }
+
+    /**
+     * 执行顺序
+     * PostConstruct(使用 注解 {@link PostConstruct} 标注的方法) -> afterPropertiesSet(实现 {@link InitializingBean}) > init-method（XML）中配置
+     * */
+
+    @PostConstruct
+    public void initPostConstruct(){
+        this.description = "the user holder V4";
+        System.out.println("initPostConstruct() =  the user holder V4");
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        this.description = "the user holder V5";
+        System.out.println("afterPropertiesSet() =  the user holder V5");
+    }
+
+    public void init(){
+        this.description = "the user holder V6";
+        System.out.println("init() =  the user holder V6");
+    }
+
+
 
     /**
      * Set the {@code Environment} that this component runs in.
@@ -109,4 +134,27 @@ public class UserHolder implements EnvironmentAware , BeanNameAware, BeanClassLo
     public void setBeanName(String name) {
         System.out.println("回调 BeanName");
     }
+
+
+    /**
+     * Invoked right at the end of the singleton pre-instantiation phase,
+     * with a guarantee that all regular singleton beans have been created
+     * already. {@link ListableBeanFactory#getBeansOfType} calls within
+     * this method won't trigger accidental side effects during bootstrap.
+     * <p><b>NOTE:</b> This callback won't be triggered for singleton beans
+     * lazily initialized on demand after {@link BeanFactory} bootstrap,
+     * and not for any other bean scope either. Carefully use it for beans
+     * with the intended bootstrap semantics only.
+     */
+    @Override
+    public void afterSingletonsInstantiated() {
+        System.out.println("afterSingletonsInstantiated() = the user holder V8");
+    }
+
+    @Override
+    public void finalize() throws Throwable {
+
+        System.out.println("user Holder is finalizd...");
+    }
+
 }
