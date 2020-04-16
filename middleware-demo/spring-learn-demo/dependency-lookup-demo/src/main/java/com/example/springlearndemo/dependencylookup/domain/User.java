@@ -4,6 +4,7 @@ import org.springframework.beans.factory.BeanNameAware;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import java.util.List;
 
 public class User implements BeanNameAware {
 
@@ -12,6 +13,26 @@ public class User implements BeanNameAware {
     private String name;
 
     private transient String beanName;
+
+    private List<City> workCities;
+
+    private List<City> lifeCities;
+
+    public List<City> getWorkCities() {
+        return workCities;
+    }
+
+    public void setWorkCities(List<City> workCities) {
+        this.workCities = workCities;
+    }
+
+    public List<City> getLifeCities() {
+        return lifeCities;
+    }
+
+    public void setLifeCities(List<City> lifeCities) {
+        this.lifeCities = lifeCities;
+    }
 
     public long getId() {
         return id;
@@ -38,6 +59,9 @@ public class User implements BeanNameAware {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", beanName='" + beanName + '\'' +
+                ", workCities=" + workCities +
+                ", lifeCities=" + lifeCities +
                 '}';
     }
 
