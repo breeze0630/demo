@@ -31,3 +31,27 @@ public class PropertiesDemo {
         System.out.println(hashtable);
     }
 }
+
+class ParentMethod{
+    public void printMsg(){
+        System.out.println("printMsg......");
+    }
+}
+
+class ChildMethod extends ParentMethod{
+    public void test(){
+        System.out.println("test....");
+        printMsg();
+    }
+
+    @Override
+    public void printMsg() {
+        System.out.println("ChildMethod.printMsg()");
+        super.printMsg();
+    }
+
+    public static void main(String[] args) {
+        ChildMethod childMethod = new ChildMethod();
+        childMethod.test();
+    }
+}
