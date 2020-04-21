@@ -14,9 +14,23 @@ public class User implements BeanNameAware {
 
     private transient String beanName;
 
+    private City city;
+
     private List<City> workCities;
 
     private List<City> lifeCities;
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
+
+    public String getBeanName() {
+        return beanName;
+    }
 
     public List<City> getWorkCities() {
         return workCities;
@@ -60,6 +74,7 @@ public class User implements BeanNameAware {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", beanName='" + beanName + '\'' +
+                ", city=" + city +
                 ", workCities=" + workCities +
                 ", lifeCities=" + lifeCities +
                 '}';

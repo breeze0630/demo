@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns="http://time.geekbang.org/schema/users"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://time.geekbang.org/schema/users">
+    <!--    xmlns 和 targetNamespace 需要自己定义 ， 用在使用此XSD的XML文件中        -->
+
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+
+
+
+    <!--    定义User类型-->
+    <xsd:complexType name="User">
+        <xsd:attribute name="id" type="xsd:long" use="required" />
+        <xsd:attribute name="name" type="xsd:string" use="required" />
+        <xsd:attribute name="city" type="City" />
+    </xsd:complexType>
+
+    <xsd:simpleType name="City">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="BEIJING" />
+            <xsd:enumeration value="HANGZHOU" />
+            <xsd:enumeration value="NANJING" />
+            <xsd:enumeration value="ANQING" />
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:element name="user" type="User" />
+
+</xsd:schema>
