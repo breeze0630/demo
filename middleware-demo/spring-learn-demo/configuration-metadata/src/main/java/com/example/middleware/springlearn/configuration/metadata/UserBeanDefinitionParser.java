@@ -11,7 +11,7 @@ import org.w3c.dom.Element;
 /**
  * "user" 元素的 {@link BeanDefinitionParser} 实现
  *  doParse 处理User 的元素，set多少个参数，就能落地配置多少个参数，否则即使XML定义也无意义
- * 主要重写 getBeanClass() 、 doParese()
+ * 主要重写 getBeanClass() 、 doParse()
  * */
 public class UserBeanDefinitionParser  extends AbstractSingleBeanDefinitionParser {
 

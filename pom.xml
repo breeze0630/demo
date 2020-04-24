@@ -5,6 +5,7 @@
 
     <groupId>com.example</groupId>
     <artifactId>demo</artifactId>
+    <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
 
     <build>
@@ -15,6 +16,9 @@
             </plugin>
         </plugins>
     </build>
+    <modules>
+        <module>spring-boot-demo</module>
+    </modules>
 
 
 </project>
