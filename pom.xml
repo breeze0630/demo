@@ -18,6 +18,7 @@
     </build>
     <modules>
         <module>spring-boot-demo</module>
+        <module>think-in-spring-boot-samples</module>
     </modules>
 
 
