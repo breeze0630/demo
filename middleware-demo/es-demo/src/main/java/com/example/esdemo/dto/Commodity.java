@@ -10,6 +10,9 @@ import java.io.Serializable;
 @Document(indexName = "commodity")
 public class Commodity implements Serializable {
 
+    /**
+     * Id 必须存在
+     * */
     @Id
     private String skuId;
     private String name;
