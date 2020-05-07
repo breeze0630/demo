@@ -1,6 +1,8 @@
 package com.example.springlearndemo.jdk;
 
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 
 public class Java8Tester {
     static String first = "";
@@ -17,6 +19,20 @@ public class Java8Tester {
         //  Comparator<String> comparator = (first,second) -> Integer.compare(first.length(),second.length()); 编译出错
         Comparator<String> comparator = (first2,second) -> Integer.compare(Java8Tester.first.length(),second.length());
 
+
+        HashMap<Integer,Integer> hashMap = new HashMap<>();
+        for (int k = 0;k< 10;k++){
+            hashMap.put(k,k);
+        }
+
+        // forEach 可利用函数式编程进行遍历输出map
+        hashMap.forEach((k,v) -> System.out.println("key: " +k+"  value:"+v) );
+
+        ArrayList arrayList = new ArrayList();
+        arrayList.add("1");
+        arrayList.add("1");
+
+        arrayList.forEach((k) -> System.out.println((String)k));
     }
 
     public void testParam(){
