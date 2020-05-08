@@ -2,4 +2,8 @@ spring.autoconfigure.exclude = org.springframework.boot.actuate.autoconfigure.Tr
   org.springframework.boot.actuate.autoconfigure.TraceRepositoryAutoConfiguration,\
   org.springframework.boot.actuate.autoconfigure.MetricFilterAutoConfiguration
 
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.example.jdbc.jdbcdemo.config.A,\
+  com.example.jdbc.jdbcdemo.config.B
+
+
 
