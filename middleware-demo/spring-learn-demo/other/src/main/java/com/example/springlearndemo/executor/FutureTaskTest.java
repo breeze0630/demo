@@ -13,9 +13,9 @@ public class FutureTaskTest {
         ExecutorService exec = Executors.newFixedThreadPool(3);
 
         FutureTask<String> futureTask = new FutureTask<String>(new CallableImpl() );
+        // 使用 Executors submit 提交
         exec.submit(futureTask);
-        // 不使用 Executors submit 提交，直接调用run 方法也能调用
-        // futureTask.run();
+        System.out.println(Thread.currentThread().getName());
         String info = futureTask.get();
         System.out.println(info);
     }
