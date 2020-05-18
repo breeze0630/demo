@@ -20,6 +20,29 @@ public class User implements BeanNameAware {
 
     private List<City> lifeCities;
 
+    private Company company;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", beanName='" + beanName + '\'' +
+                ", city=" + city +
+                ", workCities=" + workCities +
+                ", lifeCities=" + lifeCities +
+                ", company=" + company +
+                '}';
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
     public City getCity() {
         return city;
     }
@@ -66,18 +89,6 @@ public class User implements BeanNameAware {
 
     public static User createUser(){
         return new User();
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", beanName='" + beanName + '\'' +
-                ", city=" + city +
-                ", workCities=" + workCities +
-                ", lifeCities=" + lifeCities +
-                '}';
     }
 
     @PostConstruct

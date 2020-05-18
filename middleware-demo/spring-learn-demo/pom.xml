@@ -13,6 +13,7 @@
         <module>bean-lifecycle</module>
         <module>configuration-metadata</module>
         <module>resource</module>
+        <module>data-binding</module>
     </modules>
     <!--    <parent>-->
 <!--        <groupId>org.springframework.boot</groupId>-->
