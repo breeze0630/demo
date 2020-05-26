@@ -20,7 +20,8 @@
         <module>auth-demo</module>
         <module>dubbo-nacos-demo</module>
 		<module>dubbo-nacos-consumer-demo</module>
-	</modules>
+        <module>design-demo</module>
+    </modules>
 
 	<properties>
 		<java.version>1.8</java.version>
