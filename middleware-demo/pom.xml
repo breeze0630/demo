@@ -21,6 +21,9 @@
         <module>dubbo-nacos-demo</module>
 		<module>dubbo-nacos-consumer-demo</module>
         <module>design-demo</module>
+		<module>jdbc-demo</module>
+		<module>model-demo</module>
+		<module>spring-learn-demo</module>
     </modules>
 
 	<properties>
