@@ -38,7 +38,7 @@ public class PropertiesToStringConverter implements ConditionalGenericConverter
         StringBuilder textBuilder = new StringBuilder();
 
         for(Map.Entry<Object,Object> entry : properties.entrySet()){
-            textBuilder.append(entry.getKey() ).append("=").append(entry.getValue()).append(System.getProperty("line.separator "));
+            textBuilder.append(entry.getKey() ).append("=").append(entry.getValue()).append(System.getProperty("line.separator"));
         }
         return textBuilder.toString();
     }

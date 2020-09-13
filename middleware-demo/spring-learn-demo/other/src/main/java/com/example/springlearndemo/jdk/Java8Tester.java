@@ -1,5 +1,8 @@
 package com.example.springlearndemo.jdk;
 
+import com.example.springlearndemo.test.FunctionInterfaceTest;
+import com.example.springlearndemo.test.FunctionInterfaceTestImpl;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -33,6 +36,8 @@ public class Java8Tester {
         arrayList.add("1");
 
         arrayList.forEach((k) -> System.out.println((String)k));
+
+
     }
 
     public void testParam(){
@@ -43,4 +48,6 @@ public class Java8Tester {
     public interface Converter<T1,T2> {
         void convert(int i);
     }
+
+
 }
