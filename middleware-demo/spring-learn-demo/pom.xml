@@ -14,6 +14,8 @@
         <module>configuration-metadata</module>
         <module>resource</module>
         <module>data-binding</module>
+        <module>event</module>
+        <module>generic</module>
     </modules>
     <!--    <parent>-->
 <!--        <groupId>org.springframework.boot</groupId>-->

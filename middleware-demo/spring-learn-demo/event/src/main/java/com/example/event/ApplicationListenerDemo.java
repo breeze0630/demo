@@ -1,13 +1,11 @@
 package com.example.event;
 
-import org.springframework.context.ApplicationEvent;
-import org.springframework.context.ApplicationListener;
+import org.springframework.context.*;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.event.ContextClosedEvent;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.ContextStartedEvent;
 import org.springframework.context.event.EventListener;
-import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
 
@@ -20,7 +18,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
  **/
 
 @EnableAsync
-public class ApplicationListenerDemo {
+public class ApplicationListenerDemo implements ApplicationEventPublisherAware {
 
     public static void main(String[] args) {
 //        GenericApplicationContext applicationContext = new GenericApplicationContext();
@@ -68,5 +66,22 @@ public class ApplicationListenerDemo {
 
     private static void println(Object printable){
         System.out.printf("[线程：%s] : %s\n",Thread.currentThread().getName(),printable);
+    }
+
+    @Override
+    public void setApplicationEventPublisher(ApplicationEventPublisher applicationEventPublisher) {
+        applicationEventPublisher.publishEvent(new ApplicationEvent("hello 1") {
+        });
+        applicationEventPublisher.publishEvent("hello 2");
+        applicationEventPublisher.publishEvent(new PayloadApplicationEvent(this,"hello 3"));
+
+    }
+
+
+    static class MyPayloadApplicationEvent<String> extends PayloadApplicationEvent<String>{
+
+        public MyPayloadApplicationEvent(Object source, String payload) {
+            super(source, payload);
+        }
     }
 }
