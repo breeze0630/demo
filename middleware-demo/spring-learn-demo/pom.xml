@@ -16,6 +16,7 @@
         <module>data-binding</module>
         <module>event</module>
         <module>generic</module>
+        <module>converter</module>
     </modules>
     <!--    <parent>-->
 <!--        <groupId>org.springframework.boot</groupId>-->

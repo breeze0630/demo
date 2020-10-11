@@ -17,7 +17,8 @@ import org.springframework.scheduling.annotation.EnableAsync;
  * @Create by external_ll@163.com
  **/
 
-@EnableAsync
+//@EnableAsync
+//使用 EnableAsync 时需要注意配置 TaskExecution
 public class ApplicationListenerDemo implements ApplicationEventPublisherAware {
 
     public static void main(String[] args) {
@@ -27,11 +28,14 @@ public class ApplicationListenerDemo implements ApplicationEventPublisherAware {
 
         applicationContext.register(ApplicationListenerDemo.class);
 
-        // 基于spring 接口向上下文注册事件
+        // 基于spring 接口向上下文注册事件,如果要监听 refresh 相关的事件，应先注册
         applicationContext.addApplicationListener(new ApplicationListener<ApplicationEvent>() {
             @Override
             public void onApplicationEvent(ApplicationEvent event) {
                 println("ApplicationListener - 接收到spring 事件：" + event);
+                if(event instanceof PayloadApplicationEvent){
+                    println("ApplicationListener - 接收到spring 事 payload<T>:" + ((PayloadApplicationEvent<?>) event).getPayload());
+                }
             }
         });
         applicationContext.refresh();
@@ -73,7 +77,7 @@ public class ApplicationListenerDemo implements ApplicationEventPublisherAware {
         applicationEventPublisher.publishEvent(new ApplicationEvent("hello 1") {
         });
         applicationEventPublisher.publishEvent("hello 2");
-        applicationEventPublisher.publishEvent(new PayloadApplicationEvent(this,"hello 3"));
+        applicationEventPublisher.publishEvent(new MyPayloadApplicationEvent(this,"hello 3"));
 
     }
 
