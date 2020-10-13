@@ -19,6 +19,8 @@ public class CustomizedSpringEventDemo {
 
         //先refresh 才能推送事件
         applicationContext.publishEvent(new MyStringEvent("hello 1"));
+        applicationContext.publishEvent(new MyStringEvent2("hello 2"));
+        applicationContext.publishEvent(new MyStringEvent3("hello 3"));
 
         applicationContext.close();
     }
