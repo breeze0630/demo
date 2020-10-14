@@ -24,6 +24,7 @@
 		<module>jdbc-demo</module>
 		<module>model-demo</module>
 		<module>spring-learn-demo</module>
+		<module>rocket-all-demo</module>
     </modules>
 
 	<properties>
