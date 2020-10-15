@@ -25,13 +25,15 @@ import java.io.UnsupportedEncodingException;
 @Slf4j
 public class SyncProducer {
 
-    DefaultMQProducer producer = new
-            DefaultMQProducer("msg_group_demo");
+    DefaultMQProducer producer = null;
 
     @PostConstruct
     public void init() throws Exception{
+        producer = new
+                DefaultMQProducer("msg_group_demo");
         producer.setNamesrvAddr("localhost:9876");
         producer.start();
+
     }
 
 
@@ -39,7 +41,6 @@ public class SyncProducer {
             Message msg = new Message(dto.getTopic() , dto.getTag() ,   dto.getMsg().getBytes(RemotingHelper.DEFAULT_CHARSET));
             SendResult sendResult = producer.send(msg);
             log.info("sendResult:{}", JSON.toJSONString(sendResult));
-
     }
 
     @PreDestroy
