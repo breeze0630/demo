@@ -14,7 +14,7 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>
-        <dubbo.version>2.7.5</dubbo.version>
+        <dubbo.version>2.7.1</dubbo.version>
 
     </properties>
 
@@ -39,7 +39,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo-registry-nacos</artifactId>
-            <version>0.0.2</version>
+            <version>0.0.1</version>
         </dependency>
 
 <!--        <dependency>-->
