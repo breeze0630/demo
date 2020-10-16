@@ -11,5 +11,10 @@ public class ComponentScanDemo {
 
         applicationContext.register(ComponentScanDemo.class);
 
+        applicationContext.refresh();
+
+        System.out.println(applicationContext.getBean(TestClass.class));
+
+        applicationContext.close();
     }
 }
