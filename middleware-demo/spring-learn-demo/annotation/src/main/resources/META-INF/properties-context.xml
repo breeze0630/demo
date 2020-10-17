@@ -5,8 +5,6 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd">
     <!--       xmlns:util=http://www.springframework.org/schema/util-->
 
-
-
     <!--    默认使用的编码格式时 ISO-88591-1 并且这种方式仅使用引用 的配置-->
 <!--    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
 <!--        <property name="location" value="application.properties"/>-->
