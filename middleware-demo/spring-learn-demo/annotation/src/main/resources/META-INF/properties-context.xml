@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--       xmlns:util=http://www.springframework.org/schema/util-->
+
+
+
+    <!--    默认使用的编码格式时 ISO-88591-1 并且这种方式仅使用引用 的配置-->
+<!--    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+<!--        <property name="location" value="application.properties"/>-->
+<!--        <property name="fileEncoding" value="UTF-8"/>-->
+<!--    </bean>-->
+
+    <!--  存在配置优先级的情况，properties 里虽然定义了 user.name 但是和jvm定义的user.name 重名了，实际注入的并非properties 文件中值  -->
+    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="location" value="application.properties"/>
+        <property name="fileEncoding" value="UTF-8"/>
+    </bean>
+
+<!--    -->
+    <bean id="user" class="com.example.springlearndemo.iocdemo.container.bean.User">
+        <property name="id" value="${user.id}"/>
+        <property name="name" value="${user.name}" />
+    </bean>
+
+</beans>
