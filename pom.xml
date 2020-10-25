@@ -20,6 +20,8 @@
         <module>spring-boot-demo</module>
         <module>think-in-spring-boot-samples</module>
         <module>spring-cloud-demo</module>
+        <module>middleware-demo/concurrency</module>
+        <module>middleware-demo/spring-learn-demo/environment</module>
     </modules>
 
 
