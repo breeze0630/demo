@@ -18,6 +18,7 @@
         <module>generic</module>
         <module>converter</module>
         <module>annotation</module>
+        <module>environment</module>
     </modules>
     <!--    <parent>-->
 <!--        <groupId>org.springframework.boot</groupId>-->
