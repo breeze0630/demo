@@ -14,6 +14,7 @@ public class EnvironmentPropertiesSourceChangeDemo {
     @Value("${user.name}")
     private String userName;
     public static void main(String[] args) {
+//        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(EnvironmentPropertiesSourceChangeDemo.class);
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
 
         context.register(EnvironmentPropertiesSourceChangeDemo.class);
@@ -40,7 +41,7 @@ public class EnvironmentPropertiesSourceChangeDemo {
         System.out.println("======================================");
 
         for (PropertySource source: propertySources ) {
-            System.out.printf("PropertySource (name:%s) use.name 属性:%s \n",source.getName(),source.getProperty("user.name"));
+            System.out.printf("PropertySource (name:%s) user.name 属性:%s \n",source.getName(),source.getProperty("user.name"));
         }
 
         context.close();

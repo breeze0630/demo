@@ -24,15 +24,17 @@ public class ValueAnnotationDemo {
 
 
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-        context.register(ValueAnnotationDemo.class);
+//        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+//        context.register(ValueAnnotationDemo.class);
+//
+//        context.refresh();
 
-        context.refresh();
+        AnnotationConfigApplicationContext context1 = new AnnotationConfigApplicationContext(ValueAnnotationDemo.class);
 
-        ValueAnnotationDemo demo = context.getBean(ValueAnnotationDemo.class);
+        ValueAnnotationDemo demo = context1.getBean(ValueAnnotationDemo.class);
         System.out.println(demo.userId);
 
-        context.close();
+        context1.close();
 
     }
 }
