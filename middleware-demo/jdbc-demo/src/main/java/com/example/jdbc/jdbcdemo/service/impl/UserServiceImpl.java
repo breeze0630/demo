@@ -1,6 +1,8 @@
 package com.example.jdbc.jdbcdemo.service.impl;
 
+import com.example.jdbc.jdbcdemo.biz.bean.Info;
 import com.example.jdbc.jdbcdemo.biz.bean.UserInfo;
+import com.example.jdbc.jdbcdemo.biz.mapper.InfoMapper;
 import com.example.jdbc.jdbcdemo.biz.mapper.UserInfoNewMapper;
 import com.example.jdbc.jdbcdemo.biz.mapper2.UserInfoNewMapper2;
 import com.example.jdbc.jdbcdemo.configswtich.ConfigSwitch;
@@ -22,6 +24,9 @@ public class UserServiceImpl implements UserService {
 
     @Resource
     private UserInfoNewMapper2 userInfoNewMapper2;
+
+    @Resource
+    private InfoMapper infoMapper;
 
     @Override
     @Transactional
@@ -55,5 +60,10 @@ public class UserServiceImpl implements UserService {
             e.printStackTrace();
         }
 
+    }
+
+    @Override
+    public void insert(Info info) {
+        infoMapper.insert(info);
     }
 }

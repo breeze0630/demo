@@ -2,6 +2,7 @@ package com.example.jdbc.jdbcdemo.api;
 
 import com.alibaba.fastjson.JSON;
 import com.example.jdbc.jdbcdemo.anno.MyAutowired;
+import com.example.jdbc.jdbcdemo.biz.bean.Info;
 import com.example.jdbc.jdbcdemo.biz.bean.UserInfo;
 import com.example.jdbc.jdbcdemo.configswtich.ConfigSwitch;
 import com.example.jdbc.jdbcdemo.service.UserService;
@@ -61,4 +62,6 @@ public class UserInfoApi {
             return false;
         }
     }
+
+
 }
