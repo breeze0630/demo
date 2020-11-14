@@ -1,6 +1,8 @@
 package com.example.jdbc.jdbcdemo.api;
 
 import com.alibaba.fastjson.JSON;
+import com.example.jdbc.jdbcdemo.anno.MyAutowired;
+import com.example.jdbc.jdbcdemo.biz.bean.Info;
 import com.example.jdbc.jdbcdemo.biz.bean.UserInfo;
 import com.example.jdbc.jdbcdemo.configswtich.ConfigSwitch;
 import com.example.jdbc.jdbcdemo.service.UserService;
@@ -11,12 +13,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * 配置开关
+ *
+ * @author liubiao
+ */
 @RestController
 @RequestMapping("userTest")
 @Slf4j
 public class UserInfoApi {
 
-    @Autowired
+    @MyAutowired
     private UserService userService;
 
 //    @RequestMapping("getUserInfoById")
@@ -26,21 +33,35 @@ public class UserInfoApi {
 //        return list;
 //    }
 
-    @RequestMapping("getAllUser")
-    public Object getAllUser(){
-        List<UserInfo> list  = userService.getAllUser();
+    @RequestMapping(path = {"getAllUser","getAllUser1"})
+    public Object getAllUser() {
+        List<UserInfo> list = userService.getAllUser();
         log.info("getAllUser list:{}", JSON.toJSONString(list));
         return list;
     }
 
+
+    @RequestMapping(path = {"deleteUser","getAllUser1"})
+    public void deleteUser(String name) {
+        userService.deleteUser(name);
+    }
+    @RequestMapping("getUserByName")
+    public Object getUserByName(String name) {
+        List<UserInfo> list = userService.selectByName( name );
+        log.info("getUserByName list:{}", JSON.toJSONString(list));
+        return list;
+    }
+
     @RequestMapping("changeSqlSwitch")
-    public boolean changeSqlSwitch(Boolean sqlSwitch){
-        log.info("changeSqlSwitch sqlSwitch:{}",sqlSwitch);
-        if(sqlSwitch != null){
+    public boolean changeSqlSwitch(Boolean sqlSwitch) {
+        log.info("changeSqlSwitch sqlSwitch:{}", sqlSwitch);
+        if (sqlSwitch != null) {
             ConfigSwitch.sqlSwitch = sqlSwitch;
             return true;
-        }else {
+        } else {
             return false;
         }
     }
+
+
 }

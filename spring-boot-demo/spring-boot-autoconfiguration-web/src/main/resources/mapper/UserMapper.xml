@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springboot.autoconfig.web.demo.mapper.UserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.springboot.autoconfig.web.demo.entity.User">
+        <id column="user_id" property="userId" />
+        <result column="user_name" property="userName" />
+        <result column="phone" property="phone" />
+        <result column="region" property="region" />
+        <result column="password" property="password" />
+        <result column="user_type" property="userType" />
+        <result column="wx_no" property="wxNo" />
+        <result column="wx_openId" property="wxOpenid" />
+        <result column="create_dt" property="createDt" />
+        <result column="update_dt" property="updateDt" />
+        <result column="recommend" property="recommend" />
+        <result column="wx_name" property="wxName" />
+        <result column="token" property="token" />
+        <result column="fz_name" property="fzName" />
+        <result column="id_card_face" property="idCardFace" />
+        <result column="id_card_back" property="idCardBack" />
+        <result column="driving_licence_face" property="drivingLicenceFace" />
+        <result column="driving_licence_back" property="drivingLicenceBack" />
+        <result column="session_key" property="sessionKey" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        user_id, user_name, phone, region, password, user_type, wx_no, wx_openId, create_dt, update_dt, recommend, wx_name, token, fz_name, id_card_face, id_card_back, driving_licence_face, driving_licence_back, session_key
+    </sql>
+    <select id="selectAllByUserId" resultMap="BaseResultMap">
+        select * from t_user where user_id = #{userId}
+    </select>
+
+</mapper>
