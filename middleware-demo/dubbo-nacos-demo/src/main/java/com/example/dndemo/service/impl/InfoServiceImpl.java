@@ -9,8 +9,13 @@ import org.apache.dubbo.config.annotation.Service;
 public class InfoServiceImpl implements InfoService {
 
     @Override
-    public String printInfo(String info) {
+    public String printInfo(String info){
         String  returnInfo = "returnInfo:"+info;
+        try {
+            Thread.sleep(10000);
+        }catch (Exception e){
+            log.error("e:{}",e);
+        }
         log.info(returnInfo);
         return returnInfo;
     }

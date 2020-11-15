@@ -14,7 +14,7 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>
-        <dubbo.version>2.7.1</dubbo.version>
+        <dubbo.version>2.7.2</dubbo.version>
 
     </properties>
 
@@ -24,23 +24,38 @@
             <artifactId>dubbo</artifactId>
             <version>${dubbo.version}</version>
         </dependency>
-
         <dependency>
-            <groupId>com.alibaba.nacos</groupId>
-            <artifactId>nacos-client</artifactId>
-            <version>1.1.1</version>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-configcenter-nacos</artifactId>
+            <version>${dubbo.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-registry-nacos</artifactId>
+            <version>${dubbo.version}</version>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba.nacos</groupId>-->
+<!--            <artifactId>nacos-client</artifactId>-->
+<!--            <version>1.3.3</version>-->
+<!--        </dependency>-->
 <!--        <dependency>-->
 <!--            <groupId>org.apache.dubbo</groupId>-->
 <!--            <artifactId>dubbo-dependencies-zookeeper</artifactId>-->
 <!--            <version>${dubbo.version}</version>-->
 <!--            <type>pom</type>-->
 <!--        </dependency>-->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>dubbo-registry-nacos</artifactId>
-            <version>0.0.1</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba</groupId>-->
+<!--            <artifactId>dubbo-registry-nacos</artifactId>-->
+<!--            <version>0.0.2</version>-->
+<!--        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/org.apache.dubbo/dubbo-registry-nacos -->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.dubbo</groupId>-->
+<!--            <artifactId>dubbo-registry-nacos</artifactId>-->
+<!--            <version>2.7.1</version>-->
+<!--        </dependency>-->
 
 <!--        <dependency>-->
 <!--            <groupId>com.alibaba.spring</groupId>-->
