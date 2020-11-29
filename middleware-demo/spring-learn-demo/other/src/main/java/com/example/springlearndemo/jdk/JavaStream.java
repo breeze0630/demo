@@ -1,19 +1,22 @@
 package com.example.springlearndemo.jdk;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import jdk.nashorn.internal.parser.JSONParser;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.catalina.User;
+
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+@Slf4j
 public class JavaStream {
 
     public static void main(String[] args) {
         initStreamDemo();
         StringStreamDemo();
         ObjectStreamDemo();
+        listToMap();
     }
 
     private static void initStreamDemo(){
@@ -75,5 +78,73 @@ public class JavaStream {
 
     }
 
+    /**
+     * list 转 map
+     * 多个userDto 可能需要合并的场景，
+     * 1、List<UserDto> --> Map<Integer,List<UserDto>
+     * */
+    private static void listToMap(){
+        List<UserDto> userDtos = new ArrayList<>();
+        int i = 1;
+        while (i <= 100){
+            UserDto userDto = new UserDto();
+            if(i%2==0){
+                userDto.setId(i-1);
+            }else {
+                userDto.setId(i);
+            }
+            userDto.setName("name"+i);
+            userDtos.add(userDto);
+            i++;
+        }
 
+        Map<Integer,List<UserDto>> userMap = userDtos.stream().collect(Collectors.toMap(
+                UserDto::getId,
+                k -> {
+                    List<UserDto> userDtoList = new ArrayList<>();
+                    userDtoList.add(k);
+                    return userDtoList;
+                },(List<UserDto> list1,List<UserDto> list2) -> {
+                    list1.addAll(list2);
+                    return list1;
+        }
+        ));
+
+        userMap.forEach((k,v) -> {System.out.println("k : "+ k + " , v : " + v);});
+
+    }
+    /**
+     * list 转 map
+     * 不需要合并
+     * 2、List<UserDto> --> Map<Integer,UserDto>
+     * */
+    private static void listToMap2() {
+        List<UserDto> userDtos = new ArrayList<>();
+        int i = 1;
+        while (i <= 100) {
+            UserDto userDto = new UserDto();
+            userDto.setId(i);
+            userDto.setName("name" + i);
+            userDtos.add(userDto);
+            i++;
+        }
+
+        Map<Integer, UserDto> userMap = userDtos.stream().collect(Collectors.toMap(
+                UserDto::getId,
+                k -> {
+                    return k;
+                }
+        ));
+
+        userMap.forEach((k,v) -> {System.out.println("k : "+ k + " , v : " + v);});
+        /**或者
+         *
+         Map<Integer,UserDto> userMap = userDtos.stream().collect(Collectors.toMap(
+         UserDto::getId,
+         k->(k)
+         ));
+        * */
+
+
+    }
 }
