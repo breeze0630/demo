@@ -25,7 +25,8 @@
 		<module>model-demo</module>
 		<module>spring-learn-demo</module>
 		<module>rocket-all-demo</module>
-    </modules>
+<!--		<module>transaction-demo</module>-->
+	</modules>
 
 	<properties>
 		<java.version>1.8</java.version>

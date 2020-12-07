@@ -14,6 +14,19 @@ public class JavaStream {
         initStreamDemo();
         StringStreamDemo();
         ObjectStreamDemo();
+        ListStreamDemo();
+    }
+
+    private static void ListStreamDemo() {
+        System.out.println("-----------------------ListStreamDemo START--------------------------------------");
+        int i = 0 ;
+        List<FileClass> fileClasses= new ArrayList<>();
+        for( ; i< 10 ; i++){
+            FileClass fileClass = new FileClass(i,"name_" + i);
+            fileClasses.add(fileClass);
+        }
+
+        System.out.println(fileClasses.stream().map(FileClass::getName).collect(Collectors.toList()));
     }
 
     private static void initStreamDemo(){
@@ -75,5 +88,33 @@ public class JavaStream {
 
     }
 
+    static class FileClass{
+        private int id;
+        private String name;
+
+        public FileClass() {
+        }
+
+        public FileClass(int id, String name) {
+            this.id = id;
+            this.name = name;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
 
 }
