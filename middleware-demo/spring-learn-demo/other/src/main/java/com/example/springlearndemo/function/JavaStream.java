@@ -1,4 +1,6 @@
-package com.example.springlearndemo.jdk;
+package com.example.springlearndemo.function;
+
+import com.example.springlearndemo.jdk.UserDto;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,7 +17,57 @@ public class JavaStream {
         StringStreamDemo();
         ObjectStreamDemo();
         ListStreamDemo();
+        getStream();
+        transferArrayToList();
+        StreamStaticMethod();
     }
+
+
+    /**
+     * 通过 Stream () （串行执行） 和 ParallelStream() （并行执行） 获得流
+     * */
+    private static void getStream(){
+        System.out.println("---------------------getStream START----------------------------");
+
+        List<String> list = new ArrayList<>();
+        Stream<String> stringStream = list.stream();
+        Stream<String> parallelStream = list.parallelStream();
+
+        System.out.println( stringStream);
+        System.out.println(parallelStream);
+    }
+
+    /**
+     * Arrays.stream() 装源数组转为流
+     * */
+    private static void transferArrayToList(){
+        System.out.println("---------------------transferArrayToList START----------------------------");
+
+        Integer[] numbers = new  Integer[10];
+        for(int i=0;i<numbers.length;i++){
+            numbers[i] = i;
+        }
+        Stream<Integer> stream = Arrays.stream(numbers);
+//        System.out.println(stream.collect(Collectors.toList()));
+    }
+
+    /**
+     * Stream 的 静态方法
+     * of() 可用于构建流
+     * iterate() 迭代 流
+     * */
+    private static void StreamStaticMethod(){
+        System.out.println("---------------------StreamStaticMethod START----------------------------");
+
+        Stream<Integer> stream = Stream.of(1,2,3,4,5,6);
+        System.out.println(stream.collect(Collectors.toList()));
+
+        Stream<Integer> stream2 = Stream.iterate(0,(x) -> (x+2)).limit(6);
+        System.out.println(stream2.collect(Collectors.toList()));
+
+    }
+
+
 
     private static void ListStreamDemo() {
         System.out.println("-----------------------ListStreamDemo START--------------------------------------");
