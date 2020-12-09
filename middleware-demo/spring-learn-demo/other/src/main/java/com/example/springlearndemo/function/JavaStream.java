@@ -2,10 +2,14 @@ package com.example.springlearndemo.function;
 
 import com.example.springlearndemo.jdk.UserDto;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -20,6 +24,87 @@ public class JavaStream {
         getStream();
         transferArrayToList();
         StreamStaticMethod();
+        BufferedReaderDemo();
+        SplitAsStreamDemo();
+
+        //对流的操作
+        FilterStreamDemo();
+        MapStreamDemo();
+        FlatMapStreamDemo();
+
+    }
+
+    /**
+     * 映射
+     * 接收一个函数作为参数，将流中的每个值都换成另一个流，然后把所有流连接成一个流
+     * */
+    private static void FlatMapStreamDemo() {
+        System.out.println("---------------------FlatMapStreamDemo START----------------------------");
+        List<String> list = Arrays.asList("a,b,c", "1,2,3");
+        Stream stream = list.stream().flatMap(s->{return Arrays.stream(s.split(",").clone());});
+
+        stream.forEach(System.out::println);
+
+    }
+
+    /**
+     * 映射
+     * 接收一个函数作为参数，将函数应用到每个元素上，并将其映射成一个新的元素
+     * */
+    private static void MapStreamDemo() {
+        System.out.println("---------------------MapStreamDemo START----------------------------");
+
+
+        List<String> list = Arrays.asList("a,b,c", "1,2,3");
+
+        //将每个元素转成一个新的且不带逗号的元素
+        Stream<String> s1 = list.stream().map(s -> s.replaceAll(",",""));
+        s1.forEach(System.out::println);
+    }
+
+    /**
+     * filter：过滤流中的某些元素
+     *  limit(n)：获取n个元素
+     *  skip(n)：跳过n元素，配合limit(n)可实现分页
+     *  distinct：通过流中元素的 hashCode() 和 equals() 去除重复元素
+     * */
+    private static void FilterStreamDemo() {
+        System.out.println("---------------------FilterStreamDemo START----------------------------");
+        Stream<Integer> stream = Stream.of(6, 4, 6, 7, 3, 9, 8, 10, 12, 14, 14);
+
+        Stream<Integer> newStream = stream.filter(s -> s > 5) // 符合大于5 ==> 6 6 7 9 8 10 12 14 14
+                .distinct() //去重 ==> 6 7 9 8 10 12 14
+                .skip(2) //跳过前两个 ==> 9 8 10 12 14
+                .limit(2); // 截取前两个9 8
+        newStream.forEach(System.out::println);
+    }
+
+    /**
+     * 使用 Pattern.splitAsStream() 方法，将字符串分隔成流
+     * */
+    private static void SplitAsStreamDemo() {
+        System.out.println("---------------------SplitAsStreamDemo START----------------------------");
+
+//        String str = "fasdfadsf,fdsfasdfsdl,fsdfadsdsf,fsdfasdfdsf,fdsfdasfasdresfesgsdcnsfsdfs,3123123qd,21543215412343,,fsdtrsdfrwnchn";
+        String str = "";
+        Pattern pattern = Pattern.compile(",");
+        pattern.splitAsStream(str).forEach(System.out::println);
+    }
+
+    /**
+     * 使用 BufferedReader.lines() 方法，将每行内容转成流
+     * */
+    private static void BufferedReaderDemo() {
+        System.out.println("---------------------BufferedReaderDemo START----------------------------");
+
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader("D:\\dev\\github\\demo\\middleware-demo\\spring-learn-demo\\other\\src\\main\\resources\\static\\buffered.txt"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        Stream<String> lineStream = reader.lines();
+        lineStream.forEach(System.out::println);
     }
 
 
