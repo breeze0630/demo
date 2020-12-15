@@ -31,7 +31,135 @@ public class JavaStream {
         FilterStreamDemo();
         MapStreamDemo();
         FlatMapStreamDemo();
+        SortStreamDemo();
+        
+        PeekStreamDemo();
 
+        MatchStreamDemo();
+    }
+
+    private static void MatchStreamDemo() {
+        System.out.println("---------------------MatchStreamDemo START----------------------------");
+
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
+
+        boolean allMatch = list.stream().allMatch(e ->
+            e > 3 || e<2
+        ); //false
+        boolean noneMatch = list.stream().noneMatch(e -> e > 10); //true
+        boolean anyMatch = list.stream().anyMatch(e -> e > 4);  //true
+
+        Integer findFirst = list.stream().findFirst().get(); //1
+        Integer findAny = list.stream().findAny().get(); //1
+
+        long count = list.stream().count(); //5
+        Integer max = list.stream().max(Integer::compareTo).get(); //5
+        Integer min = list.stream().min(Integer::compareTo).get(); //1
+
+        System.out.printf("allMatch:%s ; noneMatch:%s ; anyMatch:%s ; findFirst:%s ; findAny:%s ;count:%s ; max:%s ;  min:%s ; \n",
+                allMatch,noneMatch,anyMatch,findFirst,findAny,count,max,min);
+
+        List<Student> students = new ArrayList<>();
+        students.add(new Student("aa",10));
+        students.add(new Student("ab",32));
+        students.add(new Student("bb",51));
+        students.add(new Student("bc",33));
+        students.add(new Student("bc",32));
+        students.add(new Student("abc",21));
+
+        System.out.printf("是否都小于30岁：%s \n",students.stream().allMatch( o -> o.getAge()<30));
+        System.out.printf("是否年龄都在20-30岁之间：%s \n",students.stream().allMatch( o -> o.getAge()<30 && o.getAge()> 20));
+        System.out.printf("是否名字里都没有D：%s \n",students.stream().noneMatch( o -> o.getName().contains("d")));
+        System.out.printf("是否有叫aa并且在30岁以上的人：%s \n",students.stream().anyMatch( o -> o.getName().equals("aa") && o.getAge()> 30));
+
+
+        System.out.printf("找出第一个人：%s \n",students.stream().findFirst());
+        System.out.printf("随机抽一个人：%s \n",students.stream().findAny());
+        System.out.printf("随机抽一个人：%s \n",students.stream().findAny());
+        System.out.printf("随机抽一个人：%s \n",students.stream().findAny());
+
+
+    }
+
+    /**
+     *
+     *消费
+     * peek：如同于map，能得到流中的每一个元素。但map接收的是一个Function表达式，有返回值；而peek接收的是Consumer表达式，没有返回值。
+     *
+     * peek 流会直接修改数据信息
+     * */
+    private static void PeekStreamDemo() {
+        System.out.println("---------------------PeekStreamDemo START----------------------------");
+        Student s1 = new Student("aa", 10);
+        Student s2 = new Student("bb", 20);
+        List<Student> studentList = Arrays.asList(s1, s2);
+        // peek 流会直接修改数据信息
+        studentList.stream()
+                .peek(o -> {
+                    if(o.getAge() >= 20)
+                    {
+                        o.setName(o.getName()+"1");
+                    }
+                }).forEach(System.out::println);
+
+        List<Student> students = studentList.stream()
+                .peek(o -> {
+                    if(o.getAge() >= 20)
+                    {
+                        o.setName(o.getName()+o.getAge());
+                    }
+                }).collect(Collectors.toList());
+        System.out.println(students);
+
+    }
+
+    /**
+     * 排序
+     * sorted() 自然排序，流中元素需实现Comparable接口
+     * sorted(Comparator com)：定制排序，自定义 Comparator 排序器
+     * */
+    private static void SortStreamDemo() {
+        System.out.println("---------------------SortStreamDemo START----------------------------");
+
+        List<String> sourceList = Arrays.asList("aa","ab","bb","bc","ac","abc");
+        sourceList.stream().sorted().forEach(System.out::println);
+        System.out.println("---------------------先按姓名升序，姓名相同则按年龄升序 START----------------------------");
+        //自定义排序：先按姓名升序，姓名相同则按年龄升序
+        List<Student> students = new ArrayList<>();
+        students.add(new Student("aa",10));
+        students.add(new Student("ab",32));
+        students.add(new Student("bb",51));
+        students.add(new Student("bc",33));
+        students.add(new Student("bc",32));
+        students.add(new Student("abc",21));
+
+        students.stream().sorted((o1,o2)->{
+            if(o1.getName().equals(o2.getName())){
+                return o1.getAge() - o2.getAge();
+            }else {
+                return o1.getName().compareTo(o2.getName());
+            }
+        }).forEach(System.out::println);
+
+        System.out.println("---------------------按姓名升序 START----------------------------");
+        //自定义排序：按姓名升序
+        students.stream().sorted((o1,o2)->{
+            return o1.getName().compareTo(o2.getName());
+        }).forEach(System.out::println);
+        System.out.println("---------------------按年龄升序 START----------------------------");
+        //自定义排序：按年龄升序
+        students.stream().sorted((o1,o2)->{
+            return o1.getAge()-o2.getAge();
+        }).forEach(System.out::println);
+
+        System.out.println("---------------------按年龄升序(不使用lambada表达式) START----------------------------");
+        //自定义排序：按年龄升序
+        students.stream().sorted(new Comparator<Student>() {
+            @Override
+            public int compare(Student o1, Student o2) {
+                return o1.getAge()- o2.getAge();
+            }
+        }).forEach(System.out::println);
     }
 
     /**
