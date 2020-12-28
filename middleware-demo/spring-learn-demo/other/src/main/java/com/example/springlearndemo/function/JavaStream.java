@@ -103,7 +103,7 @@ public class JavaStream {
                     return x1 + x2;
                 },
                 (x1, x2) -> {
-                    // 这个函数中的参数是上个bifunction 中的处理结果
+                    // 这个函数中的参数是上个bifunction 中的处理结果,各结果处理顺序是乱的，因为是通过 fock join 多线程处理的
                     System.out.println("parallelStream combiner: x1:" + x1 + "  x2:" + x2);
                     return x1 + x2;
                 });
