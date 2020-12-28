@@ -36,6 +36,79 @@ public class JavaStream {
         PeekStreamDemo();
 
         MatchStreamDemo();
+
+        ReduceStreamDemo();
+
+        CollectStreamDemo();
+    }
+
+    private static void CollectStreamDemo() {
+        System.out.println("---------------------CollectStreamDemo START----------------------------");
+
+    }
+
+    /**
+     * reduce
+     * 适用于求和，累加
+     * reduce 累加过程中需要判断的，判断第二个参数，第一个参数是上一次执行的结果
+     *
+     * */
+    private static void ReduceStreamDemo() {
+        System.out.println("---------------------ReduceStreamDemo START----------------------------");
+
+        List<Integer> list1 = Arrays.asList(1, 2, 3, 4, 5);
+        Integer sum = list1.stream().reduce(0,(a,b) -> {return  a+b;});
+        System.out.println("sum :  " + sum);
+
+        List<Student> students = new ArrayList<>();
+        students.add(new Student("aa",1));
+        students.add(new Student("ab",2));
+        students.add(new Student("bb",3));
+        students.add(new Student("bc",1));
+        students.add(new Student("bc",2));
+        students.add(new Student("abc",3));
+
+        Student sumAeg = students.stream().reduce(new Student("bb",0),(a,b) -> {
+            if(b.getName().contains("a")) {
+                a.setAge(a.getAge() + b.getAge());
+            }
+            return  a;});
+
+        System.out.println("sumAeg :  " + sumAeg.getAge());
+
+        //经过测试，当元素个数小于24时，并行时线程数等于元素个数，当大于等于24时，并行时线程数为16
+//        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24);
+        List<Integer> list = Arrays.asList(1, 2, 3,4,5,6);
+
+        Integer v = list.stream().reduce((x1, x2) -> x1 + x2).get();
+        System.out.println(v);   // 300
+
+        Integer v1 = list.stream().reduce(10, (x1, x2) -> x1 + x2);
+        System.out.println(v1);  //310
+
+        Integer v2 = list.stream().reduce(0,
+                (x1, x2) -> {
+                    System.out.println("stream accumulator: x1:" + x1 + "  x2:" + x2);
+                    return x1 - x2;
+                },
+                (x1, x2) -> {
+                    System.out.println("stream combiner: x1:" + x1 + "  x2:" + x2);
+                    return x1 * x2;
+                });
+        System.out.println(v2); // -300
+
+        Integer v3 = list.parallelStream().reduce(0,
+                (x1, x2) -> {
+                    System.out.println("parallelStream accumulator: x1:" + x1 + "  x2:" + x2);
+                    return x1 + x2;
+                },
+                (x1, x2) -> {
+                    // 这个函数中的参数是上个bifunction 中的处理结果
+                    System.out.println("parallelStream combiner: x1:" + x1 + "  x2:" + x2);
+                    return x1 + x2;
+                });
+        System.out.println(v3); //197474048
+
     }
 
     private static void MatchStreamDemo() {
