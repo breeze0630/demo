@@ -28,17 +28,10 @@ public class Job1 {
         return executor;
     }
 
-    @Scheduled(cron = "0/2 * * * * ?")
-//    @Async
-//            (value = "executor")
+    @Scheduled(cron = "0/10 * * * * ?")
+    @Async   (value = "executor")
     public void exeucte(){
 
         log.info("job:{},thread:{}",this.getClass().getName(),Thread.currentThread().getName());
-        System.nanoTime();
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 }
