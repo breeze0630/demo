@@ -37,6 +37,11 @@ public class AopInterceptorDemo {
                         };
                         endTime = (Long)afterInterceptor.after(proxy,method,args,result);
 
+                    }catch (Throwable throwable){
+                        ExceptionInterceptor exceptionInterceptor = (proxy1,method1,args1,throwable1) ->{
+                            System.out.println("异常拦截："+ throwable1);
+                        };
+                        exceptionInterceptor.intercept(proxy,method,args,throwable);
                     }finally {
                         FinallyInterceptor finallyInterceptor = new TimeFinallyInterceptor(startTime,endTime);
                         long costTime = (Long)finallyInterceptor.finalize(proxy,method,args,result);
