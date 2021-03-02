@@ -19,6 +19,7 @@
         <module>converter</module>
         <module>annotation</module>
         <module>environment</module>
+        <module>aop-demo</module>
     </modules>
     <!--    <parent>-->
 <!--        <groupId>org.springframework.boot</groupId>-->
