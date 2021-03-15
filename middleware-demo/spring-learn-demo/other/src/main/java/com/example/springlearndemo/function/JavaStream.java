@@ -45,7 +45,7 @@ public class JavaStream {
     private static void MapComputeDemo() {
         System.out.println("---------------------MapComputeDemo START----------------------------");
 
-        List<String> list = Arrays.asList("1","2","3","1","5","2","10","2","6");
+        List<String> list = Arrays.asList("1","2","3","1","5","2","10","2","6","23","1");
         HashMap<String,Integer> hashMap = new HashMap();
         for (String s : list ){
             hashMap.compute(s,(k,v) -> {return v ==null ? 1 : ++v ;});
