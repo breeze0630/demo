@@ -5,10 +5,7 @@ import com.example.springlearndemo.jdk.UserDto;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -40,6 +37,21 @@ public class JavaStream {
         ReduceStreamDemo();
 
         CollectStreamDemo();
+
+        MapComputeDemo();
+
+    }
+
+    private static void MapComputeDemo() {
+        System.out.println("---------------------MapComputeDemo START----------------------------");
+
+        List<String> list = Arrays.asList("1","2","3","1","5","2","10","2","6");
+        HashMap<String,Integer> hashMap = new HashMap();
+        for (String s : list ){
+            hashMap.compute(s,(k,v) -> {return v ==null ? 1 : ++v ;});
+        }
+
+        System.out.println(hashMap);
     }
 
     private static void CollectStreamDemo() {

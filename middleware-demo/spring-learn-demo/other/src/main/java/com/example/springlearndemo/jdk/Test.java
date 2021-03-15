@@ -1,6 +1,8 @@
 package com.example.springlearndemo.jdk;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * create by liubiao
@@ -22,6 +24,12 @@ public class Test {
         }
 
         System.out.println("位移:"+((2<<3)-1));
+
+        Map<String,Object> map1 = new HashMap<>();
+        map1.put("1",1);
+        map1.put("2",2);
+        map1.put("1",2);
+
     }
 
     public static boolean proMethod(int a){
