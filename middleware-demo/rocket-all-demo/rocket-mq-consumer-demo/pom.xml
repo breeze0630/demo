@@ -9,9 +9,9 @@
 		<relativePath/>
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>rocket-mq-producer-demo</artifactId>
+	<artifactId>rocket-mq-consumer-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>rocket-mq-producer-demo</name>
+	<name>rocket-mq-consumer-demo</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
