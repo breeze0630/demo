@@ -6,6 +6,7 @@ import com.example.rocketmq.producerdemo.producer.DelayProducer;
 import com.example.rocketmq.producerdemo.producer.SyncProducer;
 import com.example.rocketmq.producerdemo.producer.TransactionMessageProducer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,6 +25,9 @@ public class MessageController {
 
     @Autowired
     private TransactionMessageProducer transactionMessageProducer;
+
+    @Value("${test}")
+    private String test;
     @GetMapping(value = "/send")
     public String send(String topic,String tag,String message) throws Exception{
         MessageDTO messageDTO = new MessageDTO(topic,tag,message);
