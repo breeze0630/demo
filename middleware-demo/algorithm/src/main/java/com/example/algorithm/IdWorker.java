@@ -122,7 +122,7 @@ public class IdWorker {
     public static void main(String[] args) {
 
         IdWorker worker = new IdWorker(1, 1, 1);
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 300; i++) {
             System.out.println(worker.nextId());
         }
     }
