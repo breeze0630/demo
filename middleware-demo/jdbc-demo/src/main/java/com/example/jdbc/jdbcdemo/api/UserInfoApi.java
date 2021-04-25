@@ -5,7 +5,9 @@ import com.example.jdbc.jdbcdemo.anno.MyAutowired;
 import com.example.jdbc.jdbcdemo.biz.bean.Info;
 import com.example.jdbc.jdbcdemo.biz.bean.UserInfo;
 import com.example.jdbc.jdbcdemo.configswtich.ConfigSwitch;
+import com.example.jdbc.jdbcdemo.proxy.UserInvokerHandler;
 import com.example.jdbc.jdbcdemo.service.UserService;
+import com.example.jdbc.jdbcdemo.service.impl.UserServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,7 +37,13 @@ public class UserInfoApi {
 
     @RequestMapping(path = {"getAllUser","getAllUser1"})
     public Object getAllUser() {
-        List<UserInfo> list = userService.getAllUser();
+        UserInvokerHandler myJDKProxy = new UserInvokerHandler();
+
+        Object obj = myJDKProxy.getProxy(userService);
+        UserService userService1 = (UserService)obj;
+
+        List<UserInfo> list = userService1.getAllUser();
+
         log.info("getAllUser list:{}", JSON.toJSONString(list));
         return list;
     }

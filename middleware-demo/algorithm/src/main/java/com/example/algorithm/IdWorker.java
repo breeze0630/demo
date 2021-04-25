@@ -120,10 +120,13 @@ public class IdWorker {
 
     // ---------------测试---------------
     public static void main(String[] args) {
+        int i = 9;
+        int j = 6;
+        System.out.println(i & j);
 
-        IdWorker worker = new IdWorker(1, 1, 1);
+       /* IdWorker worker = new IdWorker(1, 1, 1);
         for (int i = 0; i < 300; i++) {
             System.out.println(worker.nextId());
-        }
+        }*/
     }
 }

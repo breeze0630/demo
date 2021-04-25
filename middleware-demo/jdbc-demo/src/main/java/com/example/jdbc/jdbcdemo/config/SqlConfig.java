@@ -51,10 +51,10 @@ public class SqlConfig {
     @Bean(value = "dataSource1")
     public DataSource dataSource() {
         return new HikariDataSource() {{
-//            setJdbcUrl("jdbc:mysql://rm-bp14z2vanu1hlt59rao.mysql.rds.aliyuncs.com:3306/test_0323?useUnicode=true&characterEncoding=utf8&useSSL=false");
-            setJdbcUrl("jdbc:mysql://localhost:33061/test?useUnicode=true&characterEncoding=utf8&useSSL=false");
+            setJdbcUrl("jdbc:mysql://rm-bp14z2vanu1hlt59rao.mysql.rds.aliyuncs.com:3306/test_0323?useUnicode=true&characterEncoding=utf8&useSSL=false");
+//            setJdbcUrl("jdbc:mysql://localhost:33061/test?useUnicode=true&characterEncoding=utf8&useSSL=false");
             setUsername("root");
-            setPassword("123456");
+            setPassword("Liub630918");
         }};
     }
 
