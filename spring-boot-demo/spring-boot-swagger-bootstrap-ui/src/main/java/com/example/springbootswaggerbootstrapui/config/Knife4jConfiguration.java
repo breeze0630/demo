@@ -25,7 +25,7 @@ public class Knife4jConfiguration {
                         //.title("swagger-bootstrap-ui-demo RESTful APIs")
                         .description("# swagger-bootstrap-ui-demo RESTful APIs")
                         .termsOfServiceUrl("http://www.xx.com/")
-                        .contact("xx@qq.com")
+                        .contact("external_ll@163.com")
                         .version("1.0")
                         .build())
                 //分组名称
@@ -45,7 +45,7 @@ public class Knife4jConfiguration {
                         //.title("swagger-bootstrap-ui-demo RESTful APIs")
                         .description("# swagger-bootstrap-ui-demo RESTful APIs")
                         .termsOfServiceUrl("http://www.xx.com/")
-                        .contact("xx@qq.com")
+                        .contact("external_ll@163.com")
                         .version("1.0")
                         .build())
                 //分组名称
