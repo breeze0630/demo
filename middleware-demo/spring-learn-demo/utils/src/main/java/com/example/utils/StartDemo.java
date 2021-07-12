@@ -19,5 +19,12 @@ public class StartDemo {
         UserDTO userDTO = new UserDTO();
         BeanUtils.mapToBean(sourceMap,userDTO);
         System.out.println(JSON.toJSONString(userDTO));
+
+        System.out.println(PermName.PERM_INHERIT);
+        System.out.println(PermName.PERM_WRITE);
+        System.out.println(PermName.PERM_READ);
+
+        System.out.println(PermName.isWriteable(3));
+
     }
 }
