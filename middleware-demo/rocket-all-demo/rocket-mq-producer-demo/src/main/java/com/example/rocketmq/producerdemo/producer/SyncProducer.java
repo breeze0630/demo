@@ -29,9 +29,10 @@ public class SyncProducer {
 
     @PostConstruct
     public void init() throws Exception{
-        producer = new
-                DefaultMQProducer("msg_group_demo");
+        producer = new DefaultMQProducer("msg_group_demo");
         producer.setNamesrvAddr("localhost:9876");
+
+
         producer.start();
 
     }
@@ -39,13 +40,14 @@ public class SyncProducer {
 
     public void sendMsg(MessageDTO dto) throws UnsupportedEncodingException, InterruptedException, RemotingException, MQClientException, MQBrokerException {
             Message msg = new Message(dto.getTopic() , dto.getTag() ,   dto.getMsg().getBytes(RemotingHelper.DEFAULT_CHARSET));
-            SendResult sendResult = producer.send(msg);
+        msg.setDelayTimeLevel(2);
+        SendResult sendResult = producer.send(msg);
             log.info("sendResult:{}", JSON.toJSONString(sendResult));
     }
 
-    @PreDestroy
-    public void close(){
-        producer.shutdown();
-    }
+//    @PreDestroy
+//    public void close(){
+//        producer.shutdown();
+//    }
 
 }

@@ -31,6 +31,7 @@ public class MessageController {
     @GetMapping(value = "/send")
     public String send(String topic,String tag,String message) throws Exception{
         MessageDTO messageDTO = new MessageDTO(topic,tag,message);
+
         syncProducer.sendMsg(messageDTO);
         return "send is success";
     }

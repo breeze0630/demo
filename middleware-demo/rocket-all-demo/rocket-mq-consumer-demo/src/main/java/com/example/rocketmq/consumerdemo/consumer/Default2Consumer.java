@@ -14,26 +14,26 @@ import java.util.List;
 
 @Service
 @Slf4j
-public class DefaultConsumer {
+public class Default2Consumer {
 
-    DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("msg_group_default_consumer");
+    DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("msg_group_default_consumer2");
 
     @PostConstruct
     public void init(){
         try {
             consumer.setNamesrvAddr("localhost:9876");
-            consumer.subscribe("topic1", "*");
+            consumer.subscribe("topic2", "*");
             consumer.registerMessageListener(new MessageListenerConcurrently() {
 
                 @Override
                 public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> msgs,
                                                                 ConsumeConcurrentlyContext context) {
-                   log.info("{} Receive New Messages: {}", Thread.currentThread().getName(), msgs);
-                    msgs.forEach( k->{
-                        if(k.getTopic().equals("topic1")){
+                   log.info("{} Receive 2 New Messages: {}", Thread.currentThread().getName(), msgs);
+                   /* msgs.forEach( k->{
+                        if(k.getTopic().equals("topic2")){
                             throw new RuntimeException();
                         }
-                    });
+                    });*/
                     return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
                 }
             });

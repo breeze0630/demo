@@ -76,8 +76,8 @@ public class DelayProducer {
     /**
      * 系统停止时关闭资源
      * */
-    @PreDestroy
+/*    @PreDestroy
     public void closed(){
         producer.shutdown();
-    }
+    }*/
 }

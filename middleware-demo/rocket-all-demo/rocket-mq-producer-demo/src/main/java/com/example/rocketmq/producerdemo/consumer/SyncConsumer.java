@@ -12,7 +12,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import java.util.List;
 
-@Service
+//@Service
 @Slf4j
 public class SyncConsumer {
 

@@ -34,6 +34,7 @@ public class AsyncProducer {
             producer.setNamesrvAddr("localhost:9876");
             // 启动Producer实例
             producer.start();
+
             /**
              * 线程池可以单独设置
              * TODO 不建议调整线程数，可根据实际业务场景调整队列数
@@ -44,8 +45,11 @@ public class AsyncProducer {
             ExecutorService executorService = new ThreadPoolExecutor(5, 10, 60000L, TimeUnit.MILLISECONDS, blockingQueue);
             transactionMQProducer.getmQClientFactory().getMQClientAPIImpl().getRemotingClient().setCallbackExecutor(executorService);
 
+            //注册发送消息钩子函数
+
 
             producer.setRetryTimesWhenSendAsyncFailed(0);
+
             log.info("AsyncProducer init success");
         }catch (Exception e){
             log.error("e:{},{}","AsyncProducer init failed",e);
@@ -88,8 +92,8 @@ public class AsyncProducer {
     /**
      * 系统停止时关闭资源
      * */
-    @PreDestroy
+/*    @PreDestroy
     public void closed(){
         producer.shutdown();
-    }
+    }*/
 }
