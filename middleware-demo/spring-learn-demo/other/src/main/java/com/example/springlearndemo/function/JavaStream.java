@@ -194,7 +194,9 @@ public class JavaStream {
                         o.setName(o.getName()+o.getAge());
                     }
                 }).collect(Collectors.toList());
-        System.out.println(students);
+        System.out.println("studentList:" + studentList);
+
+        System.out.println("students:" +students);
 
     }
 
