@@ -1,5 +1,6 @@
 package com.example.springboot.autoconfig.web.demo.mapper;
 
+import com.baomidou.dynamic.datasource.annotation.DS;
 import com.example.springboot.autoconfig.web.demo.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
@@ -14,6 +15,7 @@ import java.util.List;
  * @author liu
  * @since 2020-11-13
  */
+@DS("slave")
 public interface UserMapper extends BaseMapper<User> {
 
     List<User> selectAllByUserId(@Param("userId") int userId);

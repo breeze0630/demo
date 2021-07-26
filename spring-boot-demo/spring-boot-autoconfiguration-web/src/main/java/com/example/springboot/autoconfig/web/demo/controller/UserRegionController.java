@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2020-11-13
  */
 @RestController
-@RequestMapping("//user-region")
+@RequestMapping("/user-region")
 public class UserRegionController {
 
 }
