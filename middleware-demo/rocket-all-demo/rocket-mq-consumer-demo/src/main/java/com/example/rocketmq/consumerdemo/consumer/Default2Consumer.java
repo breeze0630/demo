@@ -16,13 +16,13 @@ import java.util.List;
 @Slf4j
 public class Default2Consumer {
 
-    DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("msg_group_default_consumer2");
+    DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("msg_group_default_consumer");
 
     @PostConstruct
     public void init(){
         try {
             consumer.setNamesrvAddr("localhost:9876");
-            consumer.subscribe("topic2", "*");
+            consumer.subscribe("topic1", "*");
             consumer.registerMessageListener(new MessageListenerConcurrently() {
 
                 @Override
