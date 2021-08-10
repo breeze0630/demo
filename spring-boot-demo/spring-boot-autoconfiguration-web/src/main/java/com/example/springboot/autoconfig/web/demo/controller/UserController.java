@@ -1,9 +1,14 @@
 package com.example.springboot.autoconfig.web.demo.controller;
 
 
+import com.example.springboot.autoconfig.web.demo.mapper.UserMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * <p>
@@ -14,8 +19,16 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2020-11-13
  */
 @RestController
-@RequestMapping("//user")
+@RequestMapping("/user")
 public class UserController {
+
+    @Resource
+    UserMapper userMapper;
+
+    @GetMapping("getById1")
+    public Object getById(Integer id){
+        return userMapper.selectById(id);
+    }
 
 }
 
