@@ -29,11 +29,11 @@ public class DefaultConsumer {
                 public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> msgs,
                                                                 ConsumeConcurrentlyContext context) {
                    log.info("{} Receive New Messages: {}", Thread.currentThread().getName(), msgs);
-                    msgs.forEach( k->{
+                   /* msgs.forEach( k->{
                         if(k.getTopic().equals("topic1")){
                             throw new RuntimeException();
                         }
-                    });
+                    });*/
                     return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
                 }
             });
