@@ -28,6 +28,13 @@ https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/02/addtwonumber1
 0 <= Node.val <= 9
 题目数据保证列表表示的数字不含前导零
 
-来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/add-two-numbers
-著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+答题分析：
+
+方法一（官方方法）
+
+1、主要还是通过遍历2个链表，将链表数字按位相加
+
+方法二（借鉴同学题解）
+
+2、递归遍历： 将链表遍历，对位相加，和官方的不同之处就是在于遍历，所以会少一些内存消耗，正常10几位数字的计算来说，基本不会出现栈溢出问题
+
