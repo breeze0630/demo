@@ -40,12 +40,12 @@
             <version>4.0.1</version>
         </dependency>
 
-        <dependency>
+      <!--  <dependency>
             <groupId>com.aspose</groupId>
             <artifactId>aspose-words</artifactId>
             <version>21.5</version>
             <systemPath>/Users/liubiao/Documents/dev/maven_repo/com/aspose/aspose-words/14.7.0/aspose-words-17.4.0-jdk16.jar</systemPath>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
 </project>

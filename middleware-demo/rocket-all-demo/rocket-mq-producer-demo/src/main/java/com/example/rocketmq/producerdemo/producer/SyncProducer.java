@@ -16,6 +16,8 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import java.io.UnsupportedEncodingException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 同步消息发送器
@@ -45,6 +47,21 @@ public class SyncProducer {
             log.info("sendResult:{}", JSON.toJSONString(sendResult));
     }
 
+    public void sendMsgQueue(List<MessageDTO> dtoList) throws UnsupportedEncodingException, InterruptedException, RemotingException, MQClientException, MQBrokerException {
+
+        List<Message> messages = dtoList.stream().map( dto -> {
+            try {
+                Message msg = new Message(dto.getTopic() , dto.getTag() ,dto.getMsg().getBytes(RemotingHelper.DEFAULT_CHARSET));
+//                msg.setDelayTimeLevel(2);
+                return msg;
+            }catch (UnsupportedEncodingException e){
+
+            }
+            return null;
+        }).collect(Collectors.toList());
+        SendResult sendResult = producer.send(messages);
+        log.info("sendResult:{}", JSON.toJSONString(sendResult));
+    }
 //    @PreDestroy
 //    public void close(){
 //        producer.shutdown();

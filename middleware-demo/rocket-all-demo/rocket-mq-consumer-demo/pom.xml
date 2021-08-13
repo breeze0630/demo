@@ -6,7 +6,7 @@
 		<groupId>com.example</groupId>
 		<artifactId>rocket-all-demo</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath/>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>rocket-mq-consumer-demo</artifactId>
@@ -14,6 +14,7 @@
 	<name>rocket-mq-consumer-demo</name>
 	<description>Demo project for Spring Boot</description>
 
+	<packaging>jar</packaging>
 	<properties>
 		<java.version>1.8</java.version>
 		<rocket.mq.version>4.7.0</rocket.mq.version>
@@ -47,6 +48,29 @@
 			<artifactId>rocketmq-client</artifactId>
 			<version>${rocket.mq.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-boot-starter</artifactId>
+			<version>3.2.0</version>
+		</dependency>
+
+<!--		<dependency>-->
+<!--			<groupId>com.baomidou</groupId>-->
+<!--			<artifactId>mybatis-plus-generator</artifactId>-->
+<!--			<version>3.4.1</version>-->
+<!--		</dependency>-->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.21</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-maven-plugin</artifactId>
+			<version>2.5.3</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -54,6 +78,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>2.5.3</version>
 			</plugin>
 		</plugins>
 	</build>

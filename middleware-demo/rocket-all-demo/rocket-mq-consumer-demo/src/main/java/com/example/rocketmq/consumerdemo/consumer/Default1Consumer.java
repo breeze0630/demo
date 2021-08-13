@@ -22,7 +22,7 @@ public class Default1Consumer {
     public void init(){
         try {
             consumer.setNamesrvAddr("localhost:9876");
-            consumer.subscribe("topic1", "*");
+            consumer.subscribe("topic-2021-07-13", "*");
             consumer.registerMessageListener(new MessageListenerConcurrently() {
 
                 @Override

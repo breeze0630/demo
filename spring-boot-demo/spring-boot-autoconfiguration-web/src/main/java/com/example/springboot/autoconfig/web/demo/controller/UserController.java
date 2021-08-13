@@ -1,6 +1,7 @@
 package com.example.springboot.autoconfig.web.demo.controller;
 
 
+import com.example.springboot.autoconfig.web.demo.entity.User;
 import com.example.springboot.autoconfig.web.demo.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,6 +29,12 @@ public class UserController {
     @GetMapping("getById1")
     public Object getById(Integer id){
         return userMapper.selectById(id);
+    }
+    @GetMapping("updateById")
+    public Object update(Integer id ,String name){
+        User user = userMapper.selectById(id);
+        user.setUserName(name);
+        return userMapper.updateById(user);
     }
 
 }

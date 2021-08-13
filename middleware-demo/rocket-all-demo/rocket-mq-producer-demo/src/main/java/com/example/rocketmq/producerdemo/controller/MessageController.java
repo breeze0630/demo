@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Arrays;
+import java.util.List;
+
 @RestController
 public class MessageController {
 
@@ -36,6 +39,36 @@ public class MessageController {
         return "send is success";
     }
 
+    @GetMapping(value = "/send1")
+    public String send1(String topic,String tag ) throws Exception{
+        String message ="";
+        while (message.length()<=1024*1024*4){
+            message+="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+        }
+        MessageDTO messageDTO = new MessageDTO(topic,tag,message);
+
+        syncProducer.sendMsg(messageDTO);
+        return "send is success";
+    }
+
+    @GetMapping(value = "/sendList")
+    public String sendList(String topic,String tag,String message ) throws Exception{
+        List<MessageDTO> messageDTOList = Arrays.asList(
+                new MessageDTO(topic,tag,message),
+                new MessageDTO(topic,tag,message),
+                new MessageDTO(topic,tag,message),
+                new MessageDTO(topic,tag,message),
+                new MessageDTO(topic,tag,message),
+                new MessageDTO(topic,tag,message),
+                new MessageDTO(topic,tag,message),
+                new MessageDTO(topic,tag,message),
+                new MessageDTO(topic,tag,message),
+                new MessageDTO(topic,tag,message)
+        );
+
+        syncProducer.sendMsgQueue(messageDTOList);
+        return "send is success";
+    }
     @GetMapping(value = "/sendAsync")
     public String sendAsync(String topic,String tag,String message) throws Exception{
         MessageDTO messageDTO = new MessageDTO(topic,tag,message);
