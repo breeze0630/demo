@@ -47,6 +47,7 @@ public class Solution {
                     maxStr = inner;
                 }
                 size--;
+
             }
 
             index++;
