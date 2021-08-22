@@ -22,7 +22,6 @@ public class Solution {
             return true;
         }
         List<Integer> xList = new ArrayList<>();
-        int shang = x;
         while ( x != 0){
             xList.add(x % 10);
             x = x / 10;
