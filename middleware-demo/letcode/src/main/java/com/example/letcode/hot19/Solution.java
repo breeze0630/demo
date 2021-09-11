@@ -13,18 +13,26 @@ public class Solution {
 
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
-
-        int current = 0;
-
-        return null;
-    }
-
-    public ListNode removeInner(ListNode head, ListNode first,int n,int current){
-        if(current == n){
-
+        ListNode dummy = new ListNode(0, head);
+        int length = getLength(head);
+        ListNode cur = dummy;
+        for (int i = 1; i < length - n + 1; ++i) {
+            cur = cur.next;
         }
-        return first;
+        cur.next = cur.next.next;
+        ListNode ans = dummy.next;
+        return ans;
     }
+
+    public int getLength(ListNode head) {
+        int length = 0;
+        while (head != null) {
+            ++length;
+            head = head.next;
+        }
+        return length;
+    }
+
 }
 
 
