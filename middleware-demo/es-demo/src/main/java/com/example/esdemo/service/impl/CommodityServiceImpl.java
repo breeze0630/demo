@@ -41,6 +41,11 @@ public class CommodityServiceImpl implements CommodityService {
     }
 
     @Override
+    public void deleteAll() {
+        commodityRepository.deleteAll();
+    }
+
+    @Override
     public Iterable<Commodity> getAll() {
         return commodityRepository.findAll();
     }
