@@ -13,6 +13,8 @@ public interface CommodityService {
 
     void delete(Commodity commodity);
 
+    void deleteAll();
+
     Iterable<Commodity> getAll();
 
     List<Commodity> getByName(String name);
