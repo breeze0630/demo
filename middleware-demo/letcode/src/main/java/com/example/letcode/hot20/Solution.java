@@ -1,9 +1,6 @@
 package com.example.letcode.hot20;
 
-import java.util.Deque;
-import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Map;
 
 /**
  * @author: liubiao
@@ -14,51 +11,31 @@ public class Solution {
 
     public static void main(String[] args) {
 
-        System.out.println(new Solution().isValid("(([]){})"));
+        System.out.println(new Solution().isValid("}{"));
     }
-
-    public boolean isValid2(String s) {
-        int n = s.length();
-        if (n % 2 == 1) {
+    public boolean isValid(String s) {
+        if(s.length() % 2 == 1){
             return false;
         }
-
-        Map<Character, Character> pairs = new HashMap<Character, Character>() {{
-            put(')', '(');
-            put(']', '[');
-            put('}', '{');
-        }};
-        Deque<Character> stack = new LinkedList<Character>();
-        for (int i = 0; i < n; i++) {
-            char ch = s.charAt(i);
-            if (pairs.containsKey(ch)) {
-                if (stack.isEmpty() || stack.peek() != pairs.get(ch)) {
-                    return false;
+        LinkedList<Character> characters = new LinkedList<>();
+        for( char c : s.toCharArray()){
+            if(characters.size() <= 0){
+                characters.add(c);
+                continue;
+            }else{
+                char c2 = characters.pollLast();
+                if(!isPattern(c2,c)){
+                    characters.add(c2);
+                    characters.add(c);
                 }
-                stack.pop();
-            } else {
-                stack.push(ch);
+
             }
         }
-        return stack.isEmpty();
+        return characters.size() == 0;
     }
 
-
-    public boolean isValid(String s) {
-
-        if(s.length() == 0){
-            return true;
-        }
-        if(s.length()==1){
-            return false;
-        }
-
-        return false;
+    public boolean isPattern(char left,char right){
+        return  (left == '(' && right == ')' ) || (left == '[' && right == ']' ) || (left == '{' && right == '}' );
     }
 
-    public boolean isPattern(String left,String right){
-
-            return (left.equals("(") && right.equals(")")) || (left.equals("{") && right.equals("}"))
-                    || (left.equals("[") && right.equals("]"));
-    }
 }
