@@ -15,15 +15,32 @@
     <description>spring-cloud-demo1</description>
     <properties>
         <java.version>11</java.version>
-        <lombox.version>1.16.20</lombox.version>
+        <lombox.version>1.18.22</lombox.version>
         <spring.boot.version>2.5.5</spring.boot.version>
+        <spring.cloud.version>2020.0.3</spring.cloud.version>
+        <mybatis-plus.version>3.4.0</mybatis-plus.version>
     </properties>
 
+
+    <packaging>pom</packaging>
+
     <modules>
-        <module>payment-demo</module>
+        <module>payment-service-eureka-8001</module>
+        <module>payment-service-eureka-8002</module>
+        <module>payment-service-zk-8010</module>
+        <module>order-service-zk-9010</module>
+        <module>EurekaServer</module>
+        <module>order</module>
+        <module>api-commons</module>
     </modules>
 
+
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-dependencies</artifactId>
+            <type>pom</type>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -43,19 +60,56 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
+            <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-dependencies -->
             <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>runtime</scope>
+            </dependency>
+
+            <!--<dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring.boot.version}</version>
-            </dependency>
+            </dependency>-->
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombox.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.74</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>1.7.32</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

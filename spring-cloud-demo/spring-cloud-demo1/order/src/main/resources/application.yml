@@ -1,0 +1,23 @@
+server:
+  port: 9002
+spring:
+  application:
+    name: order-service
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+  instance:
+    instance-id: order-service-9002
+
+
+
+service:
+  payment:
+    url: payment-service
+    getPayment: http://${service.payment.url}/payment/get
+
+
+
