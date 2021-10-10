@@ -1,16 +1,17 @@
 target/
 .settings/
-.classpath
-.project
+*.classpath
+*.project
 .sonar/
 package/
 .idea/
+.mvn/
 *.iml
 .DS_Store
 rebel.xml
 /.metadata/
 bash.exe.stackdump
-.springBeans
-.cmd
+*.springBeans
+*.cmd
 
-mvnw/
+mvnw
