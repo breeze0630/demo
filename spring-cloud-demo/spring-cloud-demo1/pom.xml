@@ -28,7 +28,12 @@
         <module>payment-service-eureka-8001</module>
         <module>payment-service-eureka-8002</module>
         <module>payment-service-zk-8010</module>
+        <module>payment-service-zk-8011</module>
+        <module>payment-service-consul-8020</module>
+        <module>payment-service-consul-8021</module>
+
         <module>order-service-zk-9010</module>
+        <module>order-service-consul-9020</module>
         <module>EurekaServer</module>
         <module>order</module>
         <module>api-commons</module>
