@@ -34,8 +34,10 @@
 
         <module>order-service-zk-9010</module>
         <module>order-service-consul-9020</module>
+        <module>order-9002</module>
+        <module>order-service-mylb-9003</module>
+
         <module>EurekaServer</module>
-        <module>order</module>
         <module>api-commons</module>
     </modules>
 
