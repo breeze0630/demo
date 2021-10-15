@@ -44,7 +44,9 @@ public class OrderController {
     public Object getPaymentById( @PathVariable("id") long id){
         log.info("getPaymentById:{}",id);
         log.info("getPaymentById:{}",getPaymentUrl);
-        return restTemplate.getForObject(getPaymentUrl+"/"+id, Payment.class);
+        ServiceInstance serviceInstance =  myLoadBalancerClient.instances(discoveryClient.getInstances("PAYMENT-SERVICE"));
+
+        return restTemplate.getForObject(serviceInstance.getUri() +"/payment/get/"+id, Payment.class);
     }
 
     @GetMapping("get/{id}")

@@ -15,7 +15,8 @@ import org.springframework.web.client.RestTemplate;
 public class RestTemplateConfig {
 
     @Bean
-    @LoadBalanced
+    //这个不能放开，否则走的就是默认的balance
+//    @LoadBalanced
     public RestTemplate restTemplate(RestTemplateBuilder builder){
         return builder.build();
     }

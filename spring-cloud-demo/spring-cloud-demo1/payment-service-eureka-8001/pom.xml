@@ -54,7 +54,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
 <!--                <configuration>-->
-<!--                    <mainClass>com.example.paymentdemo.PaymentDemoApplication</mainClass>-->
+<!--                    <mainClass>com.example.paymentdemo.PaymentServiceEureka8001Application</mainClass>-->
 <!--                </configuration>-->
              </plugin>
 
