@@ -35,5 +35,9 @@ public class OrderController {
         log.info("getPayment2:{}",id);
         return paymentFeignClient.getInfo(id);
     }
-
+    @GetMapping("/timeout")
+    public Object timeout(){
+        log.info("timeout:{}");
+        return paymentFeignClient.timeout();
+    }
 }

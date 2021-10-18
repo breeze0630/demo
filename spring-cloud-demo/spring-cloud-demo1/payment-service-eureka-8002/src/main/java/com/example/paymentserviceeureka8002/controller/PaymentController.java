@@ -37,4 +37,15 @@ public class PaymentController {
         log.info("PaymentController.getInfo:{}", JSON.toJSONString(id));
         return new CommonResult<>(200,"成功","payment-service  server.port："+serverPort+" "+ UUID.randomUUID());
     }
+
+    @GetMapping("timeout")
+    public CommonResult timeout(){
+        log.info("PaymentController.timeout:{}");
+        try {
+            Thread.sleep(3000);
+        }catch (InterruptedException e){
+            log.error("异常中断 :{}",e);
+        }
+        return new CommonResult<>(200,"成功","payment-service  server.port："+serverPort+" "+ UUID.randomUUID());
+    }
 }
