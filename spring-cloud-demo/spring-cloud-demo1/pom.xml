@@ -31,12 +31,14 @@
         <module>payment-service-zk-8011</module>
         <module>payment-service-consul-8020</module>
         <module>payment-service-consul-8021</module>
+        <module>payment-service-hystrix-8030</module>
 
         <module>order-service-zk-9010</module>
         <module>order-service-consul-9020</module>
         <module>order-9002</module>
         <module>order-service-mylb-9003</module>
         <module>order-service-openfeign-9004</module>
+
 
         <module>EurekaServer</module>
         <module>api-commons</module>
