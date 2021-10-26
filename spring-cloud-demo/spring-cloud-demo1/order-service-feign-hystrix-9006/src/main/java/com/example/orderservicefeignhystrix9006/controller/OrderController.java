@@ -46,8 +46,11 @@ public class OrderController {
         return info;
     }
 
+    /**
+     * 服务降级
+     */
     @GetMapping("/serviceOk/{id}")
-//    @HystrixCommand
+    @HystrixCommand
     public Object getPaymentById( @PathVariable("id") int id) {
         log.info("getPaymentById:{}", id);
         return paymentFeignClient.serviceOK(id);
@@ -68,6 +71,7 @@ public class OrderController {
         return "timeout_fallback.... timeout 超时,id = " + id;
     }
 
+
     @GetMapping("/timeout2/{id}")
     @HystrixCommand
     public Object timeout2(@PathVariable("id") int id){
@@ -80,4 +84,27 @@ public class OrderController {
     }
 
 
+
+    /**
+     * 服务熔断
+     *
+     */
+    @GetMapping("/serviceOk2/{id}")
+    @HystrixCommand(fallbackMethod = "serviceOk2Handle",commandProperties = {
+            @HystrixProperty(name = "circuitBreaker.enabled",value = "true"),
+            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold",value = "5"), // 10s 内失败一次，后直接调用 serviceOk2Handle
+            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds",value = "10000"),
+            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage",value = "60")
+    })
+    public Object serviceOk2( @PathVariable("id") int id) {
+        log.info("serviceOk2:{}", id);
+        if(id < 2){
+            throw new RuntimeException("****************id 小于 2............");
+        }
+        return paymentFeignClient.serviceOK(id);
+    }
+
+    public Object serviceOk2Handle( @PathVariable("id") int id) {
+        return "****************id 小于 2............";
+    }
 }
