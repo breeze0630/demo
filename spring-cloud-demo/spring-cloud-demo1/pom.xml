@@ -40,6 +40,7 @@
         <module>order-service-openfeign-9004</module>
         <module>order-service-feign-hystrix-9006</module>
 
+        <module>hystrix-dashboard-9007</module>
 
         <module>EurekaServer</module>
         <module>api-commons</module>
