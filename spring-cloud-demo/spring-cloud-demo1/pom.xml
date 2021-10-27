@@ -41,7 +41,7 @@
         <module>order-service-feign-hystrix-9006</module>
 
         <module>hystrix-dashboard-9007</module>
-
+        <module>gateway-service-7010</module>
         <module>EurekaServer</module>
         <module>api-commons</module>
     </modules>
