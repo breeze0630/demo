@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 @EnableHystrixDashboard
-@EnableHystrix
+//@EnableHystrix
 public class HystrixDashboard9007Application {
 
     public static void main(String[] args) {
