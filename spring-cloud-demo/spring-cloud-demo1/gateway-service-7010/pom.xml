@@ -10,7 +10,6 @@
     </parent>
 
 
-
     <artifactId>gateway-service-7010</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>gateway-service-7010</name>
@@ -21,11 +20,12 @@
 
     </properties>
     <dependencies>
-
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
+            <version>${starter.version}</version>
         </dependency>
+
         <dependency>
 
             <groupId>org.springframework.cloud</groupId>

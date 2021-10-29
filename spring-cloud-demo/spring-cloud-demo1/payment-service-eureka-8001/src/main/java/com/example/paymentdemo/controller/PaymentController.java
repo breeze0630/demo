@@ -20,6 +20,7 @@ import java.util.UUID;
 public class PaymentController {
     @Value("${server.port}")
     String serverPort;
+
     @PostMapping("add")
     public CommonResult<Payment> savePayment(@RequestBody Payment payment){
         log.info("PaymentController.savePayment:{}", JSON.toJSONString(payment));
@@ -29,6 +30,11 @@ public class PaymentController {
     @GetMapping("get/{id}")
     public CommonResult<Payment> getPayment(@PathVariable("id") int id){
         log.info("PaymentController.getPayment:{}", JSON.toJSONString(id));
+        return new CommonResult<>(200,"成功",new Payment(id));
+    }
+    @GetMapping("get/getId/{id}")
+    public CommonResult<Payment> getId(@PathVariable("id") int id){
+        log.info("PaymentController.getId:{}", JSON.toJSONString(id));
         return new CommonResult<>(200,"成功",new Payment(id));
     }
     @GetMapping("getInfo/{id}")
