@@ -18,7 +18,7 @@ spring:
 #            - Path=/payment/timeout
 
         - id: payment_routh2  # \u8DEF\u7531ID , \u6CA1\u6709\u56FA\u5B9A\u7684\u89C4\u5219\uFF0C\u4F46\u662F\u8981\u6C42\u552F\u4E00\uFF0C\u5EFA\u8BAE\u914D\u7F6E\u6210\u670D\u52A1\u540D
-          uri: lb://PAYMENT-SERVICE  # \u5339\u914D\u540E\u63D0\u4F9B\u670D\u52A1\u7684\u8DEF\u7531\u5730\u5740,\u8FD9\u91CC\u7528\u7684\u662F\u670D\u52A1\u540D\u8C03\u7528\uFF0C\u8FD9\u6837\u624D\u662F\u5B9E\u9645\u4F7F\u7528\u4E2D\u7528\u7684\u65B9\u5F0F\uFF0C\u4E0A\u9762\u7684\u76F4\u63A5\u8C03\u7528\u5230\u670D\u52A1\u5668\u7684\u51E0\u4E4E\u4E0D\u7528
+          uri: lb://payment-service  # \u5339\u914D\u540E\u63D0\u4F9B\u670D\u52A1\u7684\u8DEF\u7531\u5730\u5740,\u8FD9\u91CC\u7528\u7684\u662F\u670D\u52A1\u540D\u8C03\u7528\uFF0C\u8FD9\u6837\u624D\u662F\u5B9E\u9645\u4F7F\u7528\u4E2D\u7528\u7684\u65B9\u5F0F\uFF0C\u4E0A\u9762\u7684\u76F4\u63A5\u8C03\u7528\u5230\u670D\u52A1\u5668\u7684\u51E0\u4E4E\u4E0D\u7528
           predicates:
             - Path=/cloud/payment/get/**,/cloud/payment/getInfo/**,/cloud/payment/add  # \u65AD\u8A00\uFF0C\u8DEF\u5F84\u76F8\u5339\u914D\u7684\u8DEF\u7531,\u8FD9\u662F\u5339\u914D gateway \u7684 \u8BF7\u6C42\u5730\u5740\uFF0C\u9ED8\u8BA4\u662F\u4ECE\u7B2C\u4E00\u4E2A\u5F00\u59CB\u8F6C\u53D1,\u591A\u4E2A\u76F4\u63A5\u7528\u9017\u53F7\u5206\u9694
 #            - Path=/cloud/payment/getInfo/**
@@ -29,10 +29,9 @@ spring:
 #            - Header=X-Request-Id, \d+  # \u8BE5\u89C4\u5219\u662F\u5339\u914Dheader,value \u4E00\u822C\u662F\u6B63\u5219\u8868\u8FBE\u5F0F\uFF0C
 #            - Host=**.somehost.org,**.anotherhost.org # \u652F\u6301\u591A\u4E2A\u540C\u65F6\u5B58\u5728
 #            - Method=GET,POST # \u9650\u5236\u8BF7\u6C42\u7C7B\u578B
-            - Query=name2  # \u5B58\u5728\u53C2\u6570\u540D\u4E3A red
-            - Query=name # \u5B58\u5728\u53C2\u6570\u540D\u4E3A red
-            - RemoteAddr=192.168.0.1/16   # \u540E\u9762\u5339\u914D\u7684\u4F4D\u6570\u53EF\u4EE5\u4E0D\u5E26
-
+#            - Query=name2  # \u5B58\u5728\u53C2\u6570\u540D\u4E3A red
+#            - Query=name # \u5B58\u5728\u53C2\u6570\u540D\u4E3A red
+#            - RemoteAddr=192.168.0.1/16   # \u540E\u9762\u5339\u914D\u7684\u4F4D\u6570\u53EF\u4EE5\u4E0D\u5E26
 
           filters:
             - StripPrefix=1  # \u4ECE\u7B2Cn\u7EA7\u5F00\u59CB\u8F6C\u53D1,\u6570\u5B57\u4ECE0\u5F00\u59CB
@@ -46,6 +45,9 @@ spring:
 
 
 eureka:
+  instance:
+    instance-id: ${spring.application.name}-${server.port}
+    appname: CLOUD-GATEWAY
   client:
     service-url:
       defaultZone: http://localhost:7001/eureka
