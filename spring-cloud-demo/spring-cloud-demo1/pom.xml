@@ -46,6 +46,8 @@
         <module>gateway-service-7010</module>
         <module>EurekaServer</module>
         <module>api-commons</module>
+        <module>cloud-config-7020</module>
+        <module>config-client-9008</module>
     </modules>
 
 
