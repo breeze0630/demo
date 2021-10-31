@@ -34,6 +34,7 @@
         <module>payment-service-consul-8020</module>
         <module>payment-service-consul-8021</module>
         <module>payment-service-hystrix-8030</module>
+        <module>cloud-stream-rabbitmq-provider-8040</module>
 
         <module>order-service-zk-9010</module>
         <module>order-service-consul-9020</module>
