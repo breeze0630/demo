@@ -35,6 +35,7 @@
         <module>payment-service-consul-8021</module>
         <module>payment-service-hystrix-8030</module>
         <module>cloud-stream-rabbitmq-provider-8040</module>
+        <module>payment-service-nacos-8050</module>
 
         <module>order-service-zk-9010</module>
         <module>order-service-consul-9020</module>
@@ -42,6 +43,8 @@
         <module>order-service-mylb-9003</module>
         <module>order-service-openfeign-9004</module>
         <module>order-service-feign-hystrix-9006</module>
+        <module>cloud-stream-rabbitmq-consumer-9030</module>
+        <module>cloud-stream-rabbitmq-consumer-9031</module>
 
         <module>hystrix-dashboard-9007</module>
         <module>gateway-service-7010</module>
@@ -49,6 +52,7 @@
         <module>api-commons</module>
         <module>cloud-config-7020</module>
         <module>config-client-9008</module>
+        <module>config-client-9009</module>
     </modules>
 
 
