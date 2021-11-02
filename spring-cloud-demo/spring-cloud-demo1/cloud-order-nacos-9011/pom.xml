@@ -6,17 +6,18 @@
         <groupId>com.example</groupId>
         <artifactId>spring-cloud-demo1</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <artifactId>payment-service-nacos-8050</artifactId>
+    <artifactId>cloud-order-nacos-9011</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>payment-service-nacos-8050</name>
-    <description>payment-service-nacos-8050</description>
+    <name>cloud-order-nacos-9011</name>
+    <description>cloud-order-nacos-9011</description>
     <properties>
         <java.version>11</java.version>
     </properties>
     <dependencies>
+
 
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
@@ -70,10 +71,25 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>${starter.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+            <version>${starter.version}</version>
+        </dependency>
+
+        <!-- 业务代码 -->
+        <dependency>
             <groupId>com.example</groupId>
             <artifactId>api-commons</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+
+
     </dependencies>
 
     <dependencyManagement>
