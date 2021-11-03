@@ -18,10 +18,8 @@
     </build>
     <modules>
         <module>spring-boot-demo</module>
-        <module>think-in-spring-boot-samples</module>
         <module>spring-cloud-demo</module>
         <module>middleware-demo/concurrency</module>
-        <module>spring-cloud-demo/spring-cloud-demo1/order</module>
     </modules>
 
 

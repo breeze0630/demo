@@ -13,6 +13,11 @@
         <spring-cloud.version>2020.0.3</spring-cloud.version>
     </properties>
 
+
+    <modules>
+        <module>spring-cloud-demo1</module>
+    </modules>
+
     <dependencies>
 
         <dependency>
@@ -52,59 +57,6 @@
         </dependencies>
     </dependencyManagement>
 
-    <!-- springCloud管理依赖 -->
-<!--    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Finchley.M7</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        &lt;!&ndash;SpringCloud eureka-server &ndash;&gt;
-        &lt;!&ndash;        spring-cloud-starter-netflix-eureka-server&ndash;&gt;
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
-            <version>1.4.7.RELEASE</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter</artifactId>
-            <version>2.2.0.RELEASE</version>
-        </dependency>
-
-
-    </dependencies>
-
-    &lt;!&ndash; 注意： 这里必须要添加， 否者各种依赖有问题 &ndash;&gt;
-    <repositories>
-        <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/libs-milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>-->
-
-
     <build>
         <plugins>
             <plugin>
@@ -113,27 +65,5 @@
             </plugin>
         </plugins>
     </build>
-   <!-- <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter</artifactId>
-            <version>2.1.0.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
-            <version>1.4.7.RELEASE</version>
-            &lt;!&ndash;<exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-web</artifactId>
-                </exclusion>
-            </exclusions>&ndash;&gt;
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <version>2.1.8.RELEASE</version>
-        </dependency>
-    </dependencies>-->
+
 </project>

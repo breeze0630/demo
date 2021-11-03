@@ -52,19 +52,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <!--                <configuration>-->
-                <!--                    <mainClass>com.example.paymentdemo.PaymentServiceEureka8001Application</mainClass>-->
-                <!--                </configuration>-->
             </plugin>
-
-            <!--      <plugin>
-                      <groupId>org.apache.maven.plugins</groupId>
-                      <artifactId>maven-compiler-plugin</artifactId>
-                      <version>3.6.1</version>
-                      <configuration>
-                          <encoding>utf-8</encoding>
-                      </configuration>
-                  </plugin>-->
         </plugins>
     </build>
 
