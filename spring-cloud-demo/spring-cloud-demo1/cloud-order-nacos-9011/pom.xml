@@ -26,41 +26,6 @@
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.netflix.archaius</groupId>
-                    <artifactId>archaius-core</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.google.guava</groupId>
-                    <artifactId>guava</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.netflix.servo</groupId>
-                    <artifactId>servo-core</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>com.netflix.servo</groupId>
-            <artifactId>servo-core</artifactId>
-            <version>0.10.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.netflix.archaius</groupId>
-            <artifactId>archaius-core</artifactId>
-            <version>0.7.6</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.google.guava</groupId>
-                    <artifactId>guava</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>19.0</version>
         </dependency>
 
         <dependency>
@@ -86,6 +51,12 @@
             <version>${starter.version}</version>
         </dependency>
 
+        <!-- nacos 配置中心需要引入此包       -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+            <version>${starter.version}</version>
+        </dependency>
         <!-- 业务代码 -->
         <dependency>
             <groupId>com.example</groupId>
