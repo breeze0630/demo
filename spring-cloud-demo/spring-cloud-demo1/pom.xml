@@ -20,6 +20,7 @@
         <spring.cloud.version>2020.0.3</spring.cloud.version>
         <mybatis-plus.version>3.4.0</mybatis-plus.version>
         <starter.version>3.0.3</starter.version>
+        <spring.cloud.alibaba.version>2021.1</spring.cloud.alibaba.version>
 
     </properties>
 
@@ -37,6 +38,7 @@
         <module>cloud-stream-rabbitmq-provider-8040</module>
         <module>payment-service-nacos-8050</module>
 <!--        <module>cloud-order-nacos-9011</module>-->
+        <module>payment-service-sentinel-8060</module>
 
         <module>order-service-zk-9010</module>
         <module>order-service-consul-9020</module>
