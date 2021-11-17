@@ -16,17 +16,17 @@ public class PaymentController {
     private AtomicInteger atomicInteger = new AtomicInteger(0);
     private AtomicInteger atomicInteger2 = new AtomicInteger(0);
 
-    @GetMapping("/get/{id}")
-    @SentinelResource(value = "hello",fallback = "helloBlockHandler")
-    public Object getId(@PathVariable("id") int id){
+    @GetMapping("/get/1")
+//    @SentinelResource(value = "hello",fallback = "helloBlockHandler")
+    public Object getId(){
         atomicInteger.addAndGet(1);
-        return "get:" + UUID.randomUUID() +  ":" + id;
+        return "get:" + UUID.randomUUID() +  ":" +1;
     }
-    @SentinelResource(value = "hello",fallback = "helloBlockHandler")
-    @GetMapping("/getInfo/{id}")
-    public Object getInfo(@PathVariable("id") int id){
+//    @SentinelResource(value = "hello",fallback = "helloBlockHandler")
+    @GetMapping("/getInfo/1")
+    public Object getInfo(){
         atomicInteger2.addAndGet(1);
-        return "getInfo:" + UUID.randomUUID() +  ":" + id;
+        return "getInfo:" + UUID.randomUUID() +  ":" + 1;
     }
 
     public Object helloBlockHandler(FlowException be){
