@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.*;
+import java.util.function.Function;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -14,7 +15,7 @@ import java.util.stream.Stream;
 public class JavaStream {
 
     public static void main(String[] args) {
-        initStreamDemo();
+/*        initStreamDemo();
         StringStreamDemo();
         ObjectStreamDemo();
         ListStreamDemo();
@@ -40,6 +41,48 @@ public class JavaStream {
 
         MapComputeDemo();
 
+        ListToMapStreamDemo();*/
+
+        GroupingStreamDemo();
+    }
+    private static void GroupingStreamDemo() {
+        System.out.println("---------------------GroupingStreamDemo START----------------------------");
+        List<Student> students = new ArrayList<>();
+        students.add(new Student(1,"aa",20));
+        students.add(new Student(2,"ab",20));
+        students.add(new Student(3,"bb",25));
+        students.add(new Student(4,"bc",18));
+        students.add(new Student(5,"bc",32));
+        students.add(new Student(6,"abc",32));
+
+        //按年龄分组
+
+        Map<Integer,List<Student>> listMap = students.stream().collect(Collectors.groupingBy(Student::getAge));
+        System.out.println(listMap);
+
+        System.out.println("---------------------GroupingStreamDemo END----------------------------");
+    }
+
+    private static void ListToMapStreamDemo(){
+        System.out.println("---------------------ListToMapStreamDemo START----------------------------");
+
+        List<Student> students = new ArrayList<>();
+        students.add(new Student(1,"aa",1));
+        students.add(new Student(2,"ab",2));
+        students.add(new Student(3,"bb",3));
+        students.add(new Student(4,"bc",1));
+        students.add(new Student(5,"bc",2));
+        students.add(new Student(5,"abc",3));
+        //后面的 (k1,k2) -> k2)  ： 重复时，后面的覆盖前面 , 或者在 {} 中重新定义也可以
+        Map<Integer,Student> studentMap = students.stream().collect(Collectors.toMap(Student::getId, Function.identity(),(k1,k2) -> {
+            Student student= new Student(k1.getId(),"",0);
+            student.setName( k1.getName() + k2.getName());
+            student.setAge(k1.getAge()+ k2.getAge());
+            return student;
+        }));
+        System.out.println(studentMap);
+
+        System.out.println("---------------------ListToMapStreamDemo END----------------------------");
     }
 
     private static void MapComputeDemo() {
