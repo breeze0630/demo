@@ -41,6 +41,12 @@
 			<artifactId>sentinel-datasource-nacos</artifactId>
 			<version>${sentinel.nacos.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>com.example</groupId>
+			<artifactId>api-commons</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>
