@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>spring-cloud-demo1</artifactId>
+    <artifactId>spring-cloud-component-example</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-cloud-demo1</name>
-    <description>spring-cloud-demo1</description>
+    <name>spring-cloud-component-example</name>
+    <description>spring-cloud-component-example</description>
     <properties>
         <java.version>11</java.version>
         <lombox.version>1.18.22</lombox.version>
