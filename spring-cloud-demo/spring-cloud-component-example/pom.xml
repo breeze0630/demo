@@ -2,11 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
+<!--    <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.5.5</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;
+    </parent>-->
+
+    <parent>
+        <artifactId>spring-cloud-demo</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <version>0.0.1-RELEASE</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <groupId>com.example</groupId>
     <artifactId>spring-cloud-component-example</artifactId>
@@ -65,6 +72,7 @@
             <artifactId>spring-cloud-dependencies</artifactId>
             <type>pom</type>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -107,11 +115,13 @@
                 <scope>runtime</scope>
             </dependency>
 
-            <!--<dependency>
+            <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring.boot.version}</version>
-            </dependency>-->
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
