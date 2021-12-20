@@ -8,6 +8,10 @@
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
 
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
     <build>
         <plugins>
             <plugin>
@@ -19,7 +23,7 @@
     <modules>
         <module>spring-boot-demo</module>
         <module>spring-cloud-demo</module>
-        <module>middleware-demo/concurrency</module>
+        <module>middleware-demo</module>
     </modules>
 
 

@@ -81,7 +81,7 @@ public class SqlConfig {
     @Bean(value = "sqlSessionFactory")
     public SqlSessionFactory sqlSessionFactory() throws Exception {
 
-        DataSource dataSource = (DataSource) applicationContext.getBean("dataSource1");
+        final DataSource dataSource = (DataSource) applicationContext.getBean("dataSource1");
         return new SqlSessionFactoryBean() {{
             setDataSource(dataSource);
             setMapperLocations(resolver.getResources("classpath:/sqlMap/source1/**.xml"));
@@ -96,7 +96,7 @@ public class SqlConfig {
      */
     @Bean(value = "sqlSessionFactorySecond")
     public SqlSessionFactory sqlSessionFactorySecond() throws Exception {
-        DataSource dataSource = (DataSource) applicationContext.getBean("dataSource2");
+        final DataSource dataSource = (DataSource) applicationContext.getBean("dataSource2");
 
         return new SqlSessionFactoryBean() {{
             setDataSource(dataSource);

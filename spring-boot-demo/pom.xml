@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>spring-boot-autoconfiguration-web</module>
+        <module>spring-boot-swagger-bootstrap-ui</module>
     </modules>
 
 
