@@ -18,7 +18,7 @@ public class UserController {
     }
 
     @PostMapping("update/{id}")
-    public String update(@PathVariable("id") int id,User user){
+    public String update(@PathVariable("id") int id,@RequestBody User user){
         user.setId(id);
         userService.updateById(user);
         return "ok";
