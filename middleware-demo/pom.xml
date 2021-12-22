@@ -40,6 +40,7 @@
 		<module>serializable-demo</module>
 		<module>zip-demo</module>
 		<module>mybatis-plus-example</module>
+		<module>mybatis-dynamic-example</module>
 	</modules>
 
 	<properties>

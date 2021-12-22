@@ -1,26 +1,62 @@
+#
+#
+#db1: slave_1
+#
+#spring:
+#  datasource:
+#    dynamic:
+#      primary: master
+#      strict: false # ??????????false? true???????????????false???????
+#      datasource:
+#        master:
+#          url: jdbc:mysql//127.0.0.1:33061/db_master?useUnicode=true&characterEncoding=utf8&useSSL=false
+#          username: root
+#          password: 123456
+#          driver-class-name: com.mysql.cj.jdbc.Driver
+#        slave_1:
+#          url: jdbc:mysql//127.0.0.1:33061/db_slave_1?useUnicode=true&characterEncoding=utf8&useSSL=false
+#          username: root
+#          password: 123456
+#          driver-class-name: com.mysql.cj.jdbc.Driver
+#        slave_2:
+#          url: jdbc:mysql//127.0.0.1:33061/db_slave_2?useUnicode=true&characterEncoding=utf8&useSSL=false
+#          username: root
+#          password: 123456
+#          driver-class-name: com.mysql.cj.jdbc.Driver
 
 
-db1: slave_1
+read1:
+  jdbc:
+    url: jdbc:mysql//127.0.0.1:33061/db_slave_1?useUnicode=true&characterEncoding=utf8&useSSL=false
+    user: root
+    password: 123456
+    initPoolSize: 50
+    minPoolSize: 20
+    maxPoolSize: 100
 
-spring:
-  datasource:
-    dynamic:
-      primary: master
-      strict: false # ??????????false? true???????????????false???????
-      datasource:
-        master:
-          url: jdbc:mysql//127.0.0.1:33061/db_master?useUnicode=true&characterEncoding=utf8&useSSL=false
-          username: root
-          password: 123456
-          driver-class-name: com.mysql.cj.jdbc.Driver
-        slave_1:
-          url: jdbc:mysql//127.0.0.1:33061/db_slave_1?useUnicode=true&characterEncoding=utf8&useSSL=false
-          username: root
-          password: 123456
-          driver-class-name: com.mysql.cj.jdbc.Driver
-        slave_2:
-          url: jdbc:mysql//127.0.0.1:33061/db_slave_2?useUnicode=true&characterEncoding=utf8&useSSL=false
-          username: root
-          password: 123456
-          driver-class-name: com.mysql.cj.jdbc.Driver
+read2:
+  jdbc:
+    url: jdbc:mysql//127.0.0.1:33061/db_slave_2?useUnicode=true&characterEncoding=utf8&useSSL=false
+    user: root
+    password: 123456
+    initPoolSize: 50
+    minPoolSize: 20
+    maxPoolSize: 100
+
+
+
+write:
+  jdbc:
+    url: jdbc:mysql//127.0.0.1:33061/master?useUnicode=true&characterEncoding=utf8&useSSL=false
+    user: root
+    password: 123456
+    initPoolSize: 50
+    minPoolSize: 20
+    maxPoolSize: 100
+
+
+#
+#spring:
+#  main:
+#    allow-bean-definition-overriding: true
 

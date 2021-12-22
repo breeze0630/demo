@@ -20,7 +20,7 @@ class MybatisPlusExampleApplicationTests {
     private UserDao userDao;
     @Test
     void contextLoads() {
-        System.out.println((JSON.toJSONString(userDao.getUser())));
+//        System.out.println((JSON.toJSONString(userDao.getUser())));
     }
 
 }
