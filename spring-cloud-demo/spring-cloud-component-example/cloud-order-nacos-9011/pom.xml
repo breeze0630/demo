@@ -6,7 +6,7 @@
         <groupId>com.example</groupId>
         <artifactId>spring-cloud-component-example</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
 
     <artifactId>cloud-order-nacos-9011</artifactId>

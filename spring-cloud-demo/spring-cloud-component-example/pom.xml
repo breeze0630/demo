@@ -21,7 +21,7 @@
     <name>spring-cloud-component-example</name>
     <description>spring-cloud-component-example</description>
     <properties>
-        <lombox.version>1.18.22</lombox.version>
+        <lombox.version>1.18.12</lombox.version>
         <spring.boot.version>2.5.5</spring.boot.version>
         <spring.cloud.version>2020.0.3</spring.cloud.version>
         <mybatis-plus.version>3.4.0</mybatis-plus.version>

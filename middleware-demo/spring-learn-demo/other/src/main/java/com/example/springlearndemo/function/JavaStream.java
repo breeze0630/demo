@@ -41,10 +41,30 @@ public class JavaStream {
 
         MapComputeDemo();
 
-        ListToMapStreamDemo();*/
+        ListToMapStreamDemo();
 
-        GroupingStreamDemo();
+        GroupingStreamDemo();*/
+
+        ArrayToListStreamDemo();
+
     }
+
+    /**
+     * 测试asList 函数
+     */
+    private static void ArrayToListStreamDemo(){
+        System.out.println("---------------------ArrayToListStreamDemo START----------------------------");
+
+        System.out.println(Arrays.asList(new int[]{1,2}));
+        System.out.println(Arrays.asList(new Integer[]{1,2}));
+        List<Integer> list = Stream.of(new Integer[]{1,2}).collect(Collectors.toList());
+        list.add(4);
+        System.out.println(list);
+
+        System.out.println("---------------------ArrayToListStreamDemo END----------------------------");
+
+    }
+
     private static void GroupingStreamDemo() {
         System.out.println("---------------------GroupingStreamDemo START----------------------------");
         List<Student> students = new ArrayList<>();

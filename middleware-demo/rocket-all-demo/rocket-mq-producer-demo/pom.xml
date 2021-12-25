@@ -6,7 +6,7 @@
 		<groupId>com.example</groupId>
 		<artifactId>rocket-all-demo</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath/>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>rocket-mq-producer-demo</artifactId>

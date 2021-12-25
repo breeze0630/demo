@@ -9,7 +9,7 @@
     <groupId>com.example</groupId>
     <artifactId>spring-cloud-component-example</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <relativePath/> <!-- lookup parent from repository -->
+    <relativePath>../pom.xml</relativePath>
   </parent>
 
   <groupId>com.example</groupId>
