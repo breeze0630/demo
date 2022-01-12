@@ -12,7 +12,7 @@
     <artifactId>dubbo-nacos-consumer-demo</artifactId>
 
     <properties>
-        <dubbo.version>2.7.2</dubbo.version>
+        <dubbo.version>2.7.15</dubbo.version>
     </properties>
 
     <dependencies>
