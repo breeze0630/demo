@@ -24,6 +24,7 @@
         <module>spring-boot-demo</module>
         <module>spring-cloud-demo</module>
         <module>middleware-demo</module>
+        <module>middleware-demo/concurrency</module>
     </modules>
 
 
