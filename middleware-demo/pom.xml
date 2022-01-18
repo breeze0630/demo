@@ -42,7 +42,8 @@
 		<module>mybatis-plus-example</module>
 		<module>mybatis-dynamic-example</module>
 		<module>mybatis-dynamic-example2</module>
-	</modules>
+        <module>dubbo-example</module>
+    </modules>
 
 	<properties>
 <!--		<java.version>1.8</java.version>-->
