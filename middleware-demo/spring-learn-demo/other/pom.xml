@@ -46,6 +46,12 @@
             <version>21.5</version>
             <systemPath>/Users/liubiao/Documents/dev/maven_repo/com/aspose/aspose-words/14.7.0/aspose-words-17.4.0-jdk16.jar</systemPath>
         </dependency>-->
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>31.0.1-jre</version>
+        </dependency>
     </dependencies>
 
 </project>
