@@ -1,0 +1,8 @@
+
+
+server:
+  port: 8080
+
+dubbo:
+  registry:
+    address: 'nacos://localhost:8848'
