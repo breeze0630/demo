@@ -14,6 +14,8 @@
     <name>dubbo-example</name>
     <modules>
         <module>dubbo-protocol-example</module>
+        <module>dubbo-protocol-customer-example</module>
+        <module>dubbo-protocol-api</module>
     </modules>
 
     <packaging>pom</packaging>

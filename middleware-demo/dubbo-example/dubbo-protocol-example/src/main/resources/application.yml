@@ -5,4 +5,10 @@ server:
 
 dubbo:
   registry:
-    address: 'nacos://localhost:8848'
+    address: nacos://127.0.0.1:18848
+  application:
+    name: dubbo-protocol-example-provider-1
+  protocol:
+    name: dubbo
+    port: 2181
+
