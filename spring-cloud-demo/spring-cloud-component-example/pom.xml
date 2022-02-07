@@ -43,7 +43,7 @@
         <module>payment-service-hystrix-8030</module>
         <module>cloud-stream-rabbitmq-provider-8040</module>
         <module>payment-service-nacos-8050</module>
-<!--        <module>cloud-order-nacos-9011</module>-->
+        <module>cloud-order-nacos-9011</module>
         <module>payment-service-sentinel-8060</module>
 
         <module>order-service-zk-9010</module>
