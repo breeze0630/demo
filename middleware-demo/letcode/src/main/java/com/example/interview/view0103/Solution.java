@@ -1,6 +1,4 @@
-package com.example.interview.view3;
-
-import java.util.Arrays;
+package com.example.interview.view0103;
 
 public class Solution {
 
