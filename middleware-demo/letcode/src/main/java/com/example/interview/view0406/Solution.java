@@ -4,11 +4,16 @@ public class Solution {
 
     public static void main(String[] args) {
 
-        TreeNode root = new TreeNode(2);
-        root.left = new TreeNode(1);
-        root.right = new TreeNode(3);
 
-        TreeNode res = new Solution().inorderSuccessor(root,new TreeNode(1));
+
+        TreeNode root = new TreeNode(5);
+        root.left = new TreeNode(3);
+        root.right = new TreeNode(6);
+        root.left.left = new TreeNode(2);
+        root.left.right = new TreeNode(4);
+        root.left.left.left = new TreeNode(1);
+
+        TreeNode res = new Solution().inorderSuccessor(root,new TreeNode(5));
     }
 
     public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
@@ -20,6 +25,9 @@ public class Solution {
         }
 
         if(root.val == target.val){
+            if(root.right != null){
+               return  child(root.right);
+            }
             return pre != null ? pre : null;
         }
 
@@ -30,6 +38,15 @@ public class Solution {
             TreeNode l =  hasNext(root,root.left,target);
             return l;
         }
+    }
+
+    public TreeNode child(TreeNode root){
+        if(root.left != null){
+            return child(root.left);
+        }else if(root.right != null){
+            return child(root.right);
+        }
+        return root;
     }
 }
 
