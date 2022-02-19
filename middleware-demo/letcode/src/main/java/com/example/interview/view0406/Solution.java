@@ -34,7 +34,7 @@ public class Solution {
         if(root.val < target.val){
             TreeNode r =  hasNext(pre,root.right,target) ;
             return r;
-        }{
+        }else {
             TreeNode l =  hasNext(root,root.left,target);
             return l;
         }
