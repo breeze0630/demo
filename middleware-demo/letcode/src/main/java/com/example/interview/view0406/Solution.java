@@ -26,7 +26,8 @@ public class Solution {
 
         if(root.val == target.val){
             if(root.right != null){
-               return  child(root.right);
+               TreeNode parent =   child(root,root.right);
+               return parent.val == target.val ? parent.right  : parent;
             }
             return pre != null ? pre : null;
         }
@@ -40,13 +41,13 @@ public class Solution {
         }
     }
 
-    public TreeNode child(TreeNode root){
+    public TreeNode child(TreeNode parent,TreeNode root){
         if(root.left != null){
-            return child(root.left);
+            return child(null,root.left);
         }else if(root.right != null){
-            return child(root.right);
+            return child(root,root.right);
         }
-        return root;
+        return parent != null ? parent : root;
     }
 }
 
