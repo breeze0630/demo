@@ -28,9 +28,10 @@ public class Solution {
 
                 }else {
                     fast = fast.next;
+                    slow = slow.next;
                     fastpre =fast;
                 }
-                if (slow.next.val < x) {
+                if (slow.next != null && slow.next.val < x) {
                     slow = slow.next;
                 }
             } else {
@@ -39,7 +40,6 @@ public class Solution {
             }
         }
         return pre.next;
-
     }
 }
 
