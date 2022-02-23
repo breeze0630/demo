@@ -14,11 +14,11 @@ public class Solution {
         ListNode pre = new ListNode(-1000);
         pre.next = head;
         ListNode slow = pre;
-        ListNode fast = pre.next;
+        ListNode fast = pre;
         ListNode fastpre = pre;
         while (fast != null) {
             if (fast.val < x) {
-                if(fast != slow) {
+                if(fast != slow ) {
                     //需要移动
                     ListNode tmp = slow.next;
                     fastpre.next = fast.next;
@@ -27,11 +27,10 @@ public class Solution {
                     fast = fastpre.next;
 
                 }else {
+                    fastpre = fast;
                     fast = fast.next;
-                    slow = slow.next;
-                    fastpre =fast;
                 }
-                if (slow.next != null && slow.next.val < x) {
+                if (slow!=null&&slow.next != null && slow.next.val < x) {
                     slow = slow.next;
                 }
             } else {
@@ -41,7 +40,33 @@ public class Solution {
         }
         return pre.next;
     }
-}
+
+
+    public ListNode partition1(ListNode head, int x) {
+
+        ListNode pre = new ListNode(-1000);
+        pre.next = head;
+        ListNode cur = pre.next;
+        ListNode parent = pre;
+        while (cur != null){
+            if(cur.val < x && parent != pre){
+                parent.next = cur.next;
+                cur.next = null;
+                ListNode tmp = pre.next ;
+                cur.next = tmp;
+                pre.next = cur;
+                cur = parent.next;
+            }else {
+                parent = cur;
+                cur = cur.next;
+            }
+        }
+        return pre.next;
+    }
+
+
+
+    }
 
 class ListNode {
     int val;
