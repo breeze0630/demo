@@ -15,6 +15,8 @@ import java.util.stream.Stream;
 public class JavaStream {
 
     public static void main(String[] args) {
+        ListMatchStreamDemo();
+        FlatMapStreamDemo();
 /*        initStreamDemo();
         StringStreamDemo();
         ObjectStreamDemo();
@@ -43,12 +45,22 @@ public class JavaStream {
 
         ListToMapStreamDemo();
 
-        GroupingStreamDemo();*/
+        GroupingStreamDemo();
 
         ArrayToListStreamDemo();
+        */
 
     }
+    private static void ListMatchStreamDemo() {
+        System.out.println("---------------------ListMatchStreamDemo START----------------------------");
 
+        List<String> all = Arrays.asList("a","b","c");
+        List<String> check = Arrays.asList("b");
+        System.out.println(" anyMatch:  " + all.stream().anyMatch(check::contains));
+        System.out.println(" allMatch:  " + all.stream().allMatch(check::contains));
+
+
+    }
     /**
      * 测试asList 函数
      */
@@ -318,7 +330,7 @@ public class JavaStream {
      * */
     private static void FlatMapStreamDemo() {
         System.out.println("---------------------FlatMapStreamDemo START----------------------------");
-        List<String> list = Arrays.asList("a,b,c", "1,2,3");
+        List<String> list = Arrays.asList("a,b,c,4", "1,2,3,a");
         Stream stream = list.stream().flatMap(s->{return Arrays.stream(s.split(",").clone());});
 
         stream.forEach(System.out::println);
