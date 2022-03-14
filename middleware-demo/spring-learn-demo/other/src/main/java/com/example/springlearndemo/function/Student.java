@@ -1,11 +1,15 @@
 package com.example.springlearndemo.function;
 
+import lombok.Builder;
+
+@Builder
+
 public class Student {
-    private int id;
+    private Integer id;
 
     private String name;
 
-    private int age;
+    private Integer age;
 
     public Student() {
     }
@@ -43,12 +47,15 @@ public class Student {
         this.age = age;
     }
 
+
+    /*
+    测试hash冲突，需要将hashcode 重写掉，不然几乎无法测试
     @Override
-    public String toString() {
-        return "Student{" +
-                "id='" + id + '\'' +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
-    }
+    public int hashCode() {
+        int result = 17;
+        result = result*31 + id.hashCode();
+        result = result*31 + name.hashCode();
+        result = result*31 + age.hashCode();
+        return result;
+    }*/
 }
