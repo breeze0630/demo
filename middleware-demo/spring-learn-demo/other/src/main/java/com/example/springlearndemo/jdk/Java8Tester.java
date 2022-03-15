@@ -2,10 +2,9 @@ package com.example.springlearndemo.jdk;
 
 import com.example.springlearndemo.test.FunctionInterfaceTest;
 import com.example.springlearndemo.test.FunctionInterfaceTestImpl;
+import org.apache.commons.compress.utils.Lists;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
+import java.util.*;
 
 public class Java8Tester {
     static String first = "";
@@ -38,6 +37,12 @@ public class Java8Tester {
         arrayList.forEach((k) -> System.out.println((String)k));
 
 
+
+        List<Integer> list = Lists.newArrayList();
+
+        list.add(1);
+        list.add(2);
+        list.forEach(v -> System.out.println("  value:"+v));
     }
 
     public void testParam(){

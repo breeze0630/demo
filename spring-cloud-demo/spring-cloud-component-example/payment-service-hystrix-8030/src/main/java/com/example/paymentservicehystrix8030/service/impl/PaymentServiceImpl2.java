@@ -1,8 +1,6 @@
 package com.example.paymentservicehystrix8030.service.impl;
 
 import com.example.apicommons.domain.common.CommonResult;
-import com.example.paymentservicehystrix8030.service.PaymentService;
-import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.extern.slf4j.Slf4j;
@@ -10,26 +8,15 @@ import org.springframework.stereotype.Service;
 
 import java.util.concurrent.TimeUnit;
 
-@Service
 @Slf4j
-@DefaultProperties(commandProperties = {
-        @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "4000")
-})
-public class PaymentServiceImpl implements PaymentService {
+@Service
+public class PaymentServiceImpl2 {
 
-    @Override
-    public CommonResult<String> serviceOk(int id) {
-        String s = "服务 payment-service id:" + id + "  ,serviceOk. ";
-        log.info(s);
-        return new CommonResult<>(s);
-    }
 
-    @Override
     @HystrixCommand(fallbackMethod = "serviceTimeoutHandle"
-    ,commandProperties = {
+            ,commandProperties = {
             @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "1000")
-    }
-    )
+    })
     public CommonResult<String> serviceTimeout(int id) {
         log.info("serviceTimeout in services");
         int timeoutNum = 2;
