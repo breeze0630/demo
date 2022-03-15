@@ -1,5 +1,7 @@
 package com.example.springlearndemo.jdk;
 
+import com.example.springlearndemo.function.Student;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,17 +13,18 @@ import java.util.Map;
 public class HashMapDemo {
 
     public static void main(String[] args) {
-        Map<String,Object> hashMap = new HashMap<>();
-        int max = 10;
+        Map<Student,Object> hashMap = new HashMap<>();
+        int max = 100;
         for(int i = 0 ; i< max; i++){
 //            if(i >= 12){
-                hashMap.put(String.valueOf(i),true);
+            Student student = Student.builder().id(0).name("0").age(1).build();
+            hashMap.put(student,true);
 //            }else {
 //                hashMap.put(String.valueOf(i),true);
 //            }
         }
-        hashMap.put(String.valueOf(11),true);
-        hashMap.put(String.valueOf(11),true);
+//        hashMap.put(String.valueOf(11),true);
+//        hashMap.put(String.valueOf(11),true);
 
     }
 }
