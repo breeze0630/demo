@@ -11,14 +11,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 /**
+ *  FeignClient.value 支持 ${param's name}
+ *
  * @author: liubiao
  * @date: 2021/10/24 11:59
  * @Description:
  */
 @Component
-@FeignClient(value = "PAYMENT-SERVICE",fallback = PaymentFeignClientHandle.class)
+@FeignClient(value = "${service.name.1}",fallback = PaymentFeignClientHandle.class)
 public interface PaymentFeignClient {
-
 
 
     @GetMapping("/payment/hystrix/ok/{id}")
