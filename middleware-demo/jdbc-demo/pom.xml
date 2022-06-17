@@ -23,7 +23,7 @@
 
 
         <mybatis.plus.version>2.1.6</mybatis.plus.version>
-        <alibaba.fastjson.version>1.2.58</alibaba.fastjson.version>
+        <alibaba.fastjson.version>1.2.83</alibaba.fastjson.version>
     </properties>
 
     <dependencies>
