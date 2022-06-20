@@ -43,6 +43,7 @@
 		<module>mybatis-dynamic-example</module>
 		<module>mybatis-dynamic-example2</module>
         <module>dubbo-example</module>
+		<module>tcp-example</module>
     </modules>
 
 	<properties>
