@@ -24,6 +24,7 @@ public class TcpHandler extends SimpleChannelInboundHandler<DatagramPacket> impl
 
         new Thread(() -> {
             while (true) {
+                //创建nio
                 EventLoopGroup eventLoopGroup = new NioEventLoopGroup();
                 try {
                     //UDP方式使用Bootstrap
