@@ -41,4 +41,23 @@ public class Solution {
         }
         return -1;
     }
+
+    public int search3(int[] nums,int target) {
+
+
+        int l = 0 , r = nums.length - 1;
+        while ( l < r){
+            int mid = ( nums.length + 1 ) / 2;
+            //找出顺序的数组
+            if( nums[l] < nums[mid]){
+                //左边顺序的
+
+            }else if(nums[mid] < nums[r]){
+                //右边顺序的
+            }
+        }
+
+        return -1;
+    }
+
 }
