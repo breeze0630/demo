@@ -26,6 +26,7 @@ public class NettyServer implements CommandLineRunner {
     }
 
     public void task () {
+
         System.out.println("这是Netty");
         InetSocketAddress socketAddress = new InetSocketAddress(9500);
         //new 一个主线程组
