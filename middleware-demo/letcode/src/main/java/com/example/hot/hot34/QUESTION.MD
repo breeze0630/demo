@@ -32,6 +32,7 @@
 `题解`
 ```text
 
-
+1、左右指针遍历 数组, searchRange() 
+2、二分法 searchRange2()
 
 ```
