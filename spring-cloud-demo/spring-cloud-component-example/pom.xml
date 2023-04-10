@@ -27,6 +27,7 @@
         <mybatis-plus.version>3.4.0</mybatis-plus.version>
         <starter.version>3.0.3</starter.version>
         <spring.cloud.alibaba.version>2021.1</spring.cloud.alibaba.version>
+        <zipkin.version>2.2.6.RELEASE</zipkin.version>
 
     </properties>
 
@@ -101,6 +102,8 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
         </dependency>
+
+
     </dependencies>
 
     <dependencyManagement>
@@ -143,6 +146,12 @@
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
                 <version>1.7.32</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-zipkin</artifactId>
+                <version>${zipkin.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

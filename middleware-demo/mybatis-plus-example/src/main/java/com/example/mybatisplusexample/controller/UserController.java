@@ -20,4 +20,6 @@ public class UserController {
     public Object getUser(@PathVariable("id") int id){
         return userDao.getUser(id);
     }
+
+
 }

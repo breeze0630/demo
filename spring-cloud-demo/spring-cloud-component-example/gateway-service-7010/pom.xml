@@ -17,6 +17,7 @@
     <properties>
         <java.version>11</java.version>
         <eureka.version>3.0.3</eureka.version>
+        <zipkin.verson>2.2.6.RELEASE</zipkin.verson>
 
     </properties>
     <dependencies>
@@ -55,6 +56,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
     <build>
