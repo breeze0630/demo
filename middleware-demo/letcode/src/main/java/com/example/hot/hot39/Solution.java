@@ -18,28 +18,28 @@ public class Solution {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
 
         Arrays.sort(candidates);
-        int max = 0;
-        while ( max < candidates.length){
-            if(candidates[max] <= target){
-                max++;
-            }
-        }
-
-        if(max == 0 && candidates[0] > target){
-            return new ArrayList<>();
-        }
 
         List<List<Integer>> res = new ArrayList<>();
-        int[] nums = Arrays.copyOf(candidates,max);
-        int len = 1;
-        while (len <= nums.length){
+        List<Integer> nums = new ArrayList<>();
+        dfs(candidates,target,res,nums,0);
+        return res;
+    }
 
-
-
-            len++;
+    private void dfs(int[] candidates, int target, List<List<Integer>> res, List<Integer> nums,int ids) {
+        if(target == 0){
+            res.add(new ArrayList<>(nums));
+            return;
+        }
+        if( ids == candidates.length ){
+            return;
         }
 
-        return res;
+        dfs(candidates,target,res,nums,ids+1);
+        if(target - candidates[ids] >= 0){
+            nums.add(candidates[ids]);
+            dfs(candidates,target-candidates[ids],res,nums,ids);
+            nums.remove(nums.size() - 1 );
+        }
     }
 
 }
