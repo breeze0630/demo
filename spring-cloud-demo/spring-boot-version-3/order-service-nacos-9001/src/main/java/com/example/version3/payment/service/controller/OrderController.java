@@ -41,7 +41,9 @@ public class OrderController {
 
     @GetMapping("get/{id}")
     public Object getId(@PathVariable("id") int id){
-        return restTemplate.getForObject(userServiceUrl +"/info/get/"+id, CommonResult.class);
+        log.info("getId:{}",id);
+        return restTemplate.getForObject(
+                userServiceUrl +"/info/get/"+id, CommonResult.class);
     }
     @GetMapping("getInfo")
     public Object getInfo(){
