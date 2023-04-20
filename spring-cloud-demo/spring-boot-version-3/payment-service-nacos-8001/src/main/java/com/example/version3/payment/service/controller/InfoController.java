@@ -18,7 +18,7 @@ public class InfoController {
 
     @GetMapping("getInfo")
     public Object getInfo(){
-        String str = "端口:"+serverPort;
+        String str = "端口122:"+serverPort;
         return str;
     }
 
