@@ -3,7 +3,9 @@ package com.example.hot.hot42;
 public class Solution {
 
     public static void main(String[] args) {
+        // : 6
         System.out.println(new Solution().trap(new int[]{0,1,0,2,1,0,1,3,2,1,2,1}));
+        // res: 9
         System.out.println(new Solution().trap(new int[]{4,2,0,3,2,5}));
 
     }
