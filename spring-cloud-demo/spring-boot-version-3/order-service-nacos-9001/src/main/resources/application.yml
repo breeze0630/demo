@@ -1,0 +1,17 @@
+server:
+    port: 9001
+service-url:
+    nacos-user-service: http://payment-service
+spring:
+    application:
+        name: order-service
+    cloud:
+        nacos:
+            config:
+                password: nacos
+                server-addr: http://localhost:18848
+                username: nacos
+            discovery:
+                password: nacos
+                server-addr: http://localhost:18848
+                username: nacos

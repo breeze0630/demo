@@ -1,0 +1,15 @@
+server:
+    port: 8001
+spring:
+    application:
+        name: payment-service
+    cloud:
+        nacos:
+            config:
+                password: nacos
+                server-addr: http://localhost:18848
+                username: nacos
+            discovery:
+                password: nacos
+                server-addr: http://localhost:18848
+                username: nacos
