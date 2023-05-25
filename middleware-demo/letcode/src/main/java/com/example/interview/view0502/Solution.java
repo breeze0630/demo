@@ -7,7 +7,9 @@ public class Solution {
 
     public static void main(String[] args) {
         System.out.println(new Solution().printBin(0.375));
+
         System.out.println(new Solution().printBin(0.1));
+
         System.out.println(new Solution().printBin(0.2));
 
     }
