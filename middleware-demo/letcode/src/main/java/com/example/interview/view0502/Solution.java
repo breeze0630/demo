@@ -20,6 +20,7 @@ public class Solution {
             if( num == 0 ){
                 break;
             }
+
             double tmp = num * 2;
             list.add(tmp >= 1 ? 1 : 0);
             num = tmp >= 1 ? tmp - 1 : tmp;
