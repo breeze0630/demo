@@ -4,8 +4,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Solution {
-
-
     public static void main(String[] args) {
 
         System.out.println(new Solution().reverseBits(1775));
@@ -14,6 +12,7 @@ public class Solution {
         System.out.println(new Solution().reverseBits(2147483647));
         System.out.println(new Solution().reverseBits(4));
         System.out.println(new Solution().reverseBits(8));
+        System.out.println(new Solution().reverseBits(9));
 
     }
 
