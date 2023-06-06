@@ -7,6 +7,8 @@ public class Solution {
     public static void main(String[] args) {
 
         System.out.println(new Solution().reverseBits(1775));
+        System.out.println(new Solution().reverseBits(1));
+
         System.out.println(new Solution().reverseBits(0));
         System.out.println(new Solution().reverseBits(6));
         System.out.println(new Solution().reverseBits(2147483647));
