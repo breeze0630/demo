@@ -19,7 +19,7 @@ public class Test {
      * @throws Exception
      */
     public static void main(String[] args) throws Exception {
-        File userIdTxtFile = new File("/Users/liubiao/Documents/userId2.txt");
+        File userIdTxtFile = new File("/Users/liubiao/Documents/userId3.txt");
         BufferedReader userIdRead = new BufferedReader(new FileReader(userIdTxtFile));
         String userId = null ;
         StringBuilder stringBuilder = new StringBuilder();
@@ -37,7 +37,7 @@ public class Test {
                     .append("\n");
         }
 
-        FileWriter fileWriter = new FileWriter(new File("/Users/liubiao/Documents/dataPer2.sql"));
+        FileWriter fileWriter = new FileWriter(new File("/Users/liubiao/Documents/dataPer3.sql"));
 
 
         fileWriter.write(stringBuilder.toString());
