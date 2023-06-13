@@ -7,9 +7,11 @@
     <artifactId>demo</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
+    <description>demo's repo</description>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
+
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
     <build>
