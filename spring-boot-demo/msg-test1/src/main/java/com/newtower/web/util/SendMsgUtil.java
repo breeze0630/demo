@@ -50,7 +50,7 @@ public class SendMsgUtil {
         for (String phone : phoneList) {
             Map<String, Object> userMap = new HashMap<>();
             userMap.put("phone", phone);
-            userMap.put("name", "刘彪");
+            userMap.put("name", "张三");
             extraTo.add(userMap);
         }
         param.put("extraTo", extraTo);
