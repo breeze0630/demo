@@ -32,6 +32,7 @@ public class UserController {
 
         addressInfo.setAddress("ddd");
         addressInfo.setPassword("123456");
+        addressInfo.setUserId(1);
         addressInfoMapper.insert(addressInfo);
         return addressInfo;
     }

@@ -1,38 +1,40 @@
 package com.example.mybatisplusexample.db;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.example.mybatisplusexample.conf.MyEncryptor;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import com.example.mybatisplusexample.conf.NeedEncrypt;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import mybatis.mate.annotation.Algorithm;
-import mybatis.mate.annotation.FieldEncrypt;
 
-import java.io.Serializable;
+import java.util.Objects;
+
 
 @TableName(value = "address")
 public class AddressInfo {
 
-
     @TableId(type = IdType.AUTO)
     private Integer id;
-
+    @TableField(value = "user_id")
     private Integer userId;
 
+    @TableField("address")
     private String address;
-
-    @FieldEncrypt(algorithm = Algorithm.BASE64,encryptor = MyEncryptor.class)
+    @TableField("password")
+    @NeedEncrypt
     private String password;
 
-    public String getPassword() {
-        return password;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AddressInfo that = (AddressInfo) o;
+        return Objects.equals(id, that.id) && Objects.equals(userId, that.userId) && Objects.equals(address, that.address) && Objects.equals(password, that.password);
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, userId, address, password);
     }
 
     public Integer getId() {
@@ -57,5 +59,13 @@ public class AddressInfo {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
