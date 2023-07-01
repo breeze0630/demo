@@ -1,5 +1,6 @@
 package com.example.mybatisplusexample.controller;
 
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.example.mybatisplusexample.db.AddressInfo;
 import com.example.mybatisplusexample.db.User;
 import com.example.mybatisplusexample.mapper.AddressInfoMapper;
@@ -43,7 +44,10 @@ public class UserController {
     public Object getUser(@PathVariable("id") int id){
         return addressInfoMapper.selectById(id);
     }
-
+    @GetMapping("all")
+    public Object getUser(){
+        return addressInfoMapper.selectList(Wrappers.emptyWrapper());
+    }
     @GetMapping("get1/{id}")
     public Object get1(@PathVariable("id") int id){
         MPJLambdaWrapper<AddressInfo> lambdaWrapper = new MPJLambdaWrapper<AddressInfo>()

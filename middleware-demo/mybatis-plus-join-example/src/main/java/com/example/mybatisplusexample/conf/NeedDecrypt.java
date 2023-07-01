@@ -11,6 +11,5 @@ import java.lang.annotation.*;
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD, ElementType.ANNOTATION_TYPE})
-public @interface NeedEncrypt {
-    //可以增加参数，定义不同的加密算法
+public @interface NeedDecrypt {
 }

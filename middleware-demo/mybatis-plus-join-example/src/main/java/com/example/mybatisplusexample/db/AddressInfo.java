@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.example.mybatisplusexample.conf.NeedDecrypt;
 import com.example.mybatisplusexample.conf.NeedEncrypt;
 import lombok.Data;
 
@@ -22,6 +23,7 @@ public class AddressInfo {
     private String address;
     @TableField("password")
     @NeedEncrypt
+    @NeedDecrypt
     private String password;
 
     @Override
