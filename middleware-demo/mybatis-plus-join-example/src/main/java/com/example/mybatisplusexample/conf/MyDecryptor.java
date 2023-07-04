@@ -57,25 +57,27 @@ public class MyDecryptor implements Interceptor {
     }
 
     private void decrypt(Object object) throws Throwable {
-        Class<?> clazz = object.getClass();
-        Field[] fields = clazz.getDeclaredFields();
-        for (Field field : fields) {
-            field.setAccessible(true);
-            NeedDecrypt needEncrypt = field.getAnnotation(NeedDecrypt.class);
-            if (needEncrypt != null) {
-                String value = (String)field.get(object);
-                try {
-                    if(Objects.isNull(value))
-                    {
-                        continue;
+        try {
+            Class<?> clazz = object.getClass();
+            Field[] fields = clazz.getDeclaredFields();
+            for (Field field : fields) {
+                field.setAccessible(true);
+                NeedDecrypt needEncrypt = field.getAnnotation(NeedDecrypt.class);
+                if (needEncrypt != null) {
+                    String value = (String) field.get(object);
+                    try {
+                        if (Objects.isNull(value)) {
+                            continue;
+                        }
+                        String result = Base64Encrypt.decrypt(value);
+                        field.set(object, result);
+                    } catch (Exception e) {
+                        System.out.println("解密异常");
                     }
-                    byte[] asBytes = Base64.getDecoder().decode(value);
-                    String result = new String(asBytes, StandardCharsets.UTF_8);
-                    field.set(object,result);
-                } catch (Exception e) {
-                    throw new RuntimeException("decrypt fail!", e);
                 }
             }
+        } catch (Exception e) {
+
         }
     }
 

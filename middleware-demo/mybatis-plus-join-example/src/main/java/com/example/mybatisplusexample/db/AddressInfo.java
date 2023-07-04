@@ -22,7 +22,7 @@ public class AddressInfo {
     @TableField("address")
     private String address;
     @TableField("password")
-    @NeedEncrypt
+    @NeedEncrypt(columnValue = "password")
     @NeedDecrypt
     private String password;
 
