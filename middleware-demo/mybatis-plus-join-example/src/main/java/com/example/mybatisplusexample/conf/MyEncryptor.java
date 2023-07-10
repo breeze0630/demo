@@ -2,8 +2,8 @@ package com.example.mybatisplusexample.conf;
 
 import com.baomidou.mybatisplus.core.conditions.AbstractWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.github.yulichang.wrapper.MPJAbstractWrapper;
-import io.micrometer.common.util.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.executor.parameter.ParameterHandler;
 import org.apache.ibatis.plugin.Interceptor;
@@ -18,6 +18,7 @@ import java.sql.PreparedStatement;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 /**
  * @description:
@@ -123,7 +124,7 @@ public class MyEncryptor implements Interceptor {
     }
 
     private void encryptSqlSet(String sqlSet, Map<String, Object> valuePairs, Class<?> entityClazz) {
-        List<String> sqlList = Arrays.stream(sqlSet.split(",")).toList();
+        List<String> sqlList = Arrays.stream(sqlSet.split(",")).collect(Collectors.toList());
         Field[] fields = entityClazz.getDeclaredFields();
         for (Field field : fields) {
             NeedEncrypt needEncrypt = field.getAnnotation(NeedEncrypt.class);
@@ -214,7 +215,7 @@ public class MyEncryptor implements Interceptor {
      */
     private void encryptBySqlSegment(String sqlSegment, Map<String, Object> valuePairs,Class<?> entityClazz) {
         if(StringUtils.isNotBlank(sqlSegment)) {
-            List<String> sqlList = Arrays.stream(sqlSegment.split(" AND ")).toList();
+            List<String> sqlList = Arrays.stream(sqlSegment.split(" AND ")).collect(Collectors.toList());
             Field[] fields = entityClazz.getDeclaredFields();
 
             String regex = "#\\{ew.paramNameValuePairs.MPGENVAL" + "\\d+" + "}";
