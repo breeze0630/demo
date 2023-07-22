@@ -1,5 +1,8 @@
 package com.example.springlearndemo.test.test1;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -9,35 +12,24 @@ import java.io.Serializable;
  * @auther: liubiao
  * @date: 2023/7/21
  */
+
+@Data
 public class User  implements Serializable {
-    private Boolean isActive;
+    /**
+     *
+     * JsonAlias
+     * JsonProperty
+     * JSONField
+     * 都无法解决 boolean 类型 Is 开头的字段
+     *
+     * 只有将 基本类型的 boolean 改为 Boolean 才可
+     */
+    @JsonProperty( "isActive")
+    private boolean isActive;
 
     private boolean valid;
 
     private String id;
 
 
-    public Boolean getActive() {
-        return isActive;
-    }
-
-    public void setActive(Boolean active) {
-        isActive = active;
-    }
-
-    public boolean isValid() {
-        return valid;
-    }
-
-    public void setValid(boolean valid) {
-        this.valid = valid;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 }

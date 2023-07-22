@@ -1,6 +1,8 @@
 package com.example.springlearndemo.test.test1;
 
 import com.alibaba.fastjson.JSON;
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import net.minidev.json.JSONUtil;
 
 /**
  * @description:
@@ -14,7 +16,11 @@ public class TestMain {
         user.setId("111");
         user.setValid(false);
         user.setActive(true);
-        String json = JSON.toJSONString(user);
+        String json = JSON.toJSON(user).toString();
         System.out.println("json1:" + json);
+
+        String ss = "{\"valid\":false,\"isActive\":true,\"id\":\"111\"}";
+        User user1 = JSON.parseObject(ss,User.class);
+        System.out.println(user1);
     }
 }
