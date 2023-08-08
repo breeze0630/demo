@@ -1,6 +1,5 @@
 package com.example.jdbc.jdbcdemo.api;
 
-import com.example.jdbc.jdbcdemo.anno.MyAutowired;
 import com.example.jdbc.jdbcdemo.biz.bean.Info;
 import com.example.jdbc.jdbcdemo.service.UserService;
 import lombok.extern.slf4j.Slf4j;

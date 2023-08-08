@@ -4,14 +4,9 @@ package com.example.middleware.springlearn.lifecycle;
 import com.example.middleware.springlearn.lifecycle.domain.UserHolder;
 import com.example.springlearndemo.dependencylookup.domain.SuperUser;
 import com.example.springlearndemo.dependencylookup.domain.User;
-import org.springframework.beans.BeansException;
-import org.springframework.beans.MutablePropertyValues;
-import org.springframework.beans.PropertyValues;
-import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.util.ObjectUtils;
 
 public class BeanInstantiationLifecycleDemo {
 

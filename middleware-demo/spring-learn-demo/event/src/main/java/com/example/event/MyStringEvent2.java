@@ -1,7 +1,5 @@
 package com.example.event;
 
-import org.springframework.context.ApplicationEvent;
-
 /**
  * 事件监听支持层级传递，Listener 可以监听到原本监听的事件的子类事件，
  * */

@@ -5,9 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-
 @SpringBootApplication
 @EnableEurekaClient
 @EnableDiscoveryClient

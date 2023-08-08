@@ -1,6 +1,5 @@
 package com.example.cloudordernacos9011.controller;
 
-import com.example.apicommons.domain.Payment;
 import com.example.apicommons.domain.common.CommonResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

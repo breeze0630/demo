@@ -2,7 +2,6 @@ package com.example.converter.conversion;
 
 import org.springframework.core.convert.TypeDescriptor;
 import org.springframework.core.convert.converter.ConditionalGenericConverter;
-import org.springframework.util.CollectionUtils;
 
 import java.util.Collections;
 import java.util.Map;

@@ -1,6 +1,5 @@
 package com.example.mybatis.dynamic.example.domain.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.mybatis.dynamic.example.domain.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;

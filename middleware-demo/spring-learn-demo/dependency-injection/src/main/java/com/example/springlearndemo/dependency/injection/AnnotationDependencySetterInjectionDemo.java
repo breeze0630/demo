@@ -1,8 +1,6 @@
 package com.example.springlearndemo.dependency.injection;
 
 import com.example.springlearndemo.dependency.injection.domain.User;
-import org.springframework.beans.factory.support.BeanDefinitionBuilder;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;

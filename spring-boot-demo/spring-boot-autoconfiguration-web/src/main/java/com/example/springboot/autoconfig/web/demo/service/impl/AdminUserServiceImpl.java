@@ -1,9 +1,9 @@
 package com.example.springboot.autoconfig.web.demo.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.springboot.autoconfig.web.demo.entity.AdminUser;
 import com.example.springboot.autoconfig.web.demo.mapper.AdminUserMapper;
 import com.example.springboot.autoconfig.web.demo.service.AdminUserService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**

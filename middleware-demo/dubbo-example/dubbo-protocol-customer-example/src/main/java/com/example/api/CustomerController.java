@@ -2,7 +2,6 @@ package com.example.api;
 
 import com.example.domain.api.InfoDTO;
 import com.example.domain.api.InfoService;
-import lombok.Builder;
 import org.apache.dubbo.config.ReferenceConfig;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Method;
@@ -10,8 +9,6 @@ import org.apache.dubbo.rpc.service.GenericService;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Locale;
 
 @RestController
 public class CustomerController {

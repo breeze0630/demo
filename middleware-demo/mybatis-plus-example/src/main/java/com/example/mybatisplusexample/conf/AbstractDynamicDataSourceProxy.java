@@ -1,6 +1,5 @@
 package com.example.mybatisplusexample.conf;
 
-import org.slf4j.Logger;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.cglib.proxy.InvocationHandler;
 import org.springframework.cglib.proxy.Proxy;

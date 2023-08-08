@@ -1,6 +1,5 @@
 package com.example.orderserviceopenfeign9004.controller;
 
-import com.example.apicommons.domain.Payment;
 import com.example.apicommons.domain.common.CommonResult;
 import com.example.orderserviceopenfeign9004.service.PaymentFeignClient;
 import lombok.extern.slf4j.Slf4j;

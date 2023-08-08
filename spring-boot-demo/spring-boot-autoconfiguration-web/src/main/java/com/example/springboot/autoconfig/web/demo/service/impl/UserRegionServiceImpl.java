@@ -1,9 +1,9 @@
 package com.example.springboot.autoconfig.web.demo.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.springboot.autoconfig.web.demo.entity.UserRegion;
 import com.example.springboot.autoconfig.web.demo.mapper.UserRegionMapper;
 import com.example.springboot.autoconfig.web.demo.service.UserRegionService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**

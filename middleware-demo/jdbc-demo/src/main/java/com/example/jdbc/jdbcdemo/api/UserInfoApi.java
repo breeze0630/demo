@@ -2,14 +2,11 @@ package com.example.jdbc.jdbcdemo.api;
 
 import com.alibaba.fastjson.JSON;
 import com.example.jdbc.jdbcdemo.anno.MyAutowired;
-import com.example.jdbc.jdbcdemo.biz.bean.Info;
 import com.example.jdbc.jdbcdemo.biz.bean.UserInfo;
 import com.example.jdbc.jdbcdemo.configswtich.ConfigSwitch;
 import com.example.jdbc.jdbcdemo.proxy.UserInvokerHandler;
 import com.example.jdbc.jdbcdemo.service.UserService;
-import com.example.jdbc.jdbcdemo.service.impl.UserServiceImpl;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

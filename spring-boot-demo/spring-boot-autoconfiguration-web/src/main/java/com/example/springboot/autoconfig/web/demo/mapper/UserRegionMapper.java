@@ -1,7 +1,7 @@
 package com.example.springboot.autoconfig.web.demo.mapper;
 
-import com.example.springboot.autoconfig.web.demo.entity.UserRegion;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.example.springboot.autoconfig.web.demo.entity.UserRegion;
 
 /**
  * <p>

@@ -1,7 +1,6 @@
 package com.example.rocketmq.producerdemo.producer;
 
 import com.alibaba.fastjson.JSON;
-
 import com.example.rocketmq.producerdemo.dto.MessageDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.exception.MQBrokerException;
@@ -14,7 +13,6 @@ import org.apache.rocketmq.remoting.exception.RemotingException;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.stream.Collectors;

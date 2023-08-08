@@ -2,9 +2,6 @@ package com.example.middleware.springlearn.configuration.metadata;
 
 import com.example.springlearndemo.dependencylookup.domain.SuperUser;
 import com.example.springlearndemo.dependencylookup.domain.User;
-import org.springframework.beans.factory.support.BeanDefinitionBuilder;
-import org.springframework.beans.factory.support.BeanDefinitionReader;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.support.PropertiesBeanDefinitionReader;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.io.ClassPathResource;

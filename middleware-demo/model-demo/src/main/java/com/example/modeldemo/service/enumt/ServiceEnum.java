@@ -3,7 +3,6 @@ package com.example.modeldemo.service.enumt;
 import com.example.modeldemo.init.SpringContextHolder;
 import com.example.modeldemo.service.OutputService;
 import org.springframework.context.ApplicationContext;
-import org.springframework.ui.context.support.UiApplicationContextUtils;
 
 public enum ServiceEnum implements OutputService {
 

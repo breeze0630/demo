@@ -1,10 +1,7 @@
 package com.example.springlearndemo.kaoshi;
 
 
-
-
-
-import java.io.*;
+import java.io.File;
 import java.util.ArrayList;
 
 public class T3 {

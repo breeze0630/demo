@@ -1,6 +1,5 @@
 package com.example.springlearndemo.kaoshi;
 
-import java.beans.IntrospectionException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;

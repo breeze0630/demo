@@ -2,7 +2,6 @@ package com.example.springboot.autoconfig.web.demo.controller;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RestController;
 
 /**

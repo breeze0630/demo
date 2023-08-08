@@ -1,6 +1,5 @@
 package com.example.event;
 
-import org.apache.catalina.core.ApplicationContext;
 import org.springframework.context.ApplicationEvent;
 
 /**

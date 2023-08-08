@@ -1,7 +1,6 @@
 package com.example.esdemo.repository;
 
 import com.example.esdemo.dto.Commodity;
-
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 import org.springframework.stereotype.Repository;
 

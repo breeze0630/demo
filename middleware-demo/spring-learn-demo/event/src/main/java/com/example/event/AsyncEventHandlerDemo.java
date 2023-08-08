@@ -1,7 +1,5 @@
 package com.example.event;
 
-import org.apache.tomcat.util.threads.TaskThreadFactory;
-import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ApplicationEventMulticaster;
 import org.springframework.context.event.ContextClosedEvent;

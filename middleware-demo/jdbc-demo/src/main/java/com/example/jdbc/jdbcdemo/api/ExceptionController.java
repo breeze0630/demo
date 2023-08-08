@@ -1,7 +1,10 @@
 package com.example.jdbc.jdbcdemo.api;
 
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  *

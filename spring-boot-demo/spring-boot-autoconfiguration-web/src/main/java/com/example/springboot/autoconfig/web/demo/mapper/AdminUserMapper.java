@@ -1,8 +1,8 @@
 package com.example.springboot.autoconfig.web.demo.mapper;
 
 import com.baomidou.dynamic.datasource.annotation.DS;
-import com.example.springboot.autoconfig.web.demo.entity.AdminUser;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.example.springboot.autoconfig.web.demo.entity.AdminUser;
 
 /**
  * <p>

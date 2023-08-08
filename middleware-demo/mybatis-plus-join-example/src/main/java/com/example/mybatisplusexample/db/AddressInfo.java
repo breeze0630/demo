@@ -6,7 +6,6 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.example.mybatisplusexample.conf.NeedDecrypt;
 import com.example.mybatisplusexample.conf.NeedEncrypt;
-import lombok.Data;
 
 import java.util.Objects;
 

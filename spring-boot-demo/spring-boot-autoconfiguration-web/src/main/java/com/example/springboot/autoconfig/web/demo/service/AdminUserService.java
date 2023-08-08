@@ -1,7 +1,7 @@
 package com.example.springboot.autoconfig.web.demo.service;
 
-import com.example.springboot.autoconfig.web.demo.entity.AdminUser;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.springboot.autoconfig.web.demo.entity.AdminUser;
 
 /**
  * <p>

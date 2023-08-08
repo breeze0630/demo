@@ -1,8 +1,9 @@
 package com.example.mybatisplusexample.db;
 
-import com.baomidou.mybatisplus.annotation.*;
-import lombok.Builder;
-import lombok.Data;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.baomidou.mybatisplus.annotation.TableName;
 
 @TableName(value = "user")
 public class User {

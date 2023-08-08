@@ -2,7 +2,6 @@ package com.example.interview.view0305;
 
 import java.util.Deque;
 import java.util.LinkedList;
-import java.util.Stack;
 
 public class SortedStack {
 

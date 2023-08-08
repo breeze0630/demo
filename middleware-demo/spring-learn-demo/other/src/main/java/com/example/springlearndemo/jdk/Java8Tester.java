@@ -1,10 +1,11 @@
 package com.example.springlearndemo.jdk;
 
-import com.example.springlearndemo.test.FunctionInterfaceTest;
-import com.example.springlearndemo.test.FunctionInterfaceTestImpl;
 import org.apache.commons.compress.utils.Lists;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
 
 public class Java8Tester {
     static String first = "";

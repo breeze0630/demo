@@ -1,14 +1,10 @@
 package com.example.orderservicefeignhystrix9006.service;
 
-import com.example.apicommons.domain.Payment;
 import com.example.apicommons.domain.common.CommonResult;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  *  FeignClient.value 支持 ${param's name}

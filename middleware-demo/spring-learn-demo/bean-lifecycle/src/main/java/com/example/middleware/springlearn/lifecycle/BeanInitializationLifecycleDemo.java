@@ -7,7 +7,6 @@ import com.example.springlearndemo.dependencylookup.domain.User;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.annotation.CommonAnnotationBeanPostProcessor;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class BeanInitializationLifecycleDemo {
 

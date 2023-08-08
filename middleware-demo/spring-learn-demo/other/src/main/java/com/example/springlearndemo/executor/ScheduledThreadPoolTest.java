@@ -1,6 +1,9 @@
 package com.example.springlearndemo.executor;
 
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 测试Callable 接口 ，ExecutorService.submit 提交线程对象, Future<T> 英语接收返回数据, Future.get() 获取最终线程数据

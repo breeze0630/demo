@@ -3,7 +3,6 @@ package com.example.jdbc.jdbcdemo;
 import com.example.jdbc.jdbcdemo.config.MyConguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 /**
