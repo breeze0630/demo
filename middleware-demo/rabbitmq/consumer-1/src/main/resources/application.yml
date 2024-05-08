@@ -1,0 +1,50 @@
+server:
+  port: 8082
+
+
+spring:
+  application:
+    name: consumer-1
+
+
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin
+    virtual-host: /
+
+    # 开启发布确认 消息从 producer 到 rabbitmq broker有一个 confirmCallback 确认模式。
+    publisher-confirm-type: correlated
+    listener:
+      simple:
+        #手动确认消息 ack
+        acknowledge-mode: manual
+        retry:
+          enabled: true
+          max-attempts: 3
+          max-interval: 1000ms
+
+  cloud:
+    stream:
+      binders:
+        myRabbit1:
+          type: rabbit
+          environment:
+            spring:
+              rabbit: ${spring.rabbit}
+      default-binder: myRabbit1
+      bindings:
+        getMessage-in-0:
+          binder: myRabbit1
+          destination: topic1
+          group: group1
+
+
+#      rabbit:
+#        bindings:
+#          outputRabbit:
+#            producer:
+#              routing-key-expression: headers.routingKey
+
