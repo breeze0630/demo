@@ -23,6 +23,7 @@ public class SwDictHandlerImpl implements IExcelDictHandler {
     public List<Map> getList(String dict) {
         List<Map> list = new ArrayList<>();
 
+        //这里可以根据 dict 传的枚举类型处理
         for (int i = 0 ;i < 10; i++) {
             Map<String, String> map = new HashMap<>();
             map.put("dictKey", "key"+i);
