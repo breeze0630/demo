@@ -1,7 +1,11 @@
 package com.example.springlearndemo.excel;
 
+import com.alibaba.fastjson.JSON;
+
 import java.io.*;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 /**
  * @description:
@@ -45,7 +49,17 @@ public class ReaderMain {
 
 
     public static void main(String[] args) throws Exception {
-        System.out.println(Base64.getEncoder().encodeToString("admin:12345678".getBytes()));
+        List<String> list = new ArrayList<>();
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        list.add("4");
+
+        List<String> list2 = list.stream().map(k->{
+            return Integer.valueOf(k) > 2 ? k : null;
+        }).filter(k->k!= null).collect(Collectors.toList());
+        System.out.println(JSON.toJSONString(list2));
+//        System.out.println(Base64.getEncoder().encodeToString("admin:12345678".getBytes()));
 //            String sourceFile = "D:\\文档\\公司\\中安承包商2期\\考核材料\\违规条款示例(3)-设备工程部0131追加2.xlsx";
 //            String outFile = "D:\\文档\\公司\\中安承包商2期\\考核材料\\计分考核-设备工程部0131追加2.sql";
 //            read(sourceFile,outFile);
