@@ -17,7 +17,7 @@ public class StopWatchTest {
 
         stopWatch.start("测试1");
 
-        Thread.sleep(1);
+        Thread.sleep(10);
         stopWatch.stop();
         log.info("\r\n" + stopWatch.prettyPrint());
 
