@@ -21,6 +21,5 @@ public class StopWatchTest {
         stopWatch.stop();
         log.info("\r\n" + stopWatch.prettyPrint());
 
-
     }
 }
