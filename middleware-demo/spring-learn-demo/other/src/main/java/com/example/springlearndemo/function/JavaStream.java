@@ -1,5 +1,6 @@
 package com.example.springlearndemo.function;
 
+import com.alibaba.fastjson.JSON;
 import com.example.springlearndemo.jdk.UserDto;
 
 import java.io.BufferedReader;
@@ -12,11 +13,13 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+
+@SuppressWarnings("unchecked")
 public class JavaStream {
 
     public static void main(String[] args) {
-        ListMatchStreamDemo();
-        FlatMapStreamDemo();
+//        ListMatchStreamDemo();
+//        FlatMapStreamDemo();
 /*        initStreamDemo();
         StringStreamDemo();
         ObjectStreamDemo();
@@ -49,6 +52,19 @@ public class JavaStream {
 
         ArrayToListStreamDemo();
         */
+        mapping();
+    }
+
+    private  static void mapping(){
+        System.out.println("--------------Collectors.mapping()------------------");
+        List<Student> all = new ArrayList<>();
+        int size = 10;
+        for(int index = 0 ; index < size ; index++){
+            Student student= Student.builder().age(index).name("name"+index).id(index).build();
+            all.add(student);
+        }
+       List<String> nameList = all.stream().collect(Collectors.mapping(Student::getName,Collectors.toList()));
+        System.out.println(JSON.toJSONString(nameList));
 
     }
     private static void ListMatchStreamDemo() {
@@ -372,13 +388,14 @@ public class JavaStream {
     /**
      * 使用 Pattern.splitAsStream() 方法，将字符串分隔成流
      * */
+    @SuppressWarnings("unchecked")
     private static void SplitAsStreamDemo() {
         System.out.println("---------------------SplitAsStreamDemo START----------------------------");
 
 //        String str = "fasdfadsf,fdsfasdfsdl,fsdfadsdsf,fsdfasdfdsf,fdsfdasfasdresfesgsdcnsfsdfs,3123123qd,21543215412343,,fsdtrsdfrwnchn";
         String str = "";
-        Pattern pattern = Pattern.compile(",");
-        pattern.splitAsStream(str).forEach(System.out::println);
+//        Pattern pattern = Pattern.compile(",");
+//        pattern.splitAsStream(str).forEach(System.out::println);
     }
 
     /**

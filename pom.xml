@@ -27,6 +27,8 @@
         <module>spring-cloud-demo</module>
         <module>middleware-demo</module>
         <module>middleware-demo/concurrency</module>
+        <module>untitled</module>
+        <module>other</module>
     </modules>
 
 
