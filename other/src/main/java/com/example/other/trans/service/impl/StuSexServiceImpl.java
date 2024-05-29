@@ -10,6 +10,7 @@ import com.example.other.trans.service.StuSexService;
 import com.example.other.trans.service.StudentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @description:
@@ -20,5 +21,13 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class StuSexServiceImpl extends ServiceImpl<StuSexMapper, StuSex> implements StuSexService {
 
+    @Override
+    @Transactional
+    public void update2(StuSex stuSex) {
+        this.lambdaUpdate()
+                .set(StuSex::getSex,stuSex.getSex())
+                .eq(StuSex::getStuId,stuSex.getStuId())
+                .update();
 
+    }
 }

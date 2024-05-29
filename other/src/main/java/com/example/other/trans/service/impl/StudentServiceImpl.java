@@ -28,13 +28,18 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> impl
     @Transactional(rollbackFor = Exception.class)
     public TechBankResult update2(Student student) {
         updateById(student);
-        updateSex(student);
+        updateSex2(student);
         if(student.getId() == 1) {
             throw new RuntimeException("");
         }
         return TechBankResult.success();
     }
-
+    private void updateSex2(Student student){
+        StuSex stuSex = new StuSex();
+        stuSex.setStuId(student.getId());
+        stuSex.setSex(student.getSex());
+        stuSexService.update2(stuSex);
+    }
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void updateSex(Student student){
         StuSex stuSex = new StuSex();

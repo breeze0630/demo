@@ -11,4 +11,6 @@ import com.example.other.trans.dto.TechBankResult;
  * @date: 2024-05-29
  */
 public interface StuSexService extends IService<StuSex> {
+
+    void update2(StuSex stuSex);
 }
