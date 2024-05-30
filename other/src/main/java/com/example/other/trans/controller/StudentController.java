@@ -1,9 +1,11 @@
 package com.example.other.trans.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.example.other.trans.bean.Student;
 import com.example.other.trans.dto.TechBankResult;
 import com.example.other.trans.service.StuSexService;
 import com.example.other.trans.service.StudentService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("student")
+@Slf4j
 public class StudentController {
 
     @Autowired
