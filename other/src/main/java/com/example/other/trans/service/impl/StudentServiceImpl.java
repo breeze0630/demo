@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * @description:
  * @auther: liubiao
@@ -24,6 +26,12 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> impl
 
     @Autowired
     private StuSexService stuSexService;
+
+    @Override
+    public List<String> selectAddress() {
+        return this.baseMapper.selectAddress();
+    }
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     public TechBankResult update2(Student student) {
