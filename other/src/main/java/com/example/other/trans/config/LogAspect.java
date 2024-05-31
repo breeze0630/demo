@@ -58,7 +58,6 @@ public class LogAspect {
                 if (!(object instanceof HttpServletResponse) && !(object instanceof HttpServletRequest)) {
                     params.add(object.toString());
                 }
-
             }
         }
         long startTime = System.currentTimeMillis();
