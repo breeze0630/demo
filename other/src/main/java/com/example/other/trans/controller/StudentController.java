@@ -1,6 +1,5 @@
 package com.example.other.trans.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.example.other.trans.bean.Student;
 import com.example.other.trans.dto.TechBankResult;
 import com.example.other.trans.service.StuSexService;
