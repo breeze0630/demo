@@ -2,7 +2,6 @@ package com.example.other.trans.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.other.trans.bean.StuSex;
-import com.example.other.trans.bean.Student;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

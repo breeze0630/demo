@@ -2,8 +2,6 @@ package com.example.other.trans.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.other.trans.bean.StuSex;
-import com.example.other.trans.bean.Student;
-import com.example.other.trans.dto.TechBankResult;
 
 /**
  * @description:
