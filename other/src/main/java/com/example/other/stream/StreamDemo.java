@@ -15,10 +15,10 @@ import java.util.stream.Collectors;
 
 public class StreamDemo {
 
-    public static void main(String[] args) {
-
-        mapping();
-    }
+//    public static void main(String[] args) {
+//
+//        mapping();
+//    }
 
     private static void mapping(){
         System.out.println("----------------- Collectors.mapping() start ----------------");
