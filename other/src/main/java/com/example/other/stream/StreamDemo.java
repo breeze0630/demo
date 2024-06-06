@@ -15,10 +15,47 @@ import java.util.stream.Collectors;
 
 public class StreamDemo {
 
-//    public static void main(String[] args) {
-//
+    public static void main(String[] args) throws  Exception{
+
+        testSort();
 //        mapping();
-//    }
+    }
+
+    private static void testSort() throws  Exception{
+        System.out.println("------------------ SORT START ------------------");
+
+        List<String> list = new ArrayList<>();
+        int size = 10;
+        for (int index = 0 ; index < size ; index++){
+            list.add(index+"");
+        }
+        List<String> list1 = new ArrayList<>();
+        List<String> list12 = list.parallelStream().map(k->{
+            if(k.contains("5")){
+                try {
+                    Thread.sleep(3000);
+                }catch ( Exception e){
+
+                }
+            }
+            if(k.contains("2")){
+                try {
+                    Thread.sleep(9000);
+                }catch ( Exception e){
+
+                }
+            }
+            list1.add(k);
+            return k;
+        }).collect(Collectors.toList());
+
+
+        System.out.println(JSON.toJSONString(list12));
+        System.out.println(JSON.toJSONString(list1));
+
+        System.out.println("------------------- SORT END --------------");
+
+    }
 
     private static void mapping(){
         System.out.println("----------------- Collectors.mapping() start ----------------");
