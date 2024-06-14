@@ -18,7 +18,6 @@ public class StreamDemo {
     public static void main(String[] args) throws  Exception{
 
         testSort();
-//        mapping();
     }
 
     private static void testSort() throws  Exception{
