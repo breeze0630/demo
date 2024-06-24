@@ -8,7 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @description:
+ * @description: 人员性别信息
  * @auther: liubiao
  * @date: 2024-05-29
  */
