@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 
 @SpringBootTest
-@TestPropertySource("classpath:application.yml")
+//@TestPropertySource("classpath:application.yml")
 class OtherApplicationTests {
 
     @Test
