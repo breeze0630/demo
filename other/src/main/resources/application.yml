@@ -3,6 +3,8 @@ spring:
         name: other
 
 
+    profiles:
+        active: dev
 
     datasource:
         hikari:
@@ -23,3 +25,5 @@ mybatis-plus:
     mapper-locations: classpath:mapper/**/*.xml
     configuration:
         map-underscore-to-camel-case: true
+
+

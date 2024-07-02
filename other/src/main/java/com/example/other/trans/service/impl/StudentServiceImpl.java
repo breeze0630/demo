@@ -1,5 +1,6 @@
 package com.example.other.trans.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.other.trans.bean.StuSex;
 import com.example.other.trans.bean.Student;
@@ -29,7 +30,9 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> impl
 
     @Override
     public List<String> selectAddress() {
-        return this.baseMapper.selectAddress();
+        List<String> a =  this.baseMapper.selectAddress();
+        log.info(JSON.toJSONString(a));
+        return a;
     }
 
     @Override

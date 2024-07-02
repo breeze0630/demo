@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="false" scanPeriod="10 seconds" debug="false">
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <springProperty scope="context" name="env" source="spring.profiles.active" defaultValue="dev"/>
+    <springProperty scope="context" name="appName" source="spring.application.name"/>
+
+    <!-- 日志存放路径 -->
+    <property name="log.path" value="logs/other"/>
+    <!-- 日志输出格式 -->
+    <!--<property name="log.pattern"  value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{20} - [%method,%line] - %msg%n"/>-->
+    <property name="log.pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%15.15thread]%-40.40logger{39} - %method %5line - %msg%n"/>
+
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
+    <conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"/>
+    <conversionRule conversionWord="wEx" converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter"/>
+    <!-- 彩色日志格式 -->
+    <property name="CONSOLE_LOG_PATTERN" value="${CONSOLE_LOG_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint}%clr(%-40.40logger{39}:%4line){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
+
+    <!--1. 输出到控制台-->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <!--此日志appender是为开发使用，只配置最底级别，控制台输出的日志级别是大于或等于此级别的日志信息-->
+        <!--        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+        <encoder>
+            <Pattern>${CONSOLE_LOG_PATTERN}</Pattern>
+            <!-- 设置字符集 -->
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="ALL_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.path}/all.log</file>
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <!-- 日志记录器的滚动策略，按日期，按大小记录 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- 日志归档 -->
+            <fileNamePattern>${log.path}/all-%d{yyyy-MM-dd.HH}.log</fileNamePattern>
+            <!--日志文档保留天数-->
+            <maxHistory>1440</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.path}/error.log</file>
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+
+        <!-- 日志记录器的滚动策略，按日期，按大小记录 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- 日志归档 -->
+            <fileNamePattern>${log.path}/error-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!--日志文档保留天数-->
+            <maxHistory>1440</maxHistory>
+        </rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!--不同系统调用日志输出各自的文件-->
+
+    <appender name="otherSysLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${log.path}/othersys.log</File>
+        <append>true</append>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>DENY</onMatch>
+            <onMismatch>ACCEPT</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log.path}/othersys-%d{yyyy-MM-dd.HH}.log</fileNamePattern>
+            <maxHistory>1440</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!--  忽略Nacos配置中心长轮询日志  -->
+    <logger name="com.alibaba.nacos.client.config.impl" level="WARN"/>
+    <logger name="org.apache.tomcat.util.net" level="WARN"/>
+    <logger name="sun.rmi.transport" level="WARN"/>
+    <logger name="com.alibaba.nacos.common.remote.client" level="WARN"/>
+    <logger name="com.alibaba.nacos.shaded.io.grpc.netty" level="WARN"/>
+    <logger name="druid.sql.Connection" level="WARN"/>
+    <logger name="sun.rmi" level="WARN"/>
+    <logger name="org.apache.catalina.session" level="WARN"/>
+    <logger name="org.quartz.core.QuartzSchedulerThread" level="WARN"/>
+
+    <!-- 系统模块日志级别控制  -->
+<!--    <logger name="com.example" level="INFO"/>-->
+
+    <!-- mybatis SQL   -->
+    <logger name="com.example.other.trans.mapper" level="debug" />
+
+    <!-- 不同系统调用日志输出各自的文件-->
+    <logger name="com.example" additivity="false" level="INFO">
+        <appender-ref ref="otherSysLog"/>
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ALL_FILE"/>
+        <appender-ref ref="ERROR_FILE"/>
+        <appender-ref ref="LOGSTASH" />
+    </logger>
+
+    <!-- Spring日志级别控制  -->
+    <logger name="org.springframework" additivity="false" level="ERROR">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ALL_FILE"/>
+        <appender-ref ref="ERROR_FILE"/>
+    </logger>
+    <!--  Mybatis SQL 输出  -->
+    <logger name="org.mybatis" additivity="false" level="ERROR">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ALL_FILE"/>
+        <appender-ref ref="ERROR_FILE"/>
+        <appender-ref ref="LOGSTASH" />
+    </logger>
+
+    <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <springProfile name="dev,test,tst,pre">
+            <destination>localhost:5044</destination>
+        </springProfile>
+<!--        <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder"/>-->
+
+        <!-- 日志输出编码 -->
+        <encoder charset="UTF-8" class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers>
+                <timestamp>
+                    <timeZone>UTC</timeZone>
+                </timestamp>
+                <pattern>
+                    <pattern>
+                        {
+                        "env": "${env:-}",
+                        "appName": "${appName:-}",
+                        "pid": "${PID:-}",
+                        "thread": "%thread",
+                        "class": "%logger{40}",
+                        "method": "%method",
+                        "line": "%line",
+                        "level": "%level",
+                        "logTime":"%d{yyyy-MM-dd HH:mm:ss.SSS}",
+                        "exportable": "%X{X-Span-Export:-}",
+                        "message": "%message"
+                        }
+                    </pattern>
+                </pattern>
+            </providers>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ALL_FILE"/>
+        <appender-ref ref="ERROR_FILE"/>
+        <appender-ref ref="LOGSTASH"/>
+    </root>
+
+</configuration>
