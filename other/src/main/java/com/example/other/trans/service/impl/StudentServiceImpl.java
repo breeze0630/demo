@@ -36,6 +36,11 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> impl
     }
 
     @Override
+    public List<Student> l2() {
+        return this.baseMapper.searchAge22();
+    }
+
+    @Override
     @Transactional(rollbackFor = Exception.class)
     public TechBankResult update2(Student student) {
         updateById(student);

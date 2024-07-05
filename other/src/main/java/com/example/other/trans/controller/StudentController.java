@@ -52,4 +52,9 @@ public class StudentController {
     public TechBankResult listSex(){
         return TechBankResult.success(stuSexService.list());
     }
+
+    @GetMapping("l2")
+    public TechBankResult l2(){
+        return TechBankResult.success(studentService.l2());
+    }
 }

@@ -17,4 +17,7 @@ public interface StudentService extends IService<Student> {
 
    List<String> selectAddress( );
 
+
+   List<Student> l2();
+
 }

@@ -17,4 +17,6 @@ public interface StudentMapper extends BaseMapper<Student> {
 
     @Select("select address from t_student")
     List<String> selectAddress();
+
+    List<Student> searchAge22();
 }
