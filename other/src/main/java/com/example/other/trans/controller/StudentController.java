@@ -8,6 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 /**
  * @description:
@@ -28,7 +30,10 @@ public class StudentController {
     public TechBankResult add(@RequestBody Student student){
         return TechBankResult.success(studentService.save(student));
     }
-
+    @PostMapping("save2")
+    public TechBankResult add(@RequestBody List<Student> student){
+        return TechBankResult.success(studentService.saveBatch(student));
+    }
     @PostMapping("update")
     public TechBankResult update(@RequestBody Student student){
         return TechBankResult.success(studentService.updateById(student));
