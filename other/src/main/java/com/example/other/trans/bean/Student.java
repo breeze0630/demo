@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 /**
  * @description:
  * @auther: liubiao
@@ -27,6 +29,8 @@ public class Student extends Model<Student> {
     private Integer age ;
 
     private String address;
+
+    private LocalDateTime createTime;
 
     @TableField(exist = false)
     private String sex;
