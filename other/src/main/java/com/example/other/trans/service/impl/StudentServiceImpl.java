@@ -1,6 +1,7 @@
 package com.example.other.trans.service.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.other.trans.bean.StuSex;
 import com.example.other.trans.bean.Student;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Wrapper;
 import java.util.List;
 
 /**
@@ -37,7 +39,7 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> impl
 
     @Override
     public List<Student> l2() {
-        return this.baseMapper.searchAge22();
+        return this.baseMapper.selectList(Wrappers.emptyWrapper());
     }
 
     @Override

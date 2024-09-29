@@ -1,12 +1,20 @@
 package com.example.other.trans.controller;
 
+import com.example.other.dto.StuDto;
 import com.example.other.trans.bean.Student;
 import com.example.other.trans.dto.TechBankResult;
 import com.example.other.trans.service.StuSexService;
 import com.example.other.trans.service.StudentService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import java.util.List;
 
@@ -62,4 +70,32 @@ public class StudentController {
     public TechBankResult l2(){
         return TechBankResult.success(studentService.l2());
     }
+
+
+    @GetMapping("l3")
+    public TechBankResult l3(){
+        List<Student> studentList = studentService.l2();
+        List<StuDto> stuDtos = Optional.ofNullable(studentList)
+                .orElse(new ArrayList<>())
+                .stream().map(l->{
+                    StuDto stuDto = new StuDto();
+                    BeanUtils.copyProperties(l,stuDto);
+                    return stuDto;
+                }).toList();
+        return TechBankResult.success(stuDtos);
+    }
+
+    @GetMapping("l4")
+    public ResponseEntity l4(){
+        List<Student> studentList = studentService.l2();
+        List<StuDto> stuDtos = Optional.ofNullable(studentList)
+                .orElse(new ArrayList<>())
+                .stream().map(l->{
+                    StuDto stuDto = new StuDto();
+                    BeanUtils.copyProperties(l,stuDto);
+                    return stuDto;
+                }).toList();
+       return ResponseEntity.status(200).body(stuDtos);
+    }
+
 }

@@ -13,12 +13,19 @@ spring:
             maximum-pool-size: 100
             pool-name: HikaraPool-1
             minimum-idle: 10
+#            jdbc-url: jdbc:mysql://localhost:33061/db_salve_2?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=GMT%2B8&allowMultiQueries=true&
+#            username: root
+#            password: 123456
+#            driver-class-name: com.mysql.cj.jdbc.Driver
         password: 123456
         username: root
         driver-class-name: com.mysql.cj.jdbc.Driver
         url: jdbc:mysql://localhost:33062/salve_db?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=GMT%2B8&allowMultiQueries=true&
     jackson:
       default-property-inclusion: non_null
+        url: jdbc:mysql://localhost:33061/mybatis-test?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=GMT%2B8&allowMultiQueries=true&
+
+
 mybatis-plus:
     # 搜索指定包别名
     type-aliases-package: com.example.other
