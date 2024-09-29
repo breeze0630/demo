@@ -17,7 +17,8 @@ spring:
         username: root
         driver-class-name: com.mysql.cj.jdbc.Driver
         url: jdbc:mysql://localhost:33062/salve_db?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=GMT%2B8&allowMultiQueries=true&
-
+    jackson:
+      default-property-inclusion: non_null
 mybatis-plus:
     # 搜索指定包别名
     type-aliases-package: com.example.other

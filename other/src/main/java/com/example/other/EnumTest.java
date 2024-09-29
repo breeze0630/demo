@@ -2,6 +2,8 @@ package com.example.other;
 
 import cn.hutool.core.util.IdUtil;
 import com.alibaba.excel.EasyExcel;
+import com.alibaba.fastjson.JSON;
+import com.example.other.trans.bean.Student;
 import jakarta.persistence.Id;
 import org.apache.commons.lang3.StringUtils;
 
@@ -10,8 +12,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * @description:
@@ -26,7 +27,16 @@ public class EnumTest {
             ,1815561478015340546L);
 
     public static void main(String[] args) {
-        process("D:\\文档\\天邦\\开发文档\\字典第一期刘彪.xlsx", "D:\\文档\\天邦\\开发文档\\字典第一期刘彪2.sql");
+
+        List<Student> students = new ArrayList<>();
+        students.add(Student.builder().name("12").build());
+        List<Student> students1 = Collections.unmodifiableList(students);
+        students1.forEach(k->k.setSex("dd"));
+        System.out.println(JSON.toJSONString(students));
+
+        System.out.println(JSON.toJSONString(students1));
+
+//        process("D:\\文档\\天邦\\开发文档\\字典第一期补充20240808.xlsx", "D:\\文档\\天邦\\开发文档\\字典第一期补充20240808.sql");
     }
 
     public static void process(String path, String outPath) {
@@ -107,20 +117,22 @@ public class EnumTest {
                     valueBuilder.append("\n");
                 }else {
                     for(Long tenantId : tenantIdList){
-                        valueBuilder.append(String.format(valueTemp
-                                , IdUtil.getSnowflake().nextId()
-                                , time
-                                , time
-                                , parentPath + "/" + enumImport.getEnumCode()
-                                , enumImport.getEnumCode()
-                                , parentCode
-                                , enumImport.getEnumName()
-                                , 0
-                                , 1
-                                , StringUtils.isNotEmpty(enumImport.getNotes()) ? enumImport.getNotes() : ""
-                                , tenantId
-                        ));
-                        valueBuilder.append("\n");
+                        if(StringUtils.isNotEmpty(enumImport.getEnumCode())) {
+                            valueBuilder.append(String.format(valueTemp
+                                    , IdUtil.getSnowflake().nextId()
+                                    , time
+                                    , time
+                                    , parentPath + "/" + enumImport.getEnumCode()
+                                    , enumImport.getEnumCode()
+                                    , parentCode
+                                    , enumImport.getEnumName()
+                                    , 0
+                                    , 1
+                                    , StringUtils.isNotEmpty(enumImport.getNotes()) ? enumImport.getNotes() : ""
+                                    , tenantId
+                            ));
+                            valueBuilder.append("\n");
+                        }
                     }
                 }
         }
