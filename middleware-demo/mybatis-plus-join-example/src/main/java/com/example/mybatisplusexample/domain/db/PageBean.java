@@ -1,4 +1,4 @@
-package com.example.mybatisplusexample.db;
+package com.example.mybatisplusexample.domain.db;
 
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.annotation.TableField;

@@ -15,7 +15,10 @@
     <description>mybatis-plus-join-example</description>
     <packaging>jar</packaging>
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
+        <myabtis-spring.version>3.0.3</myabtis-spring.version>
+        <sleuth.version>3.1.11</sleuth.version>
+        <zipkin.version>2.2.8.RELEASE</zipkin.version>
     </properties>
     <dependencies>
 <!--
@@ -38,7 +41,18 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.5.3</version>
+            <version>3.5.6</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.mybatis</groupId>
+                    <artifactId>mybatis-spring</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>${myabtis-spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -51,11 +65,16 @@
             <artifactId>mybatis-plus-join-boot-starter</artifactId>
             <version>1.4.5</version>
         </dependency>
-<!--
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-sleuth</artifactId>
-            <version>2.2.6.RELEASE</version>
+            <version>${sleuth.version}</version>
+        </dependency>
+
+<!--        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+            <version>${zipkin.version}</version>
         </dependency>-->
 
         <dependency>
@@ -80,6 +99,12 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.58</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>2.0.1.Final</version>
         </dependency>
 
   <!--      <dependency>
