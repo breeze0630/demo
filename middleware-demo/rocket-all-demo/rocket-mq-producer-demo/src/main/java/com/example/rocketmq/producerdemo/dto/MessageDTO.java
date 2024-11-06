@@ -13,6 +13,8 @@ public class MessageDTO implements Serializable {
 
     private String msg;
 
+    private int time;
+
 
     public MessageDTO() {
     }

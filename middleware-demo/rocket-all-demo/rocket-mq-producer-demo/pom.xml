@@ -15,8 +15,9 @@
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
-		<java.version>1.8</java.version>
-		<rocket.mq.version>4.7.0</rocket.mq.version>
+		<java.version>17</java.version>
+<!--		<rocket.mq.version>4.7.0</rocket.mq.version>-->
+		<rocket.mq.version>5.0.7</rocket.mq.version>
 	</properties>
 
 	<dependencies>
@@ -42,9 +43,15 @@
 			</exclusions>
 		</dependency>
 
+<!--		<dependency>-->
+<!--			<groupId>org.apache.rocketmq</groupId>-->
+<!--			<artifactId>rocketmq-client</artifactId>-->
+<!--			<version>${rocket.mq.version}</version>-->
+<!--		</dependency>-->
+
 		<dependency>
 			<groupId>org.apache.rocketmq</groupId>
-			<artifactId>rocketmq-client</artifactId>
+			<artifactId>rocketmq-client-java</artifactId>
 			<version>${rocket.mq.version}</version>
 		</dependency>
 	</dependencies>

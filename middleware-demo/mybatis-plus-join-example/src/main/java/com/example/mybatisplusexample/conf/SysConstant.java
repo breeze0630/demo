@@ -6,7 +6,7 @@ package com.example.mybatisplusexample.conf;
  */
 public class SysConstant {
 
-//   public static String TRACE_ID = "n-d-trace-id";
-   public static String TRACE_ID = "TRACE_ID";
+   public static String TRACE_ID = "traceId";
+//   public static String TRACE_ID = "X-B3-TraceId";
 
 }

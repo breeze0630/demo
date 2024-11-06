@@ -1,0 +1,12 @@
+server:
+    port: 9014
+    tomcat:
+        basedir: ''
+        max-http-form-post-size: 20MB
+spring:
+    messages:
+        fallback-to-system-locale: false
+    servlet:
+        multipart:
+            max-request-size: 20MB
+test: dd

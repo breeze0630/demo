@@ -1,0 +1,19 @@
+dubbo:
+    registry:
+        address: nacos://127.0.0.1:18848
+        port: 20882
+#        parameters.register-consumer-url: true
+        check: false
+    application:
+        qos-port: 14210
+
+    consumer:
+        username: dubbo-consumer-name-one
+        owner: dubbo-owner
+server:
+    port: 14110
+spring:
+    application:
+        name: dubbo-consumer-one
+
+

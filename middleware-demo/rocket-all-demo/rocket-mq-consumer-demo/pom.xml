@@ -16,8 +16,10 @@
 
 	<packaging>jar</packaging>
 	<properties>
-		<java.version>1.8</java.version>
-		<rocket.mq.version>4.7.0</rocket.mq.version>
+		<java.version>17</java.version>
+<!--		<rocket.mq.version>4.7.0</rocket.mq.version>-->
+		<rocket.mq.version>5.0.7</rocket.mq.version>
+
 	</properties>
 
 	<dependencies>
@@ -43,28 +45,32 @@
 			</exclusions>
 		</dependency>
 
+<!--		<dependency>-->
+<!--			<groupId>org.apache.rocketmq</groupId>-->
+<!--			<artifactId>rocketmq-client</artifactId>-->
+<!--			<version>${rocket.mq.version}</version>-->
+<!--		</dependency>-->
 		<dependency>
 			<groupId>org.apache.rocketmq</groupId>
-			<artifactId>rocketmq-client</artifactId>
+			<artifactId>rocketmq-client-java</artifactId>
 			<version>${rocket.mq.version}</version>
 		</dependency>
-
-		<dependency>
+	<!--	<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus-boot-starter</artifactId>
 			<version>3.2.0</version>
-		</dependency>
+		</dependency>-->
 
 <!--		<dependency>-->
 <!--			<groupId>com.baomidou</groupId>-->
 <!--			<artifactId>mybatis-plus-generator</artifactId>-->
 <!--			<version>3.4.1</version>-->
 <!--		</dependency>-->
-		<dependency>
+<!--		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.21</version>
-		</dependency>
+		</dependency>-->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
