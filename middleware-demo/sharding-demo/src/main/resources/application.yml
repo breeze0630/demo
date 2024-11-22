@@ -2,7 +2,16 @@ server:
   port: 9020
 
 
+#
+#spring:
+#  datasource:
+##    driver-class-name: org.apache.shardingsphere.driver.ShardingSphereDriver
+#    url: jdbc:shardingsphere:classpath:application-sharding-databases-tables.yml
+#    driver-class-name: com.mysql.jdbc.Driver
 spring:
-  datasource:
-    driver-class-name: org.apache.shardingsphere.driver.ShardingSphereDriver
-    url: jdbc:shardingsphere:classpath:shardingsphere-datasource.yaml
+#  datasource:
+#    driver-class-name: org.apache.shardingsphere.driver.ShardingSphereDriver
+#    url: jdbc:shardingsphere:classpath:application-sharding-databases-tables.yml
+  profiles:
+    active: sharding-databases-tables
+#    type: com.zaxxer.hikari.HikariDataSource

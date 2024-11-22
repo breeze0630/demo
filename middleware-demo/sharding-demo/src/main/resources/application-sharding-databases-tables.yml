@@ -2,13 +2,13 @@ spring:
     shardingsphere:
         datasource:
             ds_0:
-                driver-class-name: com.mysql.jdbc.Driver
+                driver-class-name: com.mysql.cj.jdbc.Driver
                 jdbc-url: jdbc:mysql://localhost:33061/ds_0?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
                 password: '123456'
                 type: com.zaxxer.hikari.HikariDataSource
                 username: root
             ds_1:
-                driver-class-name: com.mysql.jdbc.Driver
+                driver-class-name: com.mysql.cj.jdbc.Driver
                 jdbc-url: jdbc:mysql://localhost:33061/ds_1?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
                 password: '123456'
                 type: com.zaxxer.hikari.HikariDataSource

@@ -11,13 +11,10 @@ import lombok.Data;
  * @date: 2024-11-21
  */
 @Data
-public class Order  {
+public class Account{
 
-//    @TableId(value = "order_id",type = IdType.ASSIGN_ID)
-    private Long orderId;
-
-//    @TableField(value = "user_id")
-    private Long userId;
+//    @TableId(value = "account_id",type = IdType.ASSIGN_ID)
+    private Long accountId;
 
 //    @TableField(value = "name")
     private String name;
