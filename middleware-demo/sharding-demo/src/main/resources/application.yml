@@ -1,0 +1,8 @@
+server:
+  port: 9020
+
+
+spring:
+  datasource:
+    driver-class-name: org.apache.shardingsphere.driver.ShardingSphereDriver
+    url: jdbc:shardingsphere:classpath:shardingsphere-datasource.yaml

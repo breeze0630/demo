@@ -1,0 +1,48 @@
+spring:
+    shardingsphere:
+        datasource:
+            ds_0:
+                driver-class-name: com.mysql.jdbc.Driver
+                jdbc-url: jdbc:mysql://localhost:33061/ds_0?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+                password: '123456'
+                type: com.zaxxer.hikari.HikariDataSource
+                username: root
+            ds_1:
+                driver-class-name: com.mysql.jdbc.Driver
+                jdbc-url: jdbc:mysql://localhost:33061/ds_1?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+                password: '123456'
+                type: com.zaxxer.hikari.HikariDataSource
+                username: root
+            names: ds_0,ds_1
+        sharding:
+            binding-tables: t_order,t_order_item
+            broadcast-tables: t_address
+            default-database-strategy:
+                inline:
+                    algorithm-expression: ds_$->{user_id % 2}
+                    sharding-column: user_id
+            tables:
+                t_order:
+                    actual-data-nodes: ds_$->{0..1}.t_order_$->{0..1}
+                    key-generator:
+                        column: order_id
+                        props:
+                            worker:
+                                id: 123
+                        type: SNOWFLAKE
+                    table-strategy:
+                        inline:
+                            algorithm-expression: t_order_$->{order_id % 2}
+                            sharding-column: order_id
+                t_order_item:
+                    actual-data-nodes: ds_$->{0..1}.t_order_item_$->{0..1}
+                    key-generator:
+                        column: order_item_id
+                        props:
+                            worker:
+                                id: 123
+                        type: SNOWFLAKE
+                    table-strategy:
+                        inline:
+                            algorithm-expression: t_order_item_$->{order_id % 2}
+                            sharding-column: order_id
