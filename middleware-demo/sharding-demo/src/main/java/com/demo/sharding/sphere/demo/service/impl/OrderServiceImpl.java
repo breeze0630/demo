@@ -4,8 +4,6 @@ import com.demo.sharding.sphere.demo.entity.Order;
 import com.demo.sharding.sphere.demo.mapper.OrderMapper;
 import com.demo.sharding.sphere.demo.service.OrderService;
 import groovy.util.logging.Slf4j;
-import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

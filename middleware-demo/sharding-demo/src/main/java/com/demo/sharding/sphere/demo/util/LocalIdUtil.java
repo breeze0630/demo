@@ -1,7 +1,6 @@
 package com.demo.sharding.sphere.demo.util;
 
 import cn.hutool.core.lang.Singleton;
-import cn.hutool.core.lang.Snowflake;
 
 /**
  * @auther: liubiao
