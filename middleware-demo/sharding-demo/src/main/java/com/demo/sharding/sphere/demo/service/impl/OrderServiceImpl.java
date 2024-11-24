@@ -2,12 +2,13 @@ package com.demo.sharding.sphere.demo.service.impl;
 
 import com.demo.sharding.sphere.demo.entity.Order;
 import com.demo.sharding.sphere.demo.mapper.OrderMapper;
-import com.demo.sharding.sphere.demo.service.ExampleService;
 import com.demo.sharding.sphere.demo.service.OrderService;
 import groovy.util.logging.Slf4j;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -16,10 +17,10 @@ import java.util.List;
  */
 @Slf4j
 @Service
-@AllArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
-    private final OrderMapper orderMapper;
+    @Resource
+    private  OrderMapper orderMapper;
 
     @Override
     public int saveOne(Order order) {
@@ -29,7 +30,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public int batchSaveOrder(List<Order> orderList) {
 
-        orderMapper.insertOne(orderList.get(0));
+//        orderMapper.insertOne(orderList.get(0));
 
         return 0;
     }

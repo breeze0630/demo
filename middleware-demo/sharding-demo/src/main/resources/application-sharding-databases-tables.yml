@@ -1,48 +1,96 @@
 spring:
     shardingsphere:
+        mode:
+            type: Memory
         datasource:
+            names: ds_0,ds_1
             ds_0:
                 driver-class-name: com.mysql.cj.jdbc.Driver
                 jdbc-url: jdbc:mysql://localhost:33061/ds_0?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
-                password: '123456'
+                password: 123456
                 type: com.zaxxer.hikari.HikariDataSource
                 username: root
             ds_1:
                 driver-class-name: com.mysql.cj.jdbc.Driver
                 jdbc-url: jdbc:mysql://localhost:33061/ds_1?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
-                password: '123456'
+                password: 123456
                 type: com.zaxxer.hikari.HikariDataSource
                 username: root
-            names: ds_0,ds_1
-        sharding:
-            binding-tables: t_order,t_order_item
-            broadcast-tables: t_address
-            default-database-strategy:
-                inline:
-                    algorithm-expression: ds_$->{user_id % 2}
-                    sharding-column: user_id
-            tables:
-                t_order:
-                    actual-data-nodes: ds_$->{0..1}.t_order_$->{0..1}
-                    key-generator:
-                        column: order_id
+        rules:
+            sharding:
+#                binding-tables: t_order
+#                broadcast-tables: t_address
+#                default-database-strategy:
+#                    inline:
+#                        algorithm-expression: ds_$->{user_id % 2}
+#                        sharding-column: user_id
+                tables:
+                    t_order:
+                        actual-data-nodes: ds_$->{0..1}.t_order_$->{0..1}
+                        key-generate-strategy:
+                          column: order_id
+                          key-generator-name: snowflake_generator
+                        database-strategy:
+                          standard:
+                            sharding-column: order_id
+#                            这里用id取余，可将 数据均分成2份
+                            sharding-algorithm-name: alg_userid_inline
+                        table-strategy:
+                          standard:
+                            sharding-column: order_id
+                                #  这里表没有用 order_id 取 余数，否则会产生数据倾斜，每个库都会有一个表空余
+                            sharding-algorithm-name: alg_orderId_hash
+                sharding-algorithms:
+                    alg_userid_inline:
+                        type: INLINE
+                        props:
+                          algorithm-expression: ds_$->{order_id % 2}
+                            #  允许范围查询 BETWEEN AND、>、<、>=、<=
+                          allow-range-query-with-inline-sharding: true
+                    alg_order_inline:
+                        type: INLINE
+                        props:
+                            algorithm-expression: t_order_$->{order_id  % 2}
+                            allow-range-query-with-inline-sharding: true
+                    alg_userid_hash:
+                            type: HASH_MOD
+                            props:
+                                sharding-count: 2
+                                #  允许范围查询 BETWEEN AND、>、<、>=、<=
+                                allow-range-query-with-inline-sharding: true
+                    alg_orderId_hash:
+                            type: HASH_MOD
+                            props:
+                                sharding-count: 2
+                                allow-range-query-with-inline-sharding: true
+                key-generators:
+                    snowflake_generator:
+                        type: SNOWFLAKE
                         props:
                             worker:
                                 id: 123
-                        type: SNOWFLAKE
-                    table-strategy:
-                        inline:
-                            algorithm-expression: t_order_$->{order_id % 2}
-                            sharding-column: order_id
-                t_order_item:
-                    actual-data-nodes: ds_$->{0..1}.t_order_item_$->{0..1}
-                    key-generator:
-                        column: order_item_id
-                        props:
-                            worker:
-                                id: 123
-                        type: SNOWFLAKE
-                    table-strategy:
-                        inline:
-                            algorithm-expression: t_order_item_$->{order_id % 2}
-                            sharding-column: order_id
+
+        props:
+          sql-show: true
+#                        key-generator:
+#                            column: order_id
+#                            props:
+#                                worker:
+#                                    id: 123
+#                            type: SNOWFLAKE
+#                        table-strategy:
+#                            inline:
+#                                algorithm-expression: t_order_$->{order_id % 2}
+#                                sharding-column: order_id
+#                    t_order_item:
+#                        actual-data-nodes: ds_$->{0..1}.t_order_item_$->{0..1}
+#                        key-generator:
+#                            column: order_item_id
+#                            props:
+#                                worker:
+#                                    id: 123
+#                            type: SNOWFLAKE
+#                        table-strategy:
+#                            inline:
+#                                algorithm-expression: t_order_item_$->{order_id % 2}
+#                                sharding-column: order_id
