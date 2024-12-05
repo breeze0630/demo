@@ -3,7 +3,7 @@ spring:
         mode:
             type: Memory
         datasource:
-            names: ds_0,ds_1
+            names: ds_0
             ds_0:
                 driver-class-name: com.mysql.cj.jdbc.Driver
                 jdbc-url: jdbc:mysql://localhost:33061/ds_0?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
@@ -26,20 +26,35 @@ spring:
 #                        sharding-column: user_id
                 tables:
                     t_order:
-                        actual-data-nodes: ds_$->{0..1}.t_order_$->{0..1}
+                        actual-data-nodes: ds_0.t_order_$->{0..1}
                         key-generate-strategy:
                           column: order_id
                           key-generator-name: snowflake_generator
-                        database-strategy:
-                          standard:
-                            sharding-column: order_id
+#                        database-strategy:
+#                          standard:
+#                            sharding-column: order_id
 #                            这里用id取余，可将 数据均分成2份
-                            sharding-algorithm-name: alg_userid_inline
+#                            sharding-algorithm-name: alg_userid_inline
                         table-strategy:
                           standard:
                             sharding-column: order_id
                                 #  这里表没有用 order_id 取 余数，否则会产生数据倾斜，每个库都会有一个表空余
                             sharding-algorithm-name: alg_orderId_hash
+                    t_account:
+                      actual-data-nodes: ds_0.t_account_$->{0..1}
+                      key-generate-strategy:
+                        column: order_id
+                        key-generator-name: snowflake_generator
+                      #                        database-strategy:
+                      #                          standard:
+                      #                            sharding-column: order_id
+                      #                            这里用id取余，可将 数据均分成2份
+                      #                            sharding-algorithm-name: alg_userid_inline
+                      table-strategy:
+                        standard:
+                          sharding-column: order_id
+                          #  这里表没有用 order_id 取 余数，否则会产生数据倾斜，每个库都会有一个表空余
+                          sharding-algorithm-name: alg_orderId_hash
                 sharding-algorithms:
                     alg_userid_inline:
                         type: INLINE
