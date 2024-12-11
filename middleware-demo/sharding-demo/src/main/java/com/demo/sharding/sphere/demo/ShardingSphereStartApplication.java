@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 import java.sql.SQLException;
 
@@ -15,6 +16,7 @@ import java.sql.SQLException;
 @SpringBootApplication
 //        (exclude = {JtaAutoConfiguration.class})
 @Slf4j
+@EnableAsync
 @MapperScan( "com.demo.sharding.sphere.demo.mapper")
 public class ShardingSphereStartApplication {
 
