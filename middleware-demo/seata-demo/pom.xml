@@ -102,11 +102,16 @@
             <version>8.0.31</version>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>io.seata</groupId>-->
-<!--            <artifactId>seata-spring-boot-starter</artifactId>-->
-<!--            <version>2.0.0</version>-->
-<!--        </dependency>-->
+    <!--        这里将seata-spring-boot-starter 改为了spring-cloud-starter-alibaba-seata ,
+            spring-boot的starter 会导致全局事物的XID在feign调用过程获取不到，应该是调用方未传递，
+            不改依赖的话就需要调用方自己设置了，为了方便直接换依赖，spring-boot和spring-cloud 的starter 不能同时引用，会有配置类重复问题
+    -->
+<!--        <dependency>
+            <groupId>io.seata</groupId>
+            <artifactId>seata-spring-boot-starter</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+        -->
     </dependencies>
 
     <dependencyManagement>
