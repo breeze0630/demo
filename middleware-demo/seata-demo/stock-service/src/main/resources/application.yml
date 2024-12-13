@@ -1,0 +1,45 @@
+server:
+  port: 9011
+spring:
+  application:
+    name: stock-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:18848
+        register-enabled: true
+        namespace: seata_space
+        group: SEATA_GROUP
+      config:
+        server-addr: 127.0.0.1:18848
+        import-check:
+          enabled: false
+    alibaba:
+      seata:
+        tx-service-group: default_tx_group
+  datasource:
+    url: jdbc:mysql://localhost:33061/stock_db?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+seata:
+  enabled: true
+  registry:
+    nacos:
+      server-addr: 127.0.0.1:18848
+      namespace: seata_space
+      group: SEATA_GROUP
+      application: seata-server
+    type: nacos
+
+  config:
+    type: nacos
+    nacos:
+      server-addr: 127.0.0.1:18848
+      namespace: seata_space
+      group: SEATA_GROUP
+  service:
+    vgroup-mapping:
+      default_tx_group: default
+
+
