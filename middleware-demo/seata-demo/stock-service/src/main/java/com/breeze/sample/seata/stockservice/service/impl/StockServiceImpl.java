@@ -20,8 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class StockServiceImpl extends ServiceImpl<StockTblMapper, StockTbl> implements StockService {
 
     @Override
-    @GlobalTransactional
-    @GlobalLock
+//    @GlobalTransactional
     public String reduct(Long productId) {
         log.info("调用库存:{}",productId);
          StockTbl stockTbl = this.getById(productId);
