@@ -5,9 +5,9 @@ import com.breeze.sample.seata.orderservice.entity.OrderTbl;
 import com.breeze.sample.seata.orderservice.feign.StockFeign;
 import com.breeze.sample.seata.orderservice.mapper.OrderTblMapper;
 import com.breeze.sample.seata.orderservice.service.OrderService;
-import io.seata.spring.annotation.GlobalLock;
-import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.seata.spring.annotation.GlobalLock;
+import org.apache.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +25,6 @@ public class OrderServiceImpl extends ServiceImpl<OrderTblMapper, OrderTbl> impl
     private StockFeign stockFeign;
     @GlobalTransactional(rollbackFor = Exception.class)
     @Override
-    @GlobalLock
     public OrderTbl placeOrder(Long productId) {
         OrderTbl orderTbl = new OrderTbl();
         orderTbl.setAccountId(productId);
@@ -34,6 +33,12 @@ public class OrderServiceImpl extends ServiceImpl<OrderTblMapper, OrderTbl> impl
         String res =  stockFeign.reduct(productId);
 
         log.info("调用库存:{}",res);
+        try {
+            Thread.sleep(20_000);
+        }catch (Exception e){
+
+        }
+
         if("ok".equals(res)){
             throw new RuntimeException();
         }

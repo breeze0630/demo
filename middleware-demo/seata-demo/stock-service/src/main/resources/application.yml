@@ -17,6 +17,7 @@ spring:
     alibaba:
       seata:
         tx-service-group: default_tx_group
+
   datasource:
     url: jdbc:mysql://localhost:33061/stock_db?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&serverTimezone=GMT%2B8
     username: root
