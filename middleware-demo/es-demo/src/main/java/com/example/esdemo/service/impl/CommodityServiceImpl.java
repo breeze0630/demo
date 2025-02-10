@@ -67,4 +67,8 @@ public class CommodityServiceImpl implements CommodityService {
         return commodityRepository.search(searchQuery);
     }
 
+    public Page<Commodity> pageFilter(){
+
+    }
+
 }
