@@ -10,7 +10,7 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
  * @date: 2024-12-23
  */
 @Data
-@Document(indexName = "commodity_index")
+@Document(indexName = "commodity_index_99")
 public class Commodity {
 
     @Field(type = FieldType.Keyword)
@@ -19,15 +19,19 @@ public class Commodity {
     @Field(type = FieldType.Keyword)
     private String no;
 
-    @Field(type = FieldType.Text)
+//    ik_smart
+    //ik_max_word
+    @Field(type = FieldType.Text,analyzer = "ik_max_word")
     private String title;
 
-    @Field(type = FieldType.Text)
+    @Field(type = FieldType.Text,analyzer = "ik_max_word")
     private String content;
 
-    @Field(type = FieldType.Text)
+    @Field(type = FieldType.Text,analyzer = "ik_max_word")
     private String description;
 
+    @Field(type = FieldType.Integer)
+    private Integer length;
 
 
 }

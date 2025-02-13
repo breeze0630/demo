@@ -1,10 +1,23 @@
 package com.breeze.sample.elasticsearchdemoparent.controller;
 
+import co.elastic.clients.elasticsearch._types.aggregations.Aggregation;
+import co.elastic.clients.elasticsearch._types.aggregations.AggregationBuilders;
+import co.elastic.clients.elasticsearch._types.query_dsl.Operator;
+import com.breeze.sample.elasticsearchdemoparent.entity.Commodity;
 import com.breeze.sample.elasticsearchdemoparent.mapper.CommodityMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate;
+import org.springframework.data.elasticsearch.client.elc.NativeQuery;
+import org.springframework.data.elasticsearch.client.elc.NativeQueryBuilder;
+import org.springframework.data.elasticsearch.client.elc.Queries;
+import org.springframework.data.elasticsearch.core.SearchHit;
+import org.springframework.data.elasticsearch.core.query.SearchTemplateQuery;
+import org.springframework.data.elasticsearch.core.query.SearchTemplateQueryBuilder;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @auther: liubiao
@@ -12,17 +25,62 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("commodity")
+@Slf4j
 public class CommodityController {
 
 
     @Autowired
     private CommodityMapper commodityMapper;
 
+    @Autowired
+    private ElasticsearchTemplate elasticsearchTemplate;
 
     @GetMapping("/getList")
     public Object getList(){
 
         return String.valueOf("ok");
 
+    }
+
+    @GetMapping("/insert/{id}")
+    public Object inert(@PathVariable("id")Long id){
+
+        Commodity commodity = new Commodity();
+        commodity.setId(id);
+        commodity.setNo(id.toString());
+        commodity.setTitle("title.."+id);
+        commodity.setDescription("desc..."+id);
+        commodity.setContent("content...."+id);
+        commodity.setLength((int)Math.round(Math.random()*100));
+        commodityMapper.save(commodity);
+        return commodity;
+
+    }
+
+    @GetMapping("/getList2")
+    public Object searchUsers(@RequestParam(required = false) String keyword) {
+        log.info("keyword:{}",keyword);
+        NativeQuery searchQuery = new NativeQueryBuilder()
+//                .withQuery(Queries.termQueryAsQuery("title", keyword))
+//                .withFilter(Queries.matchQueryAsQuery("title", keyword, Operator.Or,0.01f))
+//                .withFilter(Queries.matchQueryAsQuery("title", keyword, Operator.Or,0.01f))
+                .withAggregation("commodity_index_99", AggregationBuilders.max().field("id").build()._toAggregation())
+
+
+//                .withQuery(Queries.termQueryAsQuery("description", keyword))
+                .build();
+
+  /*      return elasticsearchTemplate.search(searchQuery, Commodity.class)
+                .stream()
+                .map(SearchHit::getContent)
+                .collect(Collectors.toList());*/
+
+        return elasticsearchTemplate.search(searchQuery, Commodity.class)
+                .stream()
+                .map(SearchHit::getContent)
+//                .stream()
+//                .map(SearchHit::getContent)
+//                .collect(Collectors.toList())
+                ;
     }
 }
