@@ -38,7 +38,6 @@ public class TopicExchangeQueueConfig {
          * QueueBuilder.durable("TEST_TOPIC_QUEUE_C")
          * .deadLetterExchange("死信交换机名").deadLetterRoutingKey("死信队列的路由")
          */
-
         return queue;
     }
     @Bean("topicExchange")
