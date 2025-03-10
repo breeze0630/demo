@@ -47,6 +47,21 @@ public class SendController {
         return msg;
     }
 
+    @GetMapping("work/d/{id}")
+    public String workD(@PathVariable("id") String id){
+        User user = User.builder()
+                .name("Topic" + id)
+                .build();
+        String msg = JSONObject.toJSONString(user);
+        CorrelationData correlationData = new CorrelationData("id_" + System.currentTimeMillis() + "");
+        rabbitTemplate.setConfirmCallback(mqFanoutCallBack);
+        rabbitTemplate.convertAndSend(TopicExchangeQueueConfig.TEST_TOPIC_EXCHANGE,"four",msg, message -> {
+            message.getMessageProperties().setDeliveryMode(MessageDeliveryMode.PERSISTENT);
+            return message;
+        },correlationData);
+        return msg;
+    }
+
     @GetMapping("producer/{id}")
     public String producer(@PathVariable("id") String id) {
         boolean status = streamBridge.send("rabbitChannel1-out-0", MessageBuilder.withPayload(id)

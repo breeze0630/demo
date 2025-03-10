@@ -17,12 +17,21 @@ public class TopicExchangeQueueConfig {
     public final static String TEST_TOPIC_QUEUE_B = "TEST_TOPIC_QUEUE_B";
     public final static String TEST_TOPIC_QUEUE_C = "TEST_TOPIC_QUEUE_C";
     public final static String TEST_TOPIC_EXCHANGE = "TEST_TOPIC_EXCHANGE";
+    public final static String TEST_TOPIC_QUEUE_D = "TEST_TOPIC_QUEUE_D";
 
     @Bean
     public Queue topicQueueA() {
         Queue queue = new Queue(TEST_TOPIC_QUEUE_A);
         queue.getArguments().put("x-dead-letter-exchange", "dlx_exchange");
         queue.getArguments().put("x-dead-letter-routing-key", "dlx_a");
+        return queue;
+    }
+
+    @Bean
+    public Queue topicQueueD() {
+        Queue queue = new Queue(TEST_TOPIC_QUEUE_D);
+        queue.getArguments().put("x-dead-letter-exchange", "dlx_exchange_d");
+        queue.getArguments().put("x-dead-letter-routing-key", "dlx_d");
         return queue;
     }
 
@@ -52,7 +61,10 @@ public class TopicExchangeQueueConfig {
     public Queue topicQueueADlx() {
         return QueueBuilder.durable("dlx_queue_a").build();
     }
-
+    @Bean
+    public Queue topicQueueDDlx() {
+        return QueueBuilder.durable("dlx_queue_d").build();
+    }
 
     @Bean("topicExchange")
     public TopicExchange topicExchange() {
@@ -66,14 +78,30 @@ public class TopicExchangeQueueConfig {
         return dlxExchange;
     }
 
+    @Bean("dlxExchangeD")
+    public TopicExchange dlxExchangeD() {
+        TopicExchange dlxExchange = new TopicExchange("dlx_exchange_d");
+        return dlxExchange;
+    }
+
     // 死信队列绑定死信交换机
     @Bean
     public Binding topicExchangeBindingADlx(Queue topicQueueADlx, @Qualifier("dlxExchange") DirectExchange dlxExchange) {
         return BindingBuilder.bind(topicQueueADlx).to(dlxExchange).with("dlx_a");
     }
+
+    @Bean
+    public Binding topicExchangeBindingDDlx(Queue topicQueueDDlx, @Qualifier("dlxExchangeD") TopicExchange dlxExchange) {
+        return BindingBuilder.bind(topicQueueDDlx).to(dlxExchange).with("dlx_d");
+    }
     @Bean
     public Binding topicExchangeBindingA(Queue topicQueueA, @Qualifier("topicExchange") TopicExchange topicExchange) {
         return BindingBuilder.bind(topicQueueA).to(topicExchange).with("one");
+    }
+
+    @Bean
+    public Binding topicExchangeBindingD(Queue topicQueueD, @Qualifier("topicExchange") TopicExchange topicExchange) {
+        return BindingBuilder.bind(topicQueueD).to(topicExchange).with("four");
     }
 
     @Bean
