@@ -13,7 +13,7 @@ public class InHandle1   extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        log.info("InHandle1 ... :{}"  );
+        log.info("InHandle1 ... :{}",msg  );
 //        super.channelRead(ctx, msg);
         ctx.fireChannelRead(msg);
 //        ctx.writeAndFlush(msg);
