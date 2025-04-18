@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: canal-demo
+  canal:
+    server:
+      host: 192.168.31.116
+      port: 11111
+    instance:
+      destination: single
+      username:
+      password:
