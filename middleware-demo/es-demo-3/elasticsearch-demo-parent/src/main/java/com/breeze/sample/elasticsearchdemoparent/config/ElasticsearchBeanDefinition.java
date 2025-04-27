@@ -13,7 +13,6 @@ import org.elasticsearch.client.RestClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
@@ -27,11 +26,11 @@ public class ElasticsearchBeanDefinition {
     @Value("${spring.elasticsearch.uris}")
     private String[] uris;
 
-//    @Value("${spring.elasticsearch.username}")
-//    private String username;
-//
-//    @Value("${spring.elasticsearch.password}")
-//    private String password;
+    @Value("${spring.elasticsearch.username}")
+    private String username;
+
+    @Value("${spring.elasticsearch.password}")
+    private String password;
     @Bean
     public RestClient restClient() {
         // 配置多个集群节点
@@ -40,15 +39,15 @@ public class ElasticsearchBeanDefinition {
                 .toArray(HttpHost[]::new);
 
         // 基础认证（如果启用）
-/*        CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
+        CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
         credentialsProvider.setCredentials(
                 AuthScope.ANY,
                 new UsernamePasswordCredentials(username, password)
-        );*/
+        );
 
         return RestClient.builder(hosts)
-//                .setHttpClientConfigCallback(httpClientBuilder ->
-//                        httpClientBuilder.setDefaultCredentialsProvider(credentialsProvider))
+                .setHttpClientConfigCallback(httpClientBuilder ->
+                        httpClientBuilder.setDefaultCredentialsProvider(credentialsProvider))
                 .build();
     }
 

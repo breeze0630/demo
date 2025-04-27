@@ -1,8 +1,6 @@
 package com.breeze.sample.elasticsearchdemoparent.controller;
 
-import co.elastic.clients.elasticsearch._types.aggregations.Aggregation;
 import co.elastic.clients.elasticsearch._types.aggregations.AggregationBuilders;
-import co.elastic.clients.elasticsearch._types.query_dsl.Operator;
 import com.breeze.sample.elasticsearchdemoparent.entity.Commodity;
 import com.breeze.sample.elasticsearchdemoparent.mapper.CommodityMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -10,14 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate;
 import org.springframework.data.elasticsearch.client.elc.NativeQuery;
 import org.springframework.data.elasticsearch.client.elc.NativeQueryBuilder;
-import org.springframework.data.elasticsearch.client.elc.Queries;
 import org.springframework.data.elasticsearch.core.SearchHit;
-import org.springframework.data.elasticsearch.core.query.SearchTemplateQuery;
-import org.springframework.data.elasticsearch.core.query.SearchTemplateQueryBuilder;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @auther: liubiao

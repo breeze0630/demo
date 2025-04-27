@@ -1,6 +1,7 @@
 package com.breeze.sample.elasticsearchdemoparent.entity;
 
 import lombok.Data;
+import org.springframework.boot.context.properties.bind.Nested;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
@@ -29,6 +30,7 @@ public class DetectTask {
     @Field(type = FieldType.Keyword)
     private String sampleId;
 
+    @Field(type = FieldType.Keyword)
     private String detectType;
 
 
@@ -162,5 +164,8 @@ public class DetectTask {
      * 样品是否退回（0：正常、1：已退回）
      */
     private Integer isReturn;
+
+    @Field(type = FieldType.Nested)
+    private ServiceType serviceType;
 
 }
